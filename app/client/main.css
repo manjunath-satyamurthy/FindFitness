@@ -1,0 +1,88 @@
+/* CSS declarations go here */
+body {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	background-color: #555555;
+}
+
+.container {
+	height: 100%;
+	width: 100%;	
+}
+
+#login-logo {
+	text-align: center;
+	margin-top: 20%;
+}
+
+#login-logo > img {
+	height: 100px;
+	width: 100px;
+}
+
+.app-name {
+	text-align: center;
+	color: white;
+	font-size: 25px;
+	font-family: Arial;
+	font-weight: bold; 
+}
+
+.forms {
+	text-align: center;
+}
+
+.forms > div > input {
+	text-align: center;
+	background: transparent;
+	border-bottom: 2px solid #9e9e9e;
+	font-family: Arial;
+	border-right: none;
+	border-top: none;
+	border-left: none;
+	box-shadow: none;
+	border-left: 3px;
+	margin-top: 7%;
+	color: white; 
+	font-size: 18px;
+	width: 350px;
+	height: 35px;
+}
+
+.forms > div > input:focus {
+	border-bottom: 2px solid #00bcd4;
+	outline: none;
+}
+
+.login-btn {
+	text-align: center;
+}
+
+.login-btn > button {
+	background-color: #8BC34A;
+	box-shadow: none;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	font-family: Arial;
+	height: 40px;
+	width: 140px;
+	margin-top: 45px;
+
+}
+
+p#question {
+	color: #00bcd4;
+	font-family: Arial;
+	text-align: center;
+	margin-top: 40px; 
+}
+
+p#signup {
+	text-align: center;
+	font-family: Arial;
+	font-size: 18px;
+	color: #8BC34A;
+}

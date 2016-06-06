@@ -1,21 +1,39 @@
 <body>
-    <header>
-      <div class="label">
-        <h1>FindFitness</h1>
-      </div>
-    </header>
-  
-  <img class = "img1" src="/images/one.svg">
-  
-  <img class = "img2" src="/images/two.svg"> 
-  
-  <form class="new-task">
-          <input type="text" name="text" placeholder="Username" />
-        </form>
-        <form class="new-task">
-          <input type="text" name="text" placeholder="Password" />
-        </form>
-        <button>Login</button>
- 
+  {{> login}}
 </body>
+  <template name= "login">
+    
+    <div class="label">
+      <h1>FindFitness</h1>
+    </div>
+
+      <img class = "img1" src="/images/one.svg">
+      <img class = "img2" src="/images/two.svg"> 
+
+    <div class= "forms">
+      <div>
+        <input name="username" placeholder="Username"/>
+      </div>
+
+      <div>
+        <input name="password" type="password" placeholder="Password"/>
+      </div>
+      </div>
+
+      <div class="login-btn">
+        <button>Login</button>
+      </div>
+
+        <p id="question">Are you not a user yet ?</p>
+
+        <p id="signup">Sign Up</p>
+
+  </template>
+
+  
+
+
+
+ 
+
  

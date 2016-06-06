@@ -4,8 +4,10 @@
 
 <body>
 {{> login}}
+{{> signup}}
 </body>
 
+<!-- Login -->
 <template name="login">
 <div class="container">
   <div id="login-logo">
@@ -33,4 +35,31 @@
 
   <p id="signup">Sign Up</p>
 </div>
+</template>
+
+<!-- Signup -->
+
+<template name="signup">
+<div class="signup-form">
+
+ <div class="dropdown">
+  <button class="dropbtn">Client Type</button>
+  <div class="dropdown-content">
+    <a href="#">User</a>
+    <a href="#">Trainer</a>
+    <a href="#">Nutritionist</a>
+  </div>
+</div>
+
+<div>
+  <input name ="firstname" placeholder="First Name">
+  <input name ="lastname" placeholder="Last Name">
+  <input name ="email" placeholder="Email Address">
+  <input name ="dob" placeholder="Date of Birth in DD/MM/YYYY format">
+  <input name ="address" placeholder="Address">
+</div>
+</div>
+  
+
+
 </template>

@@ -18,3 +18,16 @@ Template.login.onCreated(function loginOnCreated() {
 //     instance.counter.set(instance.counter.get() + 1);
 //   },
 // });
+
+Router.route('/', function () {
+this.render('login');	// body...
+}, {
+	name:'login',
+});
+
+Router.route('/signup',function () {
+this.render('signup');	// body...
+}, {
+	name: 'signup'
+});
+

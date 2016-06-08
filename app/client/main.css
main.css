@@ -1,10 +1,12 @@
 /* CSS declarations go here */
+
 body {
 	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
 	background-color: #555555;
 }
 
+/*--------------------Login--------------------*/
 .container {
 	height: 100%;
 	width: 100%;	
@@ -87,6 +89,77 @@ p#signup {
 	color: #8BC34A;
 }
 
+a {
+	text-decoration: none;
+}
+
+/*--------------------Signup--------------------*/
+.header{
+	text-align: center;
+	width: 100%;
+	height:100%;
+	margin-top: 15px;
+}
+
+.heading{
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	color:white;
+	font-family: ARIAL;
+	background: transparent
+	margin-left:50px;
+	font-size: 30px
+}
+
+.image {
+	text-align: center;
+}
+
+
+p#clienttype{
+	text-align: center;
+	background: transparent;
+	color: white;
+	margin-top: 30%;
+	font-family: ARIAL;
+	font-size:30px;
+	margin-bottom:0em;
+}
+
+p#info{
+	text-align: center;
+	background: transparent;
+	padding-top: 0;
+	font-family: ARIAL,
+	font-size: 8px;
+	color:#00bcd4;
+	margin-top: 150px
+}
+
+.dropdown {
+ 	text-align: center;
+ 	margin: 0em;
+ }
+
+select {
+	text-align: center;
+    width: 200px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+	color: white;
+    border-bottom: 2px solid #8BC34A;
+	font-family: Arial;
+	border-right: none;
+	border-top: none;
+	border-left: none;
+	box-shadow: none;
+	outline: none;  
+	background-color: #555555;
+	margin-top: 20px;
+}
+
 .signup-form > div > input{
 	text-align: left;
 	background: transparent;
@@ -109,42 +182,5 @@ p#signup {
 	outline: none;
 }
 
-.dropbtn {
-	background: transparent;
-	border:none;
-	outline:none;
-	color: white;
-	font-size: 18px;
-	cursor: pointer;
-}
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    /*background-color: #f9f9f9;*/
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
 

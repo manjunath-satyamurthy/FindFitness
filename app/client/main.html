@@ -1,11 +1,11 @@
-<head>
+<!-- <head>
   <title>login</title>
 </head>
 
 <body>
 {{> login}}
 {{> signup}}
-</body>
+</body> -->
 
 <!-- Login -->
 <template name="login">
@@ -33,34 +33,47 @@
 
   <p id="question">Are you not a user yet ?</p>
 
-  <p id="signup">Sign Up</p>
-  
+  <a href ={{pathFor route ='signup'}}><p id="signup">Sign Up</p></a>
 </div>
 </template>
+
 
 <!-- Signup -->
-
 <template name="signup">
-<div class="signup-form">
 
- <div class="dropdown">
-  <button class="dropbtn">Client Type</button>
-  <div class="dropdown-content">
-    <a href="#">User</a>
-    <a href="#">Trainer</a>
-    <a href="#">Nutritionist</a>
+<div class = "header">
+    <img class="image" src="images/logo.svg">
+    <span class="heading">FindFitness</span>
+</div>
+
+  <p id="clienttype">Client Type</p>
+
+  <div class="dropdown">
+    <select>
+    <option>Select Profile</option>
+      <option value="User">User</option>
+      <option value="Trainer">Trainer</option>
+      <option value="Nutritionist">Nutritionist</option>
+    </select>
+  </div>
+
+  <p id="info">(Please select the appropriate profile from the above menu!)</p>
+
+</template>
+
+
+<template name="signup1">
+<div class="signup-form">
+  <div>
+    <input name ="firstname" placeholder="First Name">
+    <input name ="lastname" placeholder="Last Name">
+    <input name ="email" placeholder="Email Address">
+    <input name ="dob" placeholder="Date of Birth in DD/MM/YYYY format">
+    <input name ="address" placeholder="Address">
   </div>
 </div>
-
-<div>
-  <input name ="firstname" placeholder="First Name">
-  <input name ="lastname" placeholder="Last Name">
-  <input name ="email" placeholder="Email Address">
-  <input name ="dob" placeholder="Date of Birth in DD/MM/YYYY format">
-  <input name ="address" placeholder="Address">
-</div>
-</div>
+</template>
   
 
 
-</template>
+

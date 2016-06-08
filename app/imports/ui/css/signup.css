@@ -1,0 +1,87 @@
+.header{
+	text-align: center;
+	width: 100%;
+	height:100%;
+	margin-top: 15px;
+}
+
+.heading{
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	color:white;
+	font-family: ARIAL;
+	background: transparent
+	margin-left:50px;
+	font-size: 30px
+}
+
+.image {
+	text-align: center;
+}
+
+
+p#clienttype{
+	text-align: center;
+	background: transparent;
+	color: white;
+	margin-top: 30%;
+	font-family: ARIAL;
+	font-size:30px;
+	margin-bottom:0em;
+}
+
+p#info{
+	text-align: center;
+	background: transparent;
+	padding-top: 0;
+	font-family: ARIAL,
+	font-size: 8px;
+	color:#00bcd4;
+	margin-top: 150px
+}
+
+.dropdown {
+ 	text-align: center;
+ 	margin: 0em;
+ }
+
+select {
+	text-align: center;
+    width: 200px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+	color: white;
+    border-bottom: 2px solid #8BC34A;
+	font-family: Arial;
+	border-right: none;
+	border-top: none;
+	border-left: none;
+	box-shadow: none;
+	outline: none;  
+	background-color: #555555;
+	margin-top: 20px;
+}
+
+.signup-form > div > input{
+	text-align: left;
+	background: transparent;
+	border-bottom: 2px solid #9e9e9e;
+	font-family: Arial;
+	border-right: none;
+	border-top: none;
+	border-left: none;
+	box-shadow: none;
+	border-left: 3px;
+	margin-top: 7%;
+	color: white; 
+	font-size: 18px;
+	width: 350px;
+	height: 35px;
+} 
+
+.signup-form > div > input:focus {
+	border-bottom: 2px solid #00bcd4;
+	outline: none;
+}

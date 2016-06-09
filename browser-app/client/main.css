@@ -1,3 +1,13 @@
+a {    color: #0060B6;
+    text-decoration: none;
+}
+
+a:hover, 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
 
 body {
   font-family: sans-serif;
@@ -12,29 +22,52 @@ body {
   font-size: 14px;
 }
 
-
 .label{
+  transform: matrix(1, 0, 0, 1, 300, 0);
+  font-size: 36px;
+}
+
+.firstHead{
+  transform: matrix(1, 0, 0, 1, 340, -120);
+  font-size: 30px;
+}
+
+.secondHead{
+  line-height: 10px;
+  color: rgb(255,255,255);
+  font-weight: bold;
+  text-align: center;
+  opacity: 1;
+  width: 212px;
+  height: 30px;
+  margin-top: -760px;
+  margin-left: 540px;
+  /*transform: matrix(1, 0, 0, 1, 1, -797);*/
+}
+
+.firstHead, .label{
 	line-height: 44px;
 	color: rgb(255,255,255);
-	font-size: 36px;
   font-weight: bold;
   text-align: center;
   opacity: 1;
   width: 212px;
   height: 44px;
-  transform: matrix(1, 0, 0, 1, 300, 0);
-  padding-top: 0px;
-  padding-right: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
   padding:100px;
 }
 
 .img1{
+transform: matrix(1, 0, 0, 1, -100, 0);
+}
+
+.img3{
+  transform: matrix(1, 0, 0, 1, 350, -245);
+}
+
+.img3, .img1{
   opacity: 1;
   width: 84px;
   height: 84px;
-  transform: matrix(1, 0, 0, 1, -100, 0);
   border-radius: 0px;
   background: 0 0 repeat;
   background-size: 100% 100%;
@@ -49,10 +82,19 @@ body {
 }
 
 .img2{
-  opacity: 1;
+  transform: matrix(1, 0, 0, 1, -90, 50);
   width: 64px;
   height: 84px;
-  transform: matrix(1, 0, 0, 1, -90, 50);
+}
+
+.img4{
+  transform: matrix(1, 0, 0, 1, 300, -230);
+  width: 44px;
+  height: 64px;
+}
+
+.img4,.img2{
+  opacity: 1;
   border-radius: 0px;
   background: 0 0 repeat;
   background-size: 100% 100%;
@@ -95,8 +137,8 @@ body {
   transform: matrix(1, 0, 0, 1, -40, -10);
 }
 
-.login > .forms > div > input:focus {
-  border-bottom: 2px solid #00bcd4;
+.forms > div > input:focus{
+  border-bottom: 2px solid #439DBB;
   outline: none;
 }
 
@@ -120,6 +162,8 @@ body {
 
 }
 
+
+
 p#question {
   color: #00bcd4;
   font-family: Arial;
@@ -137,3 +181,131 @@ p#signup {
 }
 
 /*end*/
+
+.firstHeader{
+  background-color: #439DBB;
+  height: 84px;
+  border: 0px solid #ccc;
+  width: 100%;
+  margin: 0px auto;
+  position: fixed;
+  top: 0px;
+  border-bottom: 2px solid #ccc;
+}
+
+.secondHeader{
+  background-color: #439DBB;
+  height: 50px;
+  border: 1px solid #555555;
+  margin: 0px auto;
+  width:679px;
+}
+
+.content{
+  background-color: #555555;
+  width:680px;
+  height:625px;
+  border:0px solid #ccc;
+  margin: 150px auto;
+}
+
+.navigationBar{
+  width: 200px;
+  height: 600px;
+  background-color: #555555;
+  margin-left: 0px;
+  margin-top: -839px;
+  position: fixed;
+}
+
+.searchIcon, .subscriptionIcon, .messageIcon, .requestsIcon, .logoutIcon{
+  width: 25px;
+  height: 25px;
+  margin: 0px;
+  margin-left:160px;
+  margin-top:-20px;
+  padding: 0px;
+  transform: matrix(1, 0, 0, 1, 0, -7);
+}
+
+
+.searchNav, .subscriptionNav, .messageNav, .requestsNav, .logoutNav{
+  width: 198px;
+  height:50px;
+  border-bottom:1px solid #ccc;
+}
+
+p#navText{
+  padding: 0px;
+  margin: 0px ;
+  color: rgb(255,255,255);
+  text-indent: 32px;
+  font-size: 140%;
+  margin-top: 12px;
+  transform: matrix(1, 0, 0, 1, 0, 6);
+}
+
+.searchHead1 > button,.searchHead2 > button {
+  background-color: transparent;
+  height: 50px;
+  width:339.5px;
+  font-size: 200%;
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+
+
+}
+
+.searchHead1 > button {
+  margin-left:305px;
+  transform: matrix(1, 0, 0, 1, 0,-775);
+}
+
+.searchHead2 > button {
+  margin-left:645px;
+  transform: matrix(1, 0, 0, 1, 0,-825);
+}
+
+.searchlocation > div > input, .cost > div > input , .preferredTime > div > input, 
+.specialization > div > input{
+  text-align: center;
+  background: transparent;
+  border-bottom: 2px solid #00ff00;
+  font-family: Arial;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  box-shadow: none;
+  border-left: 3px;
+  margin-top: 2%;
+  color: white;
+  font-size: 18px;
+  width: 300px;
+  height: 35px;
+  transform: matrix(1, 0, 0, 1, 600, -10);
+}
+.searchlocation > div > input:focus, .cost > div > input:focus , 
+.preferredTime > div > input:focus, .specialization > div > input:focus{
+border-bottom: 2px solid #439DBB;
+  outline: none;
+}
+
+p#searchTab { 
+  font-size : 150%;
+  color: white;
+  margin-left: 300px;
+  margin-bottom: -48px;
+}
+
+.searchlocation > div , .personal > div , .cost > div, .preferredTime > div, .specialization > div{
+  width:680px;
+  height: 50px;
+  transform: matrix(1, 0, 0, 1, 31, -800);
+
+}
+
+.personal > div > form > input{
+  margin-left: 595px;
+}

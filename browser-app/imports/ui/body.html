@@ -1,6 +1,59 @@
-<body>
-  {{> login}}
-</body>
+  <template name="contentAndHeader">
+    <div class="firstHeader">
+      <div class="firstHead">
+        <h1>FindFitness</h1>
+      </div>
+        <img class = "img3" src="/images/one.svg">
+        <img class = "img4" src="/images/two.svg">
+    </div>
+
+    <div class="content">
+      <div class="secondHeader">
+        <!-- <div class="secondHead">
+          <h1>Sign Up</h1>
+        </div> -->
+      </div>
+    </div>
+    <!-- <a href="{{pathFor route='navigationBar'}}"><p id="navigationBar">To navigation Bar</p></a> -->
+  </template>
+ 
+  
+  <template name="navigation">
+    {{> contentAndHeader}}
+
+    <div class = navigationBar>
+      <li>
+        <div class="searchNav">
+          <p id="navText">Search</p>
+            <img class = "searchIcon" src="/images/search.svg">
+        </div>
+        
+        <div class="subscriptionNav">
+          <p id="navText">Subscription</p> 
+          <img class = "subscriptionIcon" src="/images/subscription.svg">
+        </div>
+
+        <div class="messageNav">
+          <p id="navText">Messages</p>
+          <img class = "messageIcon" src="/images/messages.svg">
+        </div>
+
+        <div class="requestsNav">
+          <p id="navText">Requests</p>
+          <img class = "requestsIcon" src="/images/requests.svg">
+        </div>
+
+        <div class="logoutNav">
+          <p id="navText">Logout</p>
+          <img class = "logoutIcon" src="/images/logout.svg">
+        </div>
+      </li> 
+
+    </div>  
+
+  </template>
+
+
   <template name= "login">
     
     <div class="label">
@@ -21,19 +74,64 @@
       </div>
 
       <div class="login-btn">
-        <button>Login</button>
+        <button id="loginButton">Login</button>
       </div>
 
         <p id="question">Are you not a user yet ?</p>
 
-        <p id="signup">Sign Up</p>
+       <a href="{{pathFor route='signup'}}"><p id="signup">Sign Up</p></a>
 
   </template>
 
-  
+  <template name="signup">
+    {{> contentAndHeader}}
+       <div class="secondHead">
+          <a href="{{pathFor route='search'}}"><h1>Sign Up</h1></a>
+        </div>
+  </template>
 
-
-
- 
-
- 
+  <template name="search">
+    {{> navigation}}
+      <div class= searchHead1>
+        <button>Trainer</button>
+      </div>
+      <div class= searchHead2>
+        <button>Nutritionist</button>
+      </div>
+      <div class ="searchlocation">
+        <div>
+          <p id="searchTab">Search Location</p>
+          <input name="SearchLocation"/>
+        </div>
+      </div>
+      <div class="personal">
+        <div>
+          <p id="searchTab">Perasonal<br>Group</p>
+          <form>
+            <input type="radio" name="trainer" value="Personal"><br>
+            <input type="radio" name="trainer" value="Group">
+          </form>
+          </div>
+        </div>
+      <div class ="cost">
+        <div>
+          <p id="searchTab">Maximum Cost</p>
+          <input name="MaxCost"/>
+          </div>
+        </div>
+      <div class ="preferredTime">
+        <div>
+          <p id="searchTab">Preferred Timings</p>
+          <input name="PreferredTime"/>
+        </div>
+      </div>
+      <div class ="specialization">
+        <div>
+          <p id="searchTab">Specialization</p>
+          <input name="Specialization"/>
+        </div>
+      </div>
+      <div class="search-btn">
+        <button id="searchButton">Search</button>
+      </div>
+  </template>

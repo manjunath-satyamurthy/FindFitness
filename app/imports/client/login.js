@@ -15,6 +15,7 @@ Template.login.events({
 		is_login_valid = validate_login(username, password);
 		if (is_login_valid){
 			console.log("yea happy")
+			Router.go('/test')
 		}
 		else {
 			alert("invalid login")

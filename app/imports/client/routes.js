@@ -7,3 +7,9 @@ Router.route('/signup', function(){
 }, {
 	name: 'signup',
 });
+
+Router.route('/test', function () {
+  this.render('app_layout');
+}, {
+	name: 'test',
+});

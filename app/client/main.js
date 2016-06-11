@@ -1,6 +1,10 @@
 import './main.html';
-import '../imports/ui/templates/login.html'
-import '../imports/ui/templates/signup.html'
-import '../imports/client/routes.js'
-import '../imports/client/login.js'
-import '../imports/client/signup.js'
+import '../imports/ui/templates/login.html';
+import '../imports/ui/templates/signup.html';
+import '../imports/ui/templates/app_layout.html';
+import '../imports/client/routes.js';
+import '../imports/client/login.js';
+import '../imports/client/signup.js';
+import '../imports/client/app_layout.js';
+import '../imports/client/jquery.sidr.min.js';
+import '../imports/ui/css/app_layout.css';

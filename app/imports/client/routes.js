@@ -1,4 +1,3 @@
-
 Router.route('/', function () {
   this.render('login');
 });
@@ -8,6 +7,12 @@ Router.route('/signup', function(){
 	layout.template('layout')
 }, {
 	name: 'signup',
+});
+
+Router.route('/test', function () {
+  this.render('app_layout');
+}, {
+	name: 'test',
 });
 
 Router.route('/suser', function(){
@@ -27,3 +32,4 @@ Router.route('/snutritionist', function(){
 }, {
 	name: 'snutritionist',
 });
+

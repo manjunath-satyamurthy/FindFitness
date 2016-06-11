@@ -7,6 +7,11 @@ Template.login.onCreated(function loginOnCreated() {
   console.log("login");
 });
 
+Template.login.onRendered(function loginOnRendered() {
+  $('html').css("overflow-y", "visible")
+  $('html').css("overflow-x", "hidden")
+});
+
 Template.login.events({
 	'submit .login-form' (event){
 		event.preventDefault();
@@ -15,6 +20,7 @@ Template.login.events({
 		is_login_valid = validate_login(username, password);
 		if (is_login_valid){
 			console.log("yea happy")
+			Router.go('/test')
 		}
 		else {
 			alert("invalid login")

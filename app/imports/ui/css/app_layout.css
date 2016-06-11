@@ -3,7 +3,13 @@ html {
 }
 
 #logo-list {
-  height: 8em;
+  height: 10em;
+  text-align: center;
+}
+
+#logo-name {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .sidr {
@@ -35,6 +41,7 @@ html {
 
 .sidr ul li {
   padding-left: 1em;
+  padding-right: 1em;
   display: block;
   margin: 0;
   line-height: 48px;
@@ -44,14 +51,18 @@ html {
 .sidr ul li img {
   padding-top: 2em;
   padding-left: 2em;
+  padding-right: 2em;
+  margin-bottom: -15px;
   width: 70px;
   height: 70px;
+
 }
 
 .sidr ul li img.icons {
   float: right;
   padding-top: 5%;
-  padding-right: 1em;
+  padding-left: 0px;
+  padding-right: 0px;
   width: 25px;
   height: 25px;
 }

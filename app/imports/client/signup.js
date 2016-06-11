@@ -14,13 +14,5 @@ Template.signup.events({
 	}
 })
 
-// Template.signup.events({
-// 	'change select'(event){
-// 		const path = event.target.value
-// 		console.log(path)
-// })
-
-
-
 
 

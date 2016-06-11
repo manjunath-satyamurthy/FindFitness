@@ -27,8 +27,3 @@ Router.route('/snutritionist', function(){
 }, {
 	name: 'snutritionist',
 });
-
-// Router.configure({
-//   // the default layout
-//   layoutTemplate: 'layout'
-// });

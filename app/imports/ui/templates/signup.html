@@ -1,34 +1,119 @@
 <template name="signup">
-<div class="container">
-<div class = "header">
-    <img class="image" src="images/logo.svg">
-    <span class="heading">FindFitness</span>
+
+<div class="header">
+    <h1>Sign Up</h1>
 </div>
 
-  <p id="clienttype">Client Type</p>
-
-  <div class="dropdown">
-    <select>
-    <option>Select Profile</option>
-      <option value="User">User</option>
-      <option value="Trainer">Trainer</option>
-      <option value="Nutritionist">Nutritionist</option>
+<div class="forms">
+    <select id="account-type">
+      <option>Choose Account Type</option>
+      <option value="suser">User</option>
+      <option value="strainer">Trainer</option>
+      <option value="snutritionist">Nutritionist</option>
     </select>
-  </div>
 
-  <p id="info">(Please select the appropriate profile from the above menu!)</p>
-</div>
-</template>
-
-
-<template name="signup1">
-<div class="signup-form">
+  <div><input name ="firstname" placeholder="First Name"></div>
+  <div><input name ="lastname" placeholder="Last Name"></div>
   <div>
-    <input name ="firstname" placeholder="First Name">
-    <input name ="lastname" placeholder="Last Name">
-    <input name ="email" placeholder="Email Address">
-    <input name ="dob" placeholder="Date of Birth in DD/MM/YYYY format">
-    <input name ="address" placeholder="Address">
+    <input name ="dob" type="text" value="" placeholder="Date of Birth" onfocus="(this.type='Date')"  onblur="(this.type='text')">
+  </div>
+
+    <select id="gender">
+      <option>Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+  <div class="location">
+    <input name ="address" placeholder="Location">
+  </div>
+
+<div class="next"><a>&#8658;</a></div>
+
+
+<p id = "text">Already a Member ?</p>
+<p id = "text1"><a href="/">Log In</a></p>
+
+</div>
+</template>
+
+<!-- Sign up for User -->
+<template name='suser'>
+<div class="container">
+
+<div class="header">
+    <h1>Sign Up</h1>
+</div>
+
+<div class="forms">
+
+    <div><input name ="username" placeholder="Username"></div>
+    <div><input name ="email" type="email" placeholder="Email Address"></div>
+    <div><input name="password" type="password" placeholder="Password"/></div>
+    <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
+
+      <div class="back"> 
+        <a href="#" onclick="history.go(-1);">&#8656;</a>
+      </div>
+      <div class="create-acc"> 
+      <button>Create</button>
+      </div>
+    </div>
+
+</div>
+</template>
+<!--# End of Sign up for User -->
+
+<!-- Sign up for Trainer -->
+<template name='strainer'>
+<div class="container">
+
+    <div class="header">
+        <h1>Sign Up</h1>
+    </div>
+
+  <div class="forms">
+
+    <div><input name="experience" type="number" pattern="\d*" min=0 placeholder="Experience in years"></div>
+    <div><input name="specialization" placeholder="Specialization"></div>
+    <div><input name ="email" type="email" placeholder="Email Address"></div>
+    <div><input name="password" type="password" placeholder="Password"/></div>
+    <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
+
+      <div class="back"> 
+        <a href="#" onclick="history.go(-1);">&#8656;</a>
+      </div>
+      <div class="create-acc"> 
+      <button>Create</button>
+      </div>
+    </div>
+</div>
+</template>
+<!--# End of Sign up for Trainer-->
+
+<!-- Sign up for Nutritionist -->
+<template name='snutritionist'>
+<div class="container">
+
+    <div class="header">
+        <h1>Sign Up</h1>
+    </div>
+
+  <div class="forms">
+
+    <div><input name="experience" type="number" pattern="\d*" min=0 placeholder="Experience in years"></div>
+    <div><input name="specialization" placeholder="Specialization"></div>
+    <div><input name ="email" type="email" placeholder="Email Address"></div>
+    <div><input name="password" type="password" placeholder="Password"/></div>
+    <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
+
+      <div class="back"> 
+        <a href="#" onclick="history.go(-1);">&#8656;</a>
+      </div>
+      <div class="create-acc"> 
+      <button>Create</button>
+      </div>
   </div>
 </div>
 </template>
+<!--# End of Sign up for Nutritionist-->

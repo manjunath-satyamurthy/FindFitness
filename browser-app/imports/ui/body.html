@@ -1,17 +1,12 @@
   <template name="contentAndHeader">
     <div class="firstHeader">
-      <div class="firstHead">
-        <h1>FindFitness</h1>
-      </div>
+        <h1 id="firstHead">FindFitness</h1>
         <img class = "img3" src="/images/one.svg">
-        <img class = "img4" src="/images/two.svg">
-    </div>
-
-    <div class="content">
+       <img class = "img4" src="/images/two.svg">
+      </div>
+       
+   <div class="content">
       <div class="secondHeader">
-        <!-- <div class="secondHead">
-          <h1>Sign Up</h1>
-        </div> -->
       </div>
     </div>
     <!-- <a href="{{pathFor route='navigationBar'}}"><p id="navigationBar">To navigation Bar</p></a> -->
@@ -56,19 +51,18 @@
 
   <template name= "login">
     
-    <div class="label">
-      <h1>FindFitness</h1>
-    </div>
+    
+      <h1 id="label1">FindFitness</h1>
 
       <img class = "img1" src="/images/one.svg">
       <img class = "img2" src="/images/two.svg"> 
 
     <div class= "forms">
-      <div>
-        <input name="username" placeholder="Username"/>
+      <div id="input1">
+        <input name="username" placeholder="Email Address"/>
       </div>
 
-      <div>
+      <div id="input2">
         <input name="password" type="password" placeholder="Password"/>
       </div>
       </div>
@@ -79,7 +73,7 @@
 
         <p id="question">Are you not a user yet ?</p>
 
-       <a href="{{pathFor route='signup'}}"><p id="signup">Sign Up</p></a>
+       <a href="{{pathFor route='navigationBar'}}"><p id="signup">Sign Up</p></a>
 
   </template>
 
@@ -135,3 +129,9 @@
         <button id="searchButton">Search</button>
       </div>
   </template>
+
+  <template name="location">
+    <div class="map-container">
+    {{> googleMap name="exampleMap" options=exampleMapOptions}}
+  </div>
+    </template>

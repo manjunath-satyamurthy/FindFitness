@@ -25,8 +25,6 @@ Router.route('/search',function () {
     this.render('search');	
 });
 
-
-
 Router.route('/contentAndHeader',function () {
 	name: 'contentAndHeader',
     this.render('contentAndHeader');	
@@ -48,3 +46,5 @@ Template.login.events({
 	}
 })
 */
+
+

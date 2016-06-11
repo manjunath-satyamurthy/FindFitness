@@ -19,17 +19,35 @@ body {
   right: 0;
   padding: 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 100%;
 }
 
-.label{
-  transform: matrix(1, 0, 0, 1, 300, 0);
-  font-size: 36px;
+h1#label1 {
+  font-size: 380%;
+  margin-left: 35%;
 }
 
-.firstHead{
-  transform: matrix(1, 0, 0, 1, 340, -120);
-  font-size: 30px;
+
+h1#firstHead, h1#label1{
+  line-height: 450%;
+  color: rgb(255,255,255);
+  font-weight: bold;
+  text-align: center;
+  opacity: 1;
+  width: 212px;
+  height: 44px;
+}
+
+
+.label1, .img1, .img2, h1#firstHead, .img3, .img4 {
+  display: inline-block;
+}
+
+h1#firstHead{
+  font-size: 350%;
+  margin-top: -6%;
+  margin-left: 35%;
+  display: block;
 }
 
 .secondHead{
@@ -40,83 +58,59 @@ body {
   opacity: 1;
   width: 212px;
   height: 30px;
-  margin-top: -760px;
-  margin-left: 540px;
-  /*transform: matrix(1, 0, 0, 1, 1, -797);*/
-}
-
-.firstHead, .label{
-	line-height: 44px;
-	color: rgb(255,255,255);
-  font-weight: bold;
-  text-align: center;
-  opacity: 1;
-  width: 212px;
-  height: 44px;
-  padding:100px;
 }
 
 .img1{
-transform: matrix(1, 0, 0, 1, -100, 0);
+  margin-left: 29%;
+  margin-bottom: 10%; 
+  width: 6%;
+  height: 6%;
 }
 
 .img3{
-  transform: matrix(1, 0, 0, 1, 350, -245);
+  width: 85%;
+  height: 85%;
+  padding:0px;
+  margin-left:-10%;
 }
 
 .img3, .img1{
   opacity: 1;
-  width: 84px;
-  height: 84px;
-  border-radius: 0px;
-  background: 0 0 repeat;
-  background-size: 100% 100%;
-	margin: 0;
 	border: 0;
 	outline: 0;
 	font-size: 100%;
 	background: transparent;
-	background: center center no-repeat;
-  background-size: contain;
   color: rgb(255,255,255);
 }
 
 .img2{
-  transform: matrix(1, 0, 0, 1, -90, 50);
-  width: 64px;
-  height: 84px;
+  width: 4%;
+  height: 4%;
+  margin-bottom: 8%;
+  margin-left: 29.5%;
 }
 
 .img4{
-  transform: matrix(1, 0, 0, 1, 300, -230);
-  width: 44px;
-  height: 64px;
+  padding:0px;
+  width: 65%;
+  height: 65%;
+  margin-left:33%;
+  margin-top: -4%;
+  margin-bottom: 25%;
 }
 
 .img4,.img2{
   opacity: 1;
-  border-radius: 0px;
-  background: 0 0 repeat;
-  background-size: 100% 100%;
-	margin: 0;
-	padding: 10px;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	background: transparent;
-	background: center center no-repeat;
-  background-size: contain;
   color: rgb(255,255,255);
-  padding-left: 450px;
 }
 
-.label, .img1, .img2 {
-	display: inline-block;
-}
 
-/*copied from manju*/
-.forms {
+.forms{
   text-align: center;
+}
+
+div#input1{
+  margin-top: -9%;
 }
 
 .forms > div > input {
@@ -132,9 +126,8 @@ transform: matrix(1, 0, 0, 1, -100, 0);
   margin-top: 2%;
   color: white;
   font-size: 18px;
-  width: 300px;
-  height: 35px;
-  transform: matrix(1, 0, 0, 1, -40, -10);
+  width: 25%;
+  padding: 1%;
 }
 
 .forms > div > input:focus{
@@ -146,7 +139,7 @@ transform: matrix(1, 0, 0, 1, -100, 0);
   text-align: center;
 }
 
-.login-btn > button {
+.login-btn > button, .search-btn > button {
   background-color: #8BC34A;
   box-shadow: none;
   border: none;
@@ -157,19 +150,20 @@ transform: matrix(1, 0, 0, 1, -100, 0);
   font-family: Arial;
   height: 40px;
   width: 140px;
-  margin-top: 45px;
-  transform: matrix(1, 0, 0, 1, 542, -15);
+  margin-top: 3%;
+  margin-left: 44.5%;
 
 }
 
+.search-btn > button{
+}
 
 
 p#question {
   color: #00bcd4;
   font-family: Arial;
   text-align: center;
-  margin-top: 6%; 
-  transform: matrix(1, 0, 0, 1, -30, -60);
+  margin-top: 2%; 
 }
 
 p#signup {
@@ -177,7 +171,8 @@ p#signup {
   font-family: Arial;
   font-size: 18px;
   color: #8BC34A;
-  transform: matrix(1, 0, 0, 1, -35, -60);
+  margin-top: -3%;
+  margin-left: 20%; 
 }
 
 /*end*/
@@ -222,10 +217,10 @@ p#signup {
   width: 25px;
   height: 25px;
   margin: 0px;
-  margin-left:160px;
-  margin-top:-20px;
+  margin-left:82%;
+  margin-top:-13%;
+  margin-bottom:9%;
   padding: 0px;
-  transform: matrix(1, 0, 0, 1, 0, -7);
 }
 
 
@@ -239,10 +234,9 @@ p#navText{
   padding: 0px;
   margin: 0px ;
   color: rgb(255,255,255);
-  text-indent: 32px;
+  text-indent: 8%;
   font-size: 140%;
-  margin-top: 12px;
-  transform: matrix(1, 0, 0, 1, 0, 6);
+  margin-top: 9%;
 }
 
 .searchHead1 > button,.searchHead2 > button {
@@ -308,4 +302,13 @@ p#searchTab {
 
 .personal > div > form > input{
   margin-left: 595px;
+}
+
+
+/*for location template*/
+
+.map-container {
+  width: 800px;
+  max-width: 100%;
+  height: 500px;
 }

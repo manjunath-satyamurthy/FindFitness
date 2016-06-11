@@ -7,6 +7,11 @@ Template.login.onCreated(function loginOnCreated() {
   console.log("login");
 });
 
+Template.login.onRendered(function loginOnRendered() {
+  $('html').css("overflow-y", "visible")
+  $('html').css("overflow-x", "hidden")
+});
+
 Template.login.events({
 	'submit .login-form' (event){
 		event.preventDefault();

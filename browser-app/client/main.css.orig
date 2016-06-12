@@ -116,9 +116,6 @@ input#loginButton, button#searchButton {
 
 }
 
-
-
-
 p#question {
   color: #00bcd4;
   font-family: Arial;
@@ -226,7 +223,6 @@ button#searchHead1{
 }
 
 
-
 .secondHeader > input{
   text-align: center;
   background: transparent;
@@ -265,10 +261,11 @@ p#searchTab {
   margin-left: 20px;
 }
 
+<<<<<<< HEAD
 p#searchTab, .secondHeader > input{
   display: inline auto;
 }
-
+=======
 .personal > div > form > input{
   margin-left: 595px;
 
@@ -410,3 +407,4 @@ select#usertype{
 
 }
 
+>>>>>>> ec06a0be1f589a44d8bb12df042ad98394a209a2

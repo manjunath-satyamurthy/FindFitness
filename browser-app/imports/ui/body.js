@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Blaze } from 'meteor/blaze'
- 
+import './signup.html';
 import './body.html';
 
 // Template.login.events({
@@ -110,7 +110,6 @@ Accounts.createUser({
         Router.go("contentAndHeader"); // Redirect user if registration succeeds
     }
 });
-
 
 
 

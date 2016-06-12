@@ -4,15 +4,8 @@ Router.route('/', function () {
 
 Router.route('/signup', function(){
 	this.render('signup');
-	layout.template('layout')
 }, {
 	name: 'signup',
-});
-
-Router.route('/test', function () {
-  this.render('app_layout');
-}, {
-	name: 'test',
 });
 
 Router.route('/suser', function(){
@@ -33,3 +26,78 @@ Router.route('/snutritionist', function(){
 	name: 'snutritionist',
 });
 
+Router.route('/search', function () {
+	
+	this.layout('app_layout', {
+  		data: {
+  			'pageTitle': 'Search'
+  		}
+ 	})
+
+  	this.render('search');
+	},
+	{
+		name: 'search',
+	}
+);
+
+Router.route('/subscriptions', function () {
+	
+	this.layout('app_layout', {
+  		data: {
+  			'pageTitle': 'Subscriptions'
+  		}
+ 	})
+
+  	this.render('subscriptions');
+	},
+	{
+		name: 'subscriptions',
+	}
+);
+
+Router.route('/messages', function () {
+	
+	this.layout('app_layout', {
+  		data: {
+  			'pageTitle': 'Messages'
+  		}
+ 	})
+
+  	this.render('messages');
+	},
+	{
+		name: 'messages',
+	}
+);
+
+Router.route('/requests', function () {
+	
+	this.layout('app_layout', {
+  		data: {
+  			'pageTitle': 'Requests'
+  		}
+ 	})
+
+  	this.render('requests');
+	},
+	{
+		name: 'requests',
+	}
+);
+
+Router.route('/logout', function () {
+  this.render('login');
+}, {
+	name: 'logout',
+});
+
+Router.onRun(function (){
+	console.log('here')
+	const route_path = Router.current().route.getName()
+	console.log(route_path)
+	$('.clickable').removeClass('active')
+	$('#'+route_path).addClass('active')
+    $('#simple-menu').click();
+	this.next()
+})

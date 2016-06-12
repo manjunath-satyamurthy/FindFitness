@@ -75,3 +75,30 @@ html {
 .sidr li.active {
   background-color: #555555;
 }
+
+#app-header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #8BC34A;
+}
+
+#app-header > h3 {
+  margin:0 auto;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 40%;
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  z-index: -1;
+}
+
+#app-header > img {
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  float: left;
+  z-index: 0;
+}

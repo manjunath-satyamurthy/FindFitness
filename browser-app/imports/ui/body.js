@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Blaze } from 'meteor/blaze'
- 
+import './signup.html';
 import './body.html';
 
 // Template.login.events({

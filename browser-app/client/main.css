@@ -263,4 +263,142 @@ p#searchTab {
 
 .personal > div > form > input{
   margin-left: 595px;
+
+
+
+
+
+/*signup css*/
+
+  /*body {
+    background-color: rgb(34,34,34);
+*/
+    
+
 }
+
+header{
+  position: absolute;
+  background-color: #439DBB;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  
+
+}
+
+h1#title{
+    display: inline;
+    color: White;
+    font-family: arial;
+}
+  
+img#image1{
+  height: 90px;
+}
+
+img#image2{
+  height: 90px;
+}
+form#login1 {
+  text-align: center;
+   height: 620px;
+   background-color: #555555;
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto; 
+
+  }
+
+h2 {
+    color: white;
+    text-align: center;
+    background-color: #439DBB;
+    font-size: 40px;
+    font-family: arial;
+    height: 60px;
+    
+}
+/*label{
+  position: inherit;
+  color:white;
+  font-family: arial;
+  font-size: 20px;
+ /* margin-right: 250px;
+}*/
+
+input, select {
+text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: normal;
+    font-family: arial;
+
+}
+
+
+input, select{
+ /* position: relative;
+  display: block;
+  width:250px;
+  height: 30px;
+  margin-bottom: 18px;
+  font-size: 15px;*/
+  
+
+    color: black;
+    display: inline-block;
+    margin-right: 0;
+    font-size: 15px;
+    height: 18px;
+    line-height: 30px;
+    padding: 4px;
+    width: 210px;
+    margin-bottom: 10px;
+
+}
+
+
+
+.btn{
+ margin-top: 30px;
+ width:200px;
+ height: 40px;
+ font-size: 20px;
+ font-family: arial;
+ background-color: #8BC34A;
+ color: white;
+ 
+}
+
+
+label{
+
+   color: white;
+    float: left;
+    font-size: 20px;
+    line-height: 18px;
+    padding-top: 6px;
+    text-align: left;
+    /*padding-left: px;*/
+    width: 140px;
+}
+
+.inputLabels{
+  text-align: center;
+  margin-left: 20%;
+  margin-top: 10%;
+  font-family: arial;
+}
+
+select{
+
+  border-radius: none;
+  width: 220px;
+  height: 40px;
+  font-size: 400px;
+
+}
+

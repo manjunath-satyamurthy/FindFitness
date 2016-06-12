@@ -13,11 +13,11 @@
     <form id="login1">
     
           <div>
-          <h2>Sign Up</h2>
+          <h2 id="title2">Sign Up</h2>
           </div>
           <div class="inputLabels">
 
-            <label>User Type</label>
+            <label id="inputtxt">User Type</label>
             <select name="UserType" id="usertype" onchange="return showTypes();">
 
             <option value="client">Client</option>
@@ -28,33 +28,33 @@
             <!--Client-->
             <div id= "client" style="visibility: visible;">
               <div class="line">
-                <label for="input">First Name</label>
-                <input type="text" name="firstname">
+                <label id="inputtxt" for="input">First Name</label>
+                <input id="reg" type="text" name="firstname">
               </div>
 
               <div class="line">
-                <label for="input">Last Name</label>
-                <input type="text" name="lastname" >
+                <label id="inputtxt" for="input">Last Name</label>
+                <input id="reg" type="text" name="lastname" >
               </div>
 
               <div class="line">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="example@example.com">
+                <label id="inputtxt">Email</label>
+                <input id="reg" type="email" name="email" placeholder="example@example.com">
               </div>
 
               <div class="line">
-                <label>Password</label>
-                <input type="password" name="password">
+                <label id="inputtxt">Password</label>
+                <input id="reg" type="password" name="password">
               </div>
 
               <div class="line">
-                <label>Date of Birth</label>
-                <input type="date" name="dob" placeholder="dd/mm/yyyy">
+                <label id="inputtxt">Date of Birth</label>
+                <input id="reg" type="date" name="dob" placeholder="dd/mm/yyyy">
               </div>
 
               <div class="line">
-                <label>Address</label>
-                <input type="text" name="address">
+                <label id="inputtxt">Address</label>
+                <input id="reg" type="text" name="address">
               </div>
             </div>
 
@@ -62,18 +62,22 @@
             <div id="trainer" style="visibility: hidden;">
               
               <div class="line" id="mobile" style="visibility:hidden;">
-                <label>Mobile Number</label>
-                <input type="text" name="tel">
+                <label id="inputtxt">Mobile Number</label>
+                <input id="reg" type="text" name="tel">
               </div>
 
               <div class="line" id="loc" style="visibility:hidden;">
-                <label>Location</label>
-                <input type="text" name="loc">
+                <label id="inputtxt">Location</label>
+                <input id="reg" type="text" name="loc">
+                <p id="demo"></p>
+
+
+              <button onclick="getLocation()">Try It</button>
               </div>
 
               <div class="line" id="spec" style="visibility:hidden;">
-                <label>Specialization</label>
-                <input type="text" name="spec">
+                <label id="inputtxt">Specialization</label>
+                <input id="reg" type="text" name="spec">
               </div>
 
             </div>
@@ -156,6 +160,24 @@
       }
 
     </script>
+
+
+    <script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
 
 
 

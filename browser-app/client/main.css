@@ -303,7 +303,7 @@ img#image2{
 }
 form#login1 {
   text-align: center;
-   height: 620px;
+   height: 650px;
    background-color: #555555;
    width: 50%;
    margin-left: auto;
@@ -311,7 +311,7 @@ form#login1 {
 
   }
 
-h2 {
+h2#title2{
     color: white;
     text-align: center;
     background-color: #439DBB;
@@ -328,7 +328,7 @@ h2 {
  /* margin-right: 250px;
 }*/
 
-input, select {
+input#reg, select#usertype {
 text-align: center;
     color: white;
     font-size: 30px;
@@ -339,7 +339,7 @@ text-align: center;
 }
 
 
-input, select{
+input#reg, select#usertype{
  /* position: relative;
   display: block;
   width:250px;
@@ -374,7 +374,7 @@ input, select{
 }
 
 
-label{
+label#inputtxt{
 
    color: white;
     float: left;
@@ -393,7 +393,7 @@ label{
   font-family: arial;
 }
 
-select{
+select#usertype{
 
   border-radius: none;
   width: 220px;

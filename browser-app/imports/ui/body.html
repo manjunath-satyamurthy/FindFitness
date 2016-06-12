@@ -81,3 +81,36 @@
 </template>
 
   
+
+   <template name="search"> 
+    {{> contentAndHeader}}
+
+    <div class="content">
+    <div class="secondHeader">
+ 
+        <button id='searchHead1'>Trainer</button> 
+        <button id='searchHead1'>Nutritionist</button> 
+
+          <p id="searchTab">Search Location</p> 
+          <input name="SearchLocation"/> 
+
+          <form>
+            <p id="searchTab">Perasonal</p> 
+            <input type="radio" name="trainer" value="Personal">
+            <p id="searchTab">Group</p>
+            <input type="radio" name="trainer" value="Group"> 
+          </form>
+          <p id="searchTab">Maximum Cost</p> 
+          <input name="MaxCost"/>
+     
+          <p id="searchTab">Preferred Timings</p> 
+          <input name="PreferredTime"/> 
+ 
+          <p id="searchTab">Specialization</p> 
+          <input name="Specialization"/> 
+
+          <button id="searchButton">Search</button>
+
+      </div>
+      </div>
+  </template>

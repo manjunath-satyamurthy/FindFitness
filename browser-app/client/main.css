@@ -101,7 +101,7 @@ input#loginButton {
   text-align: center;
 }
 
-input#loginButton, .search-btn > button {
+input#loginButton, button#searchButton {
   background-color: #8BC34A;
   box-shadow: none;
   border: none;
@@ -115,10 +115,6 @@ input#loginButton, .search-btn > button {
   margin-top: 3%;
 
 }
-
-.search-btn > button{
-}
-
 
 p#question {
   color: #00bcd4;
@@ -173,13 +169,15 @@ div#firstHeadercomponenets{
   width:680px;
   height:625px;
   border:0px solid #ccc;
-  margin: 150px auto;
+  margin-left: 350px;
+  margin-top: -620px;
 }
 
 
 .navigationBar{
   width: 200px;
 }
+
 
 .searchIcon, .subscriptionIcon, .messageIcon, .requestsIcon, .logoutIcon{
   width: 25px;
@@ -207,10 +205,16 @@ p#navText{
   font-size: 140%;
 }
 
-.searchHead1 > button,.searchHead2 > button {
+button#searchButton {
+  margin-left: 280px;
+  margin-top: 100px;
+}
+
+
+button#searchHead1{
   background-color: transparent;
   height: 50px;
-  width:339.5px;
+  width:49.6%;
   font-size: 200%;
   border: none;
   box-shadow: none;
@@ -218,16 +222,8 @@ p#navText{
   outline: none;
 }
 
-.searchHead1 > button {
-  margin-left:305px;
-}
 
-.searchHead2 > button {
-  margin-left:645px;
-}
-
-.searchlocation > div > input, .cost > div > input , .preferredTime > div > input, 
-.specialization > div > input{
+.secondHeader > input{
   text-align: center;
   background: transparent;
   border-bottom: 2px solid #00ff00;
@@ -242,25 +238,29 @@ p#navText{
   font-size: 18px;
   width: 300px;
   height: 35px;
+  margin-left: 300px;
+  margin-top: 0px;
+  padding: 5px;
 }
-.searchlocation > div > input:focus, .cost > div > input:focus , 
-.preferredTime > div > input:focus, .specialization > div > input:focus{
+
+.secondHeader > input:focus,{
 border-bottom: 2px solid #439DBB;
   outline: none;
+}
+
+
+.secondHeader > form > input{
+  margin-left: 300px;
+  margin-bottom: 10px;
 }
 
 p#searchTab { 
   font-size : 150%;
   color: white;
-  margin-left: 300px;
-  margin-bottom: -48px;
+  margin-bottom: -45px;
+  margin-left: 20px;
 }
 
-.searchlocation > div , .personal > div , .cost > div, .preferredTime > div, .specialization > div{
-  width:680px;
-  height: 50px;
-}
-
-.personal > div > form > input{
-  margin-left: 595px;
+p#searchTab, .secondHeader > input{
+  display: inline auto;
 }

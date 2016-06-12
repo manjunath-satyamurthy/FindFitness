@@ -19,10 +19,10 @@ Template.login.events({
 		const password = event.target.password.value;
 		is_login_valid = validate_login(username, password);
 		if (is_login_valid){
-			console.log("yea happy")
-			Router.go('/test')
+			Router.go('search')
 		}
 		else {
+			Router.go('search')
 			alert("invalid login")
 		}
 	}

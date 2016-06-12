@@ -13,6 +13,3 @@ Template.signup.events({
 		Router.go('/'+path)
 	}
 })
-
-
-

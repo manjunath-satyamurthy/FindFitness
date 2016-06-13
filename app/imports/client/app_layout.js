@@ -20,10 +20,10 @@ Template.app_layout.events({
 Template.app_layout.helpers({
     layoutGestures: {
         'swiperight #layout-body': function (event, templateInstance){
-            $('#simple-menu').click()
+            $.sidr('open', 'sidr')
         },
         'swipeleft #layout-body': function (event, templateInstance){
-            $('#simple-menu').click()
+            $.sidr('close', 'sidr')
         }
     }
 })

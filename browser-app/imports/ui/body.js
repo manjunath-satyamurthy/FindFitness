@@ -42,14 +42,6 @@ Router.route('/contentAndHeader',function () {
 	name: 'contentAndHeader'
 });
 
-Router.route('/navigationBar',function () {
-	
-    this.render('navigation');	
-},{
-	name: 'navigationBar'
-
-});
-
 
 Router.route('/register',function () {
 	
@@ -58,6 +50,7 @@ Router.route('/register',function () {
 	name: 'register'
 
 });
+
 
 Template.register.events({
     'submit form': function(event){
@@ -72,6 +65,7 @@ Template.register.events({
     }
 });
 
+
 Template.contentAndHeader.events({
     'click .logout': function(event){
         event.preventDefault();
@@ -82,23 +76,22 @@ Template.contentAndHeader.events({
 
 
 Template.login.events({
-    'submit form': function(event){
+    'click #loginButton': function(event){
+    	console.log("one");
         event.preventDefault();
-        var email = $('[name=email]').val();
-        var password = $('[name=password]').val();
-         Meteor.loginWithPassword(email, password);
-    }
-});
-
-
-Meteor.loginWithPassword(email, password, function(error){
+        var email = $('[id = username]').val();
+        var password = $('[id = password]').val();
+         Meteor.loginWithPassword(email, password, function(error){
+    // console.log("You initiated the login process.");
      if(error){
         console.log(error.reason);
     } else {
-        Router.go("/");
+        Router.go('/contentAndHeader');
     }
-});
+});    
+     }
 
+});
 
 Accounts.createUser({
     email: email,
@@ -107,9 +100,7 @@ Accounts.createUser({
     if(error){
         console.log(error.reason); // Output error if registration fails
     } else {
-        Router.go("contentAndHeader"); // Redirect user if registration succeeds
+        Router.go('/contentAndHeader'); // Redirect user if registration succeeds
     }
 });
-
-
 

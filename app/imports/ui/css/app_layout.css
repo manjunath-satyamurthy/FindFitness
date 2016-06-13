@@ -1,5 +1,6 @@
 html {
   overflow: hidden;
+  height: 100%;
 }
 
 #logo-list {
@@ -101,4 +102,8 @@ html {
   padding-left: 0.5em;
   float: left;
   z-index: 0;
+}
+
+#layout-body {
+  height: 100vh;
 }

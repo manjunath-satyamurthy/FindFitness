@@ -1,6 +1,7 @@
 Template.app_layout.onRendered(function layoutONRendered() {    
     $('#simple-menu').sidr({
-        body: '#layout-body'
+        body: '#layout-body',
+        timing: 'cubic-bezier(0.32,1.25,0.375,1.15)',
     });
     $('html').css("overflow", "hidden")
     const route_path = Router.current().route.getName()
@@ -16,3 +17,13 @@ Template.app_layout.events({
     }
 })
 
+Template.app_layout.helpers({
+    layoutGestures: {
+        'swiperight #layout-body': function (event, templateInstance){
+            $.sidr('open', 'sidr')
+        },
+        'swipeleft #layout-body': function (event, templateInstance){
+            $.sidr('close', 'sidr')
+        }
+    }
+})

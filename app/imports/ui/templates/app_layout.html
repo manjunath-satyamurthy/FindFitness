@@ -1,4 +1,5 @@
 <template name="app_layout">
+{{ #HammerTouchArea gestureMap=layoutGestures }}
 <div id="layout-body">
 <div id="sidr">
   <ul>
@@ -29,6 +30,7 @@
 </div>
 
 <div class="content">
+
 <div id="app-header">
   <img id="simple-menu" href="#sidr" src="images/menu.png" width="30px" height="30px"/>
   <h3>{{pageTitle}}</h3>
@@ -36,4 +38,5 @@
 {{> yield}}
 </div>
 </div>
+{{ /HammerTouchArea }}
 </template>

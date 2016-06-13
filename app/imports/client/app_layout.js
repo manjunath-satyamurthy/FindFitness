@@ -16,3 +16,13 @@ Template.app_layout.events({
     }
 })
 
+Template.app_layout.helpers({
+    layoutGestures: {
+        'swiperight #layout-body': function (event, templateInstance){
+            $('#simple-menu').click()
+        },
+        'swipeleft #layout-body': function (event, templateInstance){
+            $('#simple-menu').click()
+        }
+    }
+})

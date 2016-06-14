@@ -61,5 +61,3 @@ Template.signup.events({
 
   });
 
-
-

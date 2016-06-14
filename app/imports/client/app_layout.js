@@ -1,7 +1,29 @@
-Template.app_layout.onRendered(function layoutONRendered() {
-  $('#simple-menu').sidr({
-  	body: '#layout-body'
-  });
-  $('html').css("overflow", "hidden")
-  console.log("hello")
+Template.app_layout.onRendered(function layoutONRendered() {    
+    $('#simple-menu').sidr({
+        body: '#layout-body',
+        timing: 'cubic-bezier(0.32,1.25,0.375,1.15)',
+    });
+    $('html').css("overflow", "hidden")
+    const route_path = Router.current().route.getName()
+    $('.clickable').removeClass('active')
+    $('#'+route_path).addClass('active')
+    console.log("here too")
 });
+
+Template.app_layout.events({
+    'click .clickable' (event){
+        const redirect_path = $(event.target).find('a').attr('href');
+        Router.go(redirect_path);
+    }
+})
+
+Template.app_layout.helpers({
+    layoutGestures: {
+        'swiperight #layout-body': function (event, templateInstance){
+            $.sidr('open', 'sidr')
+        },
+        'swipeleft #layout-body': function (event, templateInstance){
+            $.sidr('close', 'sidr')
+        }
+    }
+})

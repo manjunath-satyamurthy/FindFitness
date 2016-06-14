@@ -5,7 +5,16 @@
   <header>
          <img id="img3" src="/images/one.svg">
          <h1 id="title">FindFitness</h1> 
-         <img id="img4" src="/images/two.svg">     
+         <img id="img4" src="/images/two.svg">  
+
+<div class= "profile">
+  {{#if photo}}
+  <img src={{photo}}  width="100" height="100" style="border-radius: 50%;" />
+{{/if}}
+
+</div>
+
+
   </header>   
 
 <br><br><br><br><br><br><br><br>
@@ -50,6 +59,9 @@
               <div class="line">
                 <label id="inputtxt">Date of Birth</label>
                 <input id="reg" type="date" name="dob" placeholder="dd/mm/yyyy">
+
+
+
               </div>
 
               <div class="line">
@@ -66,14 +78,15 @@
                 <input id="reg" type="text" name="tel">
               </div>
 
+ 
               <div class="line" id="loc" style="visibility:hidden;">
                 <label id="inputtxt">Location</label>
                 <input id="reg" type="text" name="loc">
-                <p id="demo"></p>
+               
+                
 
-
-              <button onclick="getLocation()">Try It</button>
-              </div>
+               </div>
+              
 
               <div class="line" id="spec" style="visibility:hidden;">
                 <label id="inputtxt">Specialization</label>
@@ -91,6 +104,7 @@
    
       </div>
        <button class="btn">Create Account</button>
+
     </form>
 
 
@@ -159,26 +173,43 @@
           return false;
       }
 
+
+
+     
+
     </script>
 
 
-    <script>
-var x = document.getElementById("demo");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
-</script>
 
 
 
-</template>
+
+
+     </template>
+
+
+     
+
+ 
+
+
+      
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

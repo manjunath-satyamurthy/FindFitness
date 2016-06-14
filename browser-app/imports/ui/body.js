@@ -3,6 +3,8 @@ import { Blaze } from 'meteor/blaze'
 import './signup.html';
 import './body.html';
 
+// Meteor.publish(“images”, function(){ return Images.find(); });
+
 // Template.login.events({
 //     'click .forms': function(){
 // 	background-color : blue;     
@@ -25,6 +27,8 @@ Router.route('/', function () {
 {
 	name: 'signup'
 });
+
+ 
 
 Router.route('/search',function () {
 	
@@ -58,6 +62,22 @@ Router.route('/register',function () {
 	name: 'register'
 
 });
+
+
+//Router.route(‘/profile’,{
+ //waitOn: function () {
+ //return Meteor.subscribe(‘images’)
+// },
+// action: function () {
+// if (this.ready())
+ //this.render(‘profile’);
+ //else
+// this.render(‘Loading’);
+ //}
+//});
+
+
+
 
 Template.register.events({
     'submit form': function(event){
@@ -110,6 +130,40 @@ Accounts.createUser({
         Router.go("contentAndHeader"); // Redirect user if registration succeeds
     }
 });
+
+
+
+
+
+
+
+
+
+Template.signup.helpers({
+    photo: function () {
+      return Session.get("photo");
+    }
+  });
+
+  Template.signup.events({
+    'click .profile': function () {
+      var cameraOptions = {
+      width: 600,
+      height: 600,
+      correctOrientation: true,
+      targetWidth:400, 
+      targetHeight:400,
+      allowEdit: true,
+      };
+
+      MeteorCamera.getPicture(cameraOptions, function (error, data) {
+        Session.set("photo", data);
+      });
+    }
+  });
+
+
+
 
 
 

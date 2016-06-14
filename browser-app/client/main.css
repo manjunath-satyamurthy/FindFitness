@@ -292,6 +292,8 @@ h1#title{
     display: inline;
     color: White;
     font-family: arial;
+    
+
 }
   
 img#image1{
@@ -300,10 +302,11 @@ img#image1{
 
 img#image2{
   height: 90px;
+
 }
 form#login1 {
   text-align: center;
-   height: 650px;
+   height: 670px;
    background-color: #555555;
    width: 50%;
    margin-left: auto;
@@ -331,7 +334,7 @@ h2#title2{
 input#reg, select#usertype {
 text-align: center;
     color: white;
-    font-size: 30px;
+    font-size: 10px;
     font-weight: normal;
     line-height: normal;
     font-family: arial;
@@ -363,7 +366,7 @@ input#reg, select#usertype{
 
 
 .btn{
- margin-top: 30px;
+ margin-top: 20px;
  width:200px;
  height: 40px;
  font-size: 20px;
@@ -396,9 +399,30 @@ label#inputtxt{
 select#usertype{
 
   border-radius: none;
-  width: 220px;
+  width: 230px;
   height: 40px;
-  font-size: 400px;
+  font-size: 15px;
 
 }
+
+
+
+.profile {
+  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-left: 100px;
+  margin-right: -100px;
+  float: left;
+}
+
+.profile {
+  background-image: url('images/camera.png');
+}
+
+
 

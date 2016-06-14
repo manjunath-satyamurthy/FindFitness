@@ -4,7 +4,7 @@ Router.route('/', function () {
 
 Router.route('/signup', function(){
 	this.render('signup');
-	layout.template('layout')
+	// layout.template('layout')
 }, {
 	name: 'signup',
 });
@@ -33,3 +33,8 @@ Router.route('/snutritionist', function(){
 	name: 'snutritionist',
 });
 
+Router.route('/profilepicture', function(){
+	this.render('profilepicture');
+}, {
+	name: 'profilepicture',
+});

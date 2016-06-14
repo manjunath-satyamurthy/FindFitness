@@ -25,16 +25,17 @@
     </select>
 
   <div class="location">
-    <input name ="address" placeholder="Location">
+    <input id="place" type="text" name ="place" placeholder="Location" value="">
   </div>
-
-<div class="next"><a>&#8658;</a></div>
+  
+  <a class="next"><img src="images/front.png"></a>
 
 
 <p id = "text">Already a Member ?</p>
 <p id = "text1"><a class="green" href="/">Log In</a></p>
 
 </div>
+
 </template>
 
 <!-- Sign up for User -->
@@ -53,11 +54,12 @@
     <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
 
       <div class="back"> 
-        <a class="green" href="#" onclick="history.go(-1);">&#8656;</a>
+        <a class="green" href="#" onclick="history.go(-1);"><img src="images/back.png"></a>
       </div>
-      <div class="create-acc"> 
-      <button>Create</button>
-      </div>
+
+      <div style="margin-top:35%">
+        <a class="next" href="{{pathFor 'profilepicture'}}"><img src="images/front.png"></a>
+       </div>
     </div>
 
 </div>
@@ -81,13 +83,16 @@
     <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
 
       <div class="back"> 
-        <a class="green" href="#" onclick="history.go(-1);">&#8656;</a>
+        <a class="green" href="#" onclick="history.go(-1);"><img src="images/back.png"></a>
       </div>
-      <div class="create-acc"> 
-      <button>Create</button>
+
+      <div style="margin-top:35%">
+        <a class="next" href="{{pathFor 'profilepicture'}}"><img src="images/front.png"></a>
+        </div>
       </div>
+
     </div>
-</div>
+
 </template>
 <!--# End of Sign up for Trainer-->
 
@@ -108,12 +113,43 @@
     <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
 
       <div class="back"> 
-        <a class="green" href="#" onclick="history.go(-1);">&#8656;</a>
+        <a class="green" href="#" onclick="history.go(-1);"><img src="images/back.png"></a>
       </div>
-      <div class="create-acc"> 
-      <button>Create</button>
+
+      <div style="margin-top:35%">
+        <a class="next" href="{{pathFor 'profilepicture'}}"><img src="images/front.png"></a>
+        </div>
       </div>
-  </div>
-</div>
+
+    </div>
 </template>
 <!--# End of Sign up for Nutritionist-->
+
+<template name="profilepicture">
+
+<div class="container">
+    <div class="header">
+        <h1>Sign Up</h1>
+    </div>
+
+    <div class="profile-picture">
+      <p>Add your Profile picture</p>
+
+      {{#if photo}}
+      <img src={{photo}} />
+      {{else}}
+      <img src="images/camera.png">
+      {{/if}}
+    </div>
+
+    <div class="back"> 
+      <a class="green" href="#" onclick="history.go(-1);"><img src="images/back.png"></a>
+    </div>
+
+    <div class="create-acc"> 
+      <button>Create Account</button>
+    </div>
+
+</div>
+
+</template>

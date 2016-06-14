@@ -44,7 +44,7 @@ input {
 	box-shadow: none;
 	border-left: 3px;
 	margin-top: 10%;
-	color: white;
+	color: black;
 	font-size: 18px;
 	width: 80%;
 	height: 15%;
@@ -86,4 +86,8 @@ p#signup {
 	font-family: Arial;
 	font-size: 18px;
 	color: #8BC34A;
+}
+
+a {
+	text-decoration: none;
 }

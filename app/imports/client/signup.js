@@ -14,12 +14,7 @@ Template.signup.events({
 	}
 })
 
-  Template.profilepicture.helpers({
-    photo: function () {
-      return Session.get("photo");
-    }
-  });
-
+//Profile Picture
   Template.profilepicture.events({
     'click .profile-picture': function () {
       var cameraOptions = {
@@ -36,32 +31,13 @@ Template.signup.events({
     }
   });
 
+  Template.profilepicture.helpers({
+      photo: function () {
+      return Session.get("photo");
+    }
+  });
 
-  // Template.strainer.helpers({
-  //   photo: function () {
-  //     return Session.get("photo");
-  //   }
-  // });
-
-  // Template.strainer.events({
-  //   'click .profile-picture': function () {
-  //     var cameraOptions = {
-  //     width: 600,
-  //     height: 600,
-  //     correctOrientation: true,
-  //     sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-  //     targetWidth:400, 
-  //     targetHeight:400,
-  //     allowEdit: true,
-  //     };
-
-  //     MeteorCamera.getPicture(cameraOptions, function (error, data) {
-  //       Session.set("photo", data);
-  //     });
-  //   }
-  // });
-
-  // Load the Google Maps API on startup
+// Load the Google Maps API on startup
   Meteor.startup(() => {
     GoogleMaps.load({
       key: 'AIzaSyAK_vkvxDH5vsqGkd0Qn-dDmq-rShTA7UA',

@@ -1,18 +1,42 @@
 import { Template } from 'meteor/templating';
 
-import '../ui/css/signup.css'
+
+import '../ui/css/signup.css';
+import { users } from '../api/collections.js';
 
 Template.signup.onCreated(function signupOnCreated() {
   console.log("signup");
 });
 
 Template.signup.events({
-	'click .next'(event){
-		const path =  $('#account-type option:selected').val()
-		console.log(path)
-		Router.go('/'+path)
+	'click .next':function(event){
+		const path =  $('#account-type option:selected').val();
+		// console.log(path);
+      Router.go('/'+path);
+      
+      var clienttype = path;
+      console.log(this.name);
+      var fname = $('[name=firstname]').val();
+      var lname = $('[name=lastname]').val();
+      var dob   = $('[name=dob]').val();
+      var loc   = $('[name=loc]').val();
+      // console.log(fname);
+      Session.set('fname');
+
+    users.insert({
+      clienttype : clienttype,
+      fname : fname,
+      lname : lname,
+      dob : dob,
+      // gender
+      loc : loc
+
+    });
+
+
 	}
-})
+      
+});
 
 //Profile Picture
   Template.profilepicture.events({
@@ -60,4 +84,10 @@ Template.signup.events({
     });
 
   });
+
+  Template.suser.helpers(function(){
+    return Session.get('fname');
+    console.log('fname');
+
+  })
 

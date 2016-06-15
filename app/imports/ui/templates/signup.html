@@ -1,41 +1,33 @@
 <template name="signup">
+<div class="container">
+  <div class="header">
+      <h1>Sign Up</h1>
+  </div>
 
-<div class="header">
-    <h1>Sign Up</h1>
-</div>
-
-<div class="forms">
+  <div class="forms">
+    <form class="signup-form forms" name="signup">
     <select id="account-type">
       <option>Choose Account Type</option>
-      <option value="suser">User</option>
-      <option value="strainer">Trainer</option>
-      <option value="snutritionist">Nutritionist</option>
+      <option value="suser" name="user">User</option>
+      <option value="strainer" name="trainer">Trainer</option>
+      <option value="snutritionist" name="nutritionist">Nutritionist</option>
     </select>
 
-  <div><input name ="firstname" placeholder="First Name"></div>
-  <div><input name ="lastname" placeholder="Last Name"></div>
-  <div>
-    <input name ="dob" type="text" value="" placeholder="Date of Birth" onfocus="(this.type='Date')"  onblur="(this.type='text')">
+      <div><input name ="username" placeholder="Username"></div>
+      <div><input name ="email" type="email" placeholder="Email Address"></div>
+      <div><input name="password" type="password" placeholder="Password"/></div>
+      <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
+
+      <div class="create-acc-btn">
+        <button type="submit">Create Account</button>
+      </div>
+    </form>
   </div>
 
-    <select id="gender">
-      <option>Gender</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-
-  <div class="location">
-    <input id="place" type="text" name ="place" placeholder="Location" value="">
-  </div>
-  
-  <a class="next"><img src="images/front.png"></a>
-
-
-<p id = "text">Already a Member ?</p>
-<p id = "text1"><a class="green" href="/">Log In</a></p>
+  <p id = "question">Already a Member ?</p>
+  <p id = "signup"><a class="green" href="/">Log In</a></p>
 
 </div>
-
 </template>
 
 <!-- Sign up for User -->

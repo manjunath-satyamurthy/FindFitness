@@ -45,7 +45,6 @@ ejson@1.0.11
 es5-shim@4.5.10
 fastclick@1.0.11
 geojson-utils@1.0.8
-hammer:hammer@2.0.4_2
 hot-code-push@1.0.4
 html-tools@1.0.9
 htmljs@1.0.9

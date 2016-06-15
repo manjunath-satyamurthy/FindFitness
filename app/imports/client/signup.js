@@ -10,7 +10,6 @@ Template.signup.onCreated(function signupOnCreated() {
 
 Template.signup.events({
 	'submit .signup-form':function(event){
-		// const path =  $('#account-type option:selected').val();
     const acctype  = $('#account-type option:selected').val();
     const username = $('[name=username]').val();
     const email    = $('[name=email]').val();
@@ -26,23 +25,6 @@ Template.signup.events({
 	}
       
 });
-// Template.signup.events({
-//   'submit .signup-form' (event){
-//     event.preventDefault();
-//     // const acctype  = event.target.acctype.value;
-//     const username = $('[name=username]').val();
-//     const email    = $('[name=email]').val();
-//     const password = $('[name=password]').val();
-
-//     users.insert({
-//       acctype : acctype,
-//       username: username,
-//       email   : email,
-//       password : password
-
-//     });
-//   }
-// })
 
 //Profile Picture
   Template.profilepicture.events({
@@ -91,9 +73,4 @@ Template.signup.events({
 
   });
 
-  Template.suser.helpers(function(){
-    return Session.get('fname');
-    console.log('fname');
-
-  })
 

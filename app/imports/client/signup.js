@@ -9,34 +9,40 @@ Template.signup.onCreated(function signupOnCreated() {
 });
 
 Template.signup.events({
-	'click .next':function(event){
-		const path =  $('#account-type option:selected').val();
-		// console.log(path);
-      Router.go('/'+path);
-      
-      var clienttype = path;
-      console.log(this.name);
-      var fname = $('[name=firstname]').val();
-      var lname = $('[name=lastname]').val();
-      var dob   = $('[name=dob]').val();
-      var loc   = $('[name=loc]').val();
-      // console.log(fname);
-      Session.set('fname');
+	'submit .signup-form':function(event){
+		// const path =  $('#account-type option:selected').val();
+    const acctype  = $('#account-type option:selected').val();
+    const username = $('[name=username]').val();
+    const email    = $('[name=email]').val();
+    const password = $('[name=password]').val();
 
     users.insert({
-      clienttype : clienttype,
-      fname : fname,
-      lname : lname,
-      dob : dob,
-      // gender
-      loc : loc
+      acctype : acctype,
+      username: username,
+      email   : email,
+      password : password
 
     });
-
-
 	}
       
 });
+// Template.signup.events({
+//   'submit .signup-form' (event){
+//     event.preventDefault();
+//     // const acctype  = event.target.acctype.value;
+//     const username = $('[name=username]').val();
+//     const email    = $('[name=email]').val();
+//     const password = $('[name=password]').val();
+
+//     users.insert({
+//       acctype : acctype,
+//       username: username,
+//       email   : email,
+//       password : password
+
+//     });
+//   }
+// })
 
 //Profile Picture
   Template.profilepicture.events({

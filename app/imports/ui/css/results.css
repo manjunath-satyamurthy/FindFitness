@@ -1,0 +1,70 @@
+.results-list > div.show {
+  background-color: #444444;
+  color: white;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: inline-flex;
+  width: 100%;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #8c8c8c;
+}
+
+.results-list > div.show > img {
+  vertical-align: middle;
+  padding-left: 4%;
+}
+
+.results-list > div.show > p.distance {
+padding-right: 4%;
+}
+
+.results-list > .show > .tn-name {
+  margin: auto auto;
+}
+
+.results-list div.hide {
+    background-image: url('images/ash.jpg');
+    max-height: 0;
+    transition: max-height 0.70s ease-out;
+    overflow: hidden;
+    margin: 0px;
+}
+
+.results-list.active div.hide {
+    background-image: url('images/ash.jpg');
+    max-height: 500px;
+    transition: max-height 0.70s ease-in;
+}
+
+.results-count {
+  text-align: center;
+  color: white;
+}
+
+.results-list > .hide > div > p {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  color: white;
+  font-weight: bold;
+}
+
+.results-list > .hide > div > p > span:first-child {
+  float: left;
+}
+
+.results-list > .hide > div > p > span:nth-child(2) {
+   float: right;
+}
+
+.results-list > .hide > div > p > span > button {
+  background-color: #8bc34a;
+  color: white;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
+  padding: 5px;
+  margin-bottom: 10px;
+}

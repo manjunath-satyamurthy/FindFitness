@@ -4,7 +4,6 @@ import '../ui/css/login.css'
 import '../api/collections.js'
 
 Template.login.onCreated(function loginOnCreated() {
-  console.log("login");
 });
 
 Template.login.onRendered(function loginOnRendered() {
@@ -14,6 +13,7 @@ Template.login.onRendered(function loginOnRendered() {
 
 Template.login.events({
 	'submit .login-form' (event){
+		window.scrollTo(0,0);
 		event.preventDefault();
 		const username = event.target.username.value;
 		const password = event.target.password.value;

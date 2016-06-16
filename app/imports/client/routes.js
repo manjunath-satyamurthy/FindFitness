@@ -4,7 +4,6 @@ Router.route('/', function () {
 
 Router.route('/signup', function(){
 	this.render('signup');
-	// layout.template('layout')
 }, {
 	name: 'signup',
 });
@@ -94,6 +93,15 @@ Router.route('/requests', function () {
 	}
 );
 
+Router.route('/results', function () {
+  	this.render('results');
+	},
+	{
+		name: 'results',
+	}
+);
+
+
 Router.route('/logout', function () {
   this.render('login');
 }, {
@@ -102,7 +110,6 @@ Router.route('/logout', function () {
 
 Router.onRun(function (){
 	const route_path = Router.current().route.getName()
-	console.log(route_path)
 	$('.clickable').removeClass('active')
 	$('#'+route_path).addClass('active')
     $('#simple-menu').click();

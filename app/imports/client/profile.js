@@ -1,8 +1,7 @@
 import { Template } from 'meteor/templating';
 
 import '../ui/css/profile.css'
-import { users }'../api/collections.js'
-
+import { users } from '../api/collections.js'
 
 //Profile Picture
   Template.profilepic.events({
@@ -25,4 +24,28 @@ import { users }'../api/collections.js'
       photo: function () {
       return Session.get("photo");
     }
+  });
+
+// Load the Google Maps API on startup
+  Meteor.startup(() => {
+    GoogleMaps.load({
+      key: 'AIzaSyAK_vkvxDH5vsqGkd0Qn-dDmq-rShTA7UA',
+      libraries: 'places'
+    });
+  });
+
+
+  Template.perdetails.onRendered(function () {
+
+    this.autorun(() => {
+      // Wait for API to be loaded
+      if (GoogleMaps.loaded()) {
+
+        $('#place').geocomplete({
+
+        });
+
+      }
+    });
+
   });

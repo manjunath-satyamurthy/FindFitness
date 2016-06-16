@@ -26,28 +26,5 @@ Template.signup.events({
       
 });
 
-// Load the Google Maps API on startup
-  Meteor.startup(() => {
-    GoogleMaps.load({
-      key: 'AIzaSyAK_vkvxDH5vsqGkd0Qn-dDmq-rShTA7UA',
-      libraries: 'places'
-    });
-  });
-
-
-  Template.signup.onRendered(function () {
-
-    this.autorun(() => {
-      // Wait for API to be loaded
-      if (GoogleMaps.loaded()) {
-
-        $('#place').geocomplete({
-
-        });
-
-      }
-    });
-
-  });
 
 

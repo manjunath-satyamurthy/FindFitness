@@ -8,25 +8,6 @@ Router.route('/signup', function(){
 	name: 'signup',
 });
 
-// Router.route('/suser', function(){
-// 	this.render('suser');
-// }, {
-// 	name: 'suser',
-// });
-
-// Router.route('/strainer', function(){
-// 	this.render('strainer');
-// }, {
-// 	name: 'strainer',
-// });
-
-// Router.route('/snutritionist', function(){
-// 	this.render('snutritionist');
-// }, {
-// 	name: 'snutritionist',
-// });
-
-
 Router.route('/search', function () {
 	
 	this.layout('app_layout', {

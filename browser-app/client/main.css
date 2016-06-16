@@ -306,7 +306,7 @@ img#image2{
 }
 form#login1 {
   text-align: center;
-   height: 670px;
+   height: 900px;
    background-color: #555555;
    width: 50%;
    margin-left: auto;
@@ -366,13 +366,17 @@ input#reg, select#usertype{
 
 
 .btn{
- margin-top: 20px;
+ /*margin-top: -100;*/
+ margin-bottom: -6S0%;
+ 
  width:200px;
  height: 40px;
  font-size: 20px;
  font-family: arial;
  background-color: #8BC34A;
  color: white;
+ margin-left: 600px;
+ 
  
 }
 
@@ -415,14 +419,54 @@ select#usertype{
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  margin-left: 100px;
-  margin-right: -100px;
-  float: left;
+  margin-left: auto;
+  margin-right: auto;
+  
+  
 }
 
 .profile {
   background-image: url('images/camera.png');
 }
+
+h2#title3{
+    color: white;
+    text-align: center;
+    background-color: #439DBB;
+    font-size: 60px;
+    font-family: arial;
+    height: 100px;
+
+}
+
+.profile1 {
+  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  float: left;
+  margin-top: -150px;
+  
+  
+}
+
+.profile1 {
+  background-image: url('images/camera.png');
+}
+
+form#login2 {
+  text-align: center;
+   height: 600px;
+   background-color: #555555;
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto; 
+
+  }
+
 
 
 

@@ -1,7 +1,14 @@
 import { Template } from 'meteor/templating';
-import { Blaze } from 'meteor/blaze'
+import { Blaze } from 'meteor/blaze';
+
+
 import './signup.html';
+
 import './body.html';
+import './trainer.html';
+import './nutritionist.html';
+
+
 
 // Meteor.publish(“images”, function(){ return Images.find(); });
 
@@ -30,39 +37,29 @@ Router.route('/', function () {
 
  
 
-Router.route('/search',function () {
-	
-    this.render('search');	
-},
-{
-	name: 'search'
-});
 
-Router.route('/contentAndHeader',function () {
-	
-    this.render('contentAndHeader');	
-},
-{
-	name: 'contentAndHeader'
-});
-
-Router.route('/navigationBar',function () {
-	
-    this.render('navigation');	
+Router.route('/trainer',function () {
+  
+    this.render('trainer');  
 },{
-	name: 'navigationBar'
+  name: 'trainer'
 
 });
 
-
-Router.route('/register',function () {
-	
-    this.render('register');	
+Router.route('/nutritionist',function () {
+  
+    this.render('nutritionist');  
 },{
-	name: 'register'
+  name: 'nutritionist'
 
 });
 
+Template.signup.events({
+    'click #myp': function(event){
+
+    Router.go('trainer');     
+    }
+});
 
 //Router.route(‘/profile’,{
  //waitOn: function () {
@@ -79,56 +76,19 @@ Router.route('/register',function () {
 
 
 
-Template.register.events({
-    'submit form': function(event){
-        event.preventDefault();
-        var email = $('[name=email]').val();
-        var password = $('[name=password]').val();
-        Accounts.createUser({
-            email: email,
-            password: password
-        });
-        Router.go('/contentAndHeader');
-    }
+Template.trainer.helpers({
+  editing: function(){
+    return Session.equals('reg', this._id);
+  } 
 });
-
-Template.contentAndHeader.events({
-    'click .logout': function(event){
-        event.preventDefault();
-        Meteor.logout();
-        Router.go('login');
-    }
-});
-
-
-Template.login.events({
-    'submit form': function(event){
-        event.preventDefault();
-        var email = $('[name=email]').val();
-        var password = $('[name=password]').val();
-         Meteor.loginWithPassword(email, password);
-    }
-});
-
-
-Meteor.loginWithPassword(email, password, function(error){
-     if(error){
-        console.log(error.reason);
-    } else {
-        Router.go("/");
-    }
-});
-
-
-Accounts.createUser({
-    email: email,
-    password: password
-}, function(error){
-    if(error){
-        console.log(error.reason); // Output error if registration fails
-    } else {
-        Router.go("contentAndHeader"); // Redirect user if registration succeeds
-    }
+ 
+Template.trainer.events({
+  'click .deleteItem': function(){
+    Items.remove(this._id);
+  },
+  'click .editItem': function(){
+    Session.set('reg', this._id);
+  }
 });
 
 
@@ -139,17 +99,18 @@ Accounts.createUser({
 
 
 
-Template.signup.helpers({
-    photo: function () {
-      return Session.get("photo");
-    }
-  });
+
+// Template.signup.helpers({
+//     photo: function () {
+//       return Session.get("photo");
+//     }
+  // });
 
   Template.signup.events({
     'click .profile': function () {
       var cameraOptions = {
       width: 600,
-      height: 600,
+      height: 700,
       correctOrientation: true,
       targetWidth:400, 
       targetHeight:400,
@@ -161,6 +122,48 @@ Template.signup.helpers({
       });
     }
   });
+
+
+
+
+
+
+
+
+
+
+
+Template.signup.helpers({
+  tasks() {
+    return Tasks.find({});
+  },
+});
+
+Template.signup.events({
+  'submit .new-task'(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+ 
+    // Get value from form element
+    const target = event.target;
+    const text = target.text.value;
+ 
+    // Insert a task into the collection
+    Tasks.insert({
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      password: password,
+      dob: dob,
+      address: address
+       // current time
+    });
+ 
+    // Clear form
+    target.text.value = '';
+  },
+});
+
 
 
 

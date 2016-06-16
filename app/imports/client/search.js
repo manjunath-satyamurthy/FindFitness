@@ -15,7 +15,6 @@ const timeRange = {
 
 Template.search.onRendered(
 	function OnSearchRendered() {
-		console.log("hello")
 		Session.setDefault('page', 'trainer')
 	}
 )
@@ -77,5 +76,9 @@ Template.trainer.events({
 	'input #cost' (event){
 		value = $(event.currentTarget)[0].value
 		$('#display-cost').empty().append(10*value)
+	},
+
+	'click #search-btn' (event){
+		Router.go('/results')
 	}
 })

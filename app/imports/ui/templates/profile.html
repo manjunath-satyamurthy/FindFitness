@@ -1,14 +1,33 @@
 <template name="profile">
-<div class="container">
 
-<div class = "profile-btn">
 
-<div class ="action-button shadow animate blue">
+<div class = "profile">
+
+<div class="perdet">
+<a href="{{pathFor 'perdetails'}}">Personal Details</a>
+<img class="icons" src="images/personal_1.svg">
+</div>
+
+<div class="prodet">
+<a href="{{pathFor 'prodetails'}}">Professional Details</a>
+<img class="icons" src="images/professional.svg">
+</div>
+
+<div class="propic">
+<a href="{{pathFor 'profilepic'}}">Profile Picture</a>
+<img class="icons" src="images/profilepic.svg">
+</div>
+
+<div class="accdet">
+<a href="{{pathFor 'accdetails'}}">Account Details</a>
+<img class="icons" src="images/settings.svg">
+</div>
+<!-- <div class ="action-button shadow animate color">
 <a href="{{pathFor 'perdetails'}}">Personal Details</a>
 </div>
 
 <div>
-<a href="{{pathFor 'prodetails'}}" class="action-button shadow animate red">Professional Details</a>
+<a href="{{pathFor 'prodetails'}}" class="action-button shadow animate color">Professional Details</a>
 </div>
 
 <div>
@@ -18,18 +37,17 @@
 <div>
 <a href="{{pathFor 'accdetails'}}" class="action-button shadow animate yellow">Account Details</a>
 </div>
-
-</div>
+ -->
 </div>
 </template>
 
 
 <template name="perdetails">
-	
+<h1>Personal details</h1>
 </template>
 
 <template name="prodetails">
-	
+	Prof
 </template>
 
 <template name="profilepic">
@@ -47,5 +65,5 @@
 </template>
 
 <template name="accdetails">
-	
+	Account
 </template>

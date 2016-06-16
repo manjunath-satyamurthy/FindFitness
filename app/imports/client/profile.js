@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 import '../ui/css/profile.css'
 import { users }'../api/collections.js'
 
+
 //Profile Picture
   Template.profilepic.events({
     'click .profilepic': function () {

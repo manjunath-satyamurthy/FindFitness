@@ -101,7 +101,6 @@ Router.route('/logout', function () {
 });
 
 Router.onRun(function (){
-	console.log('here')
 	const route_path = Router.current().route.getName()
 	console.log(route_path)
 	$('.clickable').removeClass('active')

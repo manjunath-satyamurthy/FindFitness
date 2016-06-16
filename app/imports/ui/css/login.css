@@ -14,10 +14,10 @@ body {
 
 #login-logo {
 	text-align: center;
-	margin-top: 18%;
 }
 
 #login-logo > img {
+	padding-top: 18%;
 	height: 100px;
 	width: 100px;
 }

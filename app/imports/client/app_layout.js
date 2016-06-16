@@ -20,7 +20,9 @@ Template.app_layout.events({
 Template.app_layout.helpers({
     layoutGestures: {
         'swiperight #layout-body': function (event, templateInstance){
-            $.sidr('open', 'sidr')
+            if (event.center.x < 170){
+                $.sidr('open', 'sidr')
+            }
         },
         'swipeleft #layout-body': function (event, templateInstance){
             $.sidr('close', 'sidr')

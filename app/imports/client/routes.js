@@ -4,7 +4,6 @@ Router.route('/', function () {
 
 Router.route('/signup', function(){
 	this.render('signup');
-	// layout.template('layout')
 }, {
 	name: 'signup',
 });
@@ -93,6 +92,15 @@ Router.route('/requests', function () {
 		name: 'requests',
 	}
 );
+
+Router.route('/results', function () {
+  	this.render('results');
+	},
+	{
+		name: 'results',
+	}
+);
+
 
 Router.route('/logout', function () {
   this.render('login');

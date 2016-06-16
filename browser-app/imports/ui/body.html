@@ -1,14 +1,12 @@
 <template name="contentAndHeader">
 
-    <div id="firstHeader">
-      <div id="firstHeadercomponenets">
-      <img id = "img3" src="/images/one.svg">
-
+    <header id="firstHeader">
+      <img id = "img3" src="/images/one.svg"> 
+      <span>
       <h1 id="firstHead">FindFitness</h1>
-
+      </span> 
       <img id = "img4" src="/images/two.svg">
-    </div>
-    </div>
+    </header>
 
 
     <div class = navigationBar>
@@ -73,14 +71,27 @@
 
   
 
-  <template name="register">
-    <h2>Register</h2>
-    <form class="register">
-        <p>Email: <input id="email1" type="email" name="email"></p>
-        <p>Password: <input id="password1" type="password" name="password"></p>
-        <p><input type="submit" value="Register"></p>
-    </form>
-</template>
+  <template name= "register">
+    <div id="firstHeader">
+      <div id="firstHeadercomponenets">
+      <img id = "img3" src="/images/one.svg">
+
+      <h1 id="firstHead">FindFitness</h1>
+
+      <img id = "img4" src="/images/two.svg">
+    </div>
+    </div>      
+     
+      <form id="registerForm" autocomplete="on">
+      <div id="input1">
+        <input  id="username" name="email" type="email" placeholder="Email Address"/>
+      </div>
+      <div id="input2">
+        <input  id="password" name="password" type="password" placeholder="Password"/>
+      </div>
+        <input id="registerButton" type="submit" value="Register">
+        </form>
+  </template>
 
   
 
@@ -91,10 +102,10 @@
     <div class="secondHeader">
  
         <button id='searchHead1'>Trainer</button> 
-        <button id='searchHead1'>Nutritionist</button> 
+        <button id='searchHead2'>Nutritionist</button> 
 
           <p id="searchTab">Search Location</p> 
-          <input name="SearchLocation"/> 
+          <input id="geoLocation" name="SearchLocation"/> 
 
           <form>
             <p id="searchTab">Perasonal</p> 
@@ -111,10 +122,48 @@
           <p id="searchTab">Specialization</p> 
           <input name="Specialization"/> 
 
-          <button id="searchButton">Search</button>
+          <button id="searchButton">Search Trainer</button>
 
       </div>
       </div>
   </template>
+   
 
 
+  <template name="nutritionist">
+    {{> contentAndHeader}}
+
+    <div class="content">
+    <div class="secondHeader">
+ 
+        <button id='searchHead1'>Trainer</button> 
+        <button id='searchHead2'>Nutritionist</button>
+
+          <p id="searchTab">Search Location</p> 
+          <input id="geoLocation" name="SearchLocation"/>
+          <p id="searchTab">Maximum Cost</p> 
+          <input name="Specialization"/>
+          <p id="searchTab">Specialization</p> 
+          <input name="Specialization"/>
+
+        <button id="searchButton1">Search Nutritionist</button>
+
+      </div>
+      </div>
+
+  </template>
+
+
+
+  <template name="result">
+    {{> contentAndHeader}}
+
+    <div class="content">
+    <div class="secondHeader">
+
+      <h2 id="resultHead">Results</h2>
+
+
+    </div>
+    </div>
+  </template>

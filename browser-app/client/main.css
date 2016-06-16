@@ -12,7 +12,7 @@ a:hover,
 body {
   font-family: sans-serif;
   background-color: rgb(66,66,66);
-  background-attachment: fixed;
+  /*background-attachment: fixed;*/
   top: 0;
   bottom: 0;
   left: 0;
@@ -33,25 +33,20 @@ ul {
   height: 100vh;
 }
 
-h1#firstHead, h1#label1 {
-  font-size: 65px;
-  padding:0px;
-}
 
-
-img#img3, img#img1{
+img#img1{
   width: 84px;
   height: 84px;
 }
 
-img#img4, img#img2{
+img#img2{
   width: 44px;
   height: 44px;
-  margin-right: 10px;
   padding:0px;
+
 }
 
-h1#firstHead, h1#label1{
+h1#label1{
   color: rgb(255,255,255);
   font-weight: bold;
   text-align: center;
@@ -62,9 +57,38 @@ h1#firstHead, h1#label1{
 }
 
 
-h1#label1, .img1, .img2, h1#firstHead, .img3, .img4 {
+h1#label1, .img1, .img2{
   display: inline-block;
 }
+
+h1#label1 {
+  font-size: 50px;
+  padding:0px;
+}
+
+img#img3{
+  margin-left: 37%;
+  width: 84px;
+  height: 84px;  
+}
+
+h1#firstHead{
+  margin: -5% 0  0 44%;
+  color: white;
+  font-size: 42px;
+  padding: 0px;
+  width: 22%;
+}
+
+img#img4{
+width: 34px;
+height: 34px; 
+margin-left: 65%;
+margin-top: -20%;
+padding: 0px;
+
+}
+
 
 div#login1{
   text-align: center;
@@ -74,7 +98,7 @@ div#login1{
 div#input1{
   margin-bottom: 30px;
 }
-#loginForm > div > input {
+#registerForm > div > input, #loginForm > div > input {
   text-align: center;
   background: transparent;
   border-bottom: 2px solid #9e9e9e;
@@ -92,16 +116,21 @@ div#input1{
   margin-top: 10px;
 }
 
-#loginForm > div > input:focus{
+#registerForm > div > input:focus, #loginForm > div > input:focus{
   border-bottom: 2px solid #439DBB;
   outline: none;
 }
 
-input#loginButton {
+input#registerButton, input#loginButton {
   text-align: center;
 }
 
-input#loginButton, button#searchButton {
+#registerForm{
+  text-align: center;
+  margin-top: 150px; 
+}
+
+input#registerButton, input#loginButton, button#searchButton,button#searchButton1 {
   background-color: #8BC34A;
   box-shadow: none;
   border: none;
@@ -115,9 +144,13 @@ input#loginButton, button#searchButton {
   margin-top: 3%;
 
 }
+button#searchButton {
+  width: 165px;
+}
 
-
-
+button#searchButton1{
+  width: 200px;
+}
 
 p#question {
   color: #00bcd4;
@@ -135,29 +168,18 @@ p#signup {
   margin-left: 20%; 
 }
 
-div#firstHeader{
+header#firstHeader{
   background-color: #439DBB;
   height: 86px;
-  border: 0px solid #ccc;
   width: 100%;
-  margin: 0px auto;
   top: 0px;
   border-bottom: 2px solid #ccc;
 }
 
-img#img3, img#img1{
-  opacity: 1;
-  border: 0;
-  outline: 0;
+img#img1{
   background: transparent;
   color: rgb(255,255,255);
 }
-
-div#firstHeadercomponenets{
-  padding: 0px;
-  margin-left: 25%;
-}
-
 
 .secondHeader{
   background-color: #439DBB;
@@ -205,25 +227,32 @@ p#navText{
   margin: 0px ;
   color: rgb(255,255,255);
   text-indent: 8%;
-  font-size: 140%;
+  font-size: 110%;
 }
 
-button#searchButton {
+button#searchButton,button#searchButton1 {
   margin-left: 280px;
   margin-top: 100px;
 }
 
 
-button#searchHead1{
+button#searchHead1, button#searchHead2{
   background-color: transparent;
   height: 50px;
   width:49.6%;
   font-size: 200%;
   border: none;
   box-shadow: none;
+  /*border-bottom: 2px solid #ccc;*/
+  outline: none;
+}
+
+/*button#searchHead1:focus,  button#searchHead2:focus,*/
+button#searchHead1:hover,  button#searchHead2:hover {
   border-bottom: 2px solid #ccc;
   outline: none;
 }
+
 
 
 
@@ -271,11 +300,17 @@ p#searchTab, .secondHeader > input{
 
 .personal > div > form > input{
   margin-left: 595px;
+}
 
 
-
-
-
+h2#resultHead
+{
+  color: white;
+  text-align: center;
+  font-size: 200%;
+  margin-top: 0.5%;
+  font-family: arial;
+}
 /*signup css*/
 
   /*body {
@@ -283,9 +318,7 @@ p#searchTab, .secondHeader > input{
 */
     
 
-}
-
-header{
+header#signupHeader{
   position: absolute;
   background-color: #439DBB;
   height: 100px;
@@ -298,12 +331,12 @@ header{
 
 h1#title{
     display: inline;
-    color: White;
+    color: white;
     font-family: arial;
 }
   
 img#image1{
-  height: 90px;
+  height: 80px;
 }
 
 img#image2{
@@ -323,12 +356,9 @@ h2#title2{
     color: white;
     text-align: center;
     background-color: #439DBB;
-    font-size: 40px;
+    font-size: 30px;
     font-family: arial;
-    height: 60px;
-    
 }
-
 
 /*label{
   position: inherit;
@@ -399,6 +429,8 @@ select#usertype{
   border-radius: none;
   width: 220px;
   height: 40px;
-  font-size: 400px;
+  font-size: 15px;
 
 }
+
+

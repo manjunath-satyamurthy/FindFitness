@@ -24,3 +24,6 @@ iron:router
 accounts-password
 email
 accounts-base
+jeremy:geocomplete
+mrt:googlemaps
+dburles:google-maps

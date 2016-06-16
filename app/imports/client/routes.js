@@ -8,31 +8,6 @@ Router.route('/signup', function(){
 	name: 'signup',
 });
 
-Router.route('/suser', function(){
-	this.render('suser');
-}, {
-	name: 'suser',
-});
-
-Router.route('/strainer', function(){
-	this.render('strainer');
-}, {
-	name: 'strainer',
-});
-
-Router.route('/snutritionist', function(){
-	this.render('snutritionist');
-}, {
-	name: 'snutritionist',
-});
-
-
-Router.route('/profilepicture', function(){
-	this.render('profilepicture');
-}, {
-	name: 'profilepicture',
-});
-
 Router.route('/search', function () {
 	
 	this.layout('app_layout', {
@@ -93,6 +68,21 @@ Router.route('/requests', function () {
 	}
 );
 
+Router.route('/profile', function () {
+	
+	this.layout('app_layout', {
+  		data: {
+  			'pageTitle': 'Profile'
+  		}
+ 	})
+
+  	this.render('profile');
+	},
+	{
+		name: 'profile',
+	}
+);
+
 Router.route('/results', function () {
   	this.render('results');
 	},
@@ -106,6 +96,30 @@ Router.route('/logout', function () {
   this.render('login');
 }, {
 	name: 'logout',
+});
+
+Router.route('/perdetails', function(){
+	this.render('perdetails');
+}, {
+	name: 'perdetails',
+});
+
+Router.route('/prodetails', function(){
+	this.render('prodetails');
+}, {
+	name: 'prodetails',
+});
+
+Router.route('/profilepic', function(){
+	this.render('profilepic');
+}, {
+	name: 'profilepic',
+});
+
+Router.route('/accdetails', function(){
+	this.render('accdetails');
+}, {
+	name: 'accdetails',
 });
 
 Router.onRun(function (){

@@ -1,8 +1,8 @@
+
 .header{
 	text-align: center;
 	width: 100%;
 	background-color: #8BC34A;
-	/*height:100%;*/
 }
 
 h1 {
@@ -55,45 +55,29 @@ select : focus{
   	background-size: 28px 28px; 
 }
 
-p#text1 {
-	-webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-}
-
-p#text {
-	color: white;
-	font-family: ARIAL;
-	text-align: center;
-	font-size: 18px;
-	-webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-}
-
 a.green {
 	text-decoration: none;
 	color: #8BC34A;
 }
 
-.create-acc {
+.create-acc-btn {
 	text-align: center;
-	float: right; 
-	margin-top: 15%;
-	margin-right: 10%;
+    margin-top: 15%
 }
 
-.create-acc > button {
+.create-acc-btn > button {
 	background-color: #8BC34A;
 	box-shadow: none;
 	border: none;
-	border-radius: 7px;
+	border-radius: 5px;
 	color: white;
 	font-weight: bold;
 	font-size: 18px;
 	font-family: Arial;
-	padding-left:7px;
-	padding-right:7px;
-	padding-top: 7px;
-	padding-bottom:7px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top: 10px;
+	padding-bottom:10px;
 }
 
 input[type=date] {
@@ -114,22 +98,42 @@ input[type=date]::-webkit-inner-spin-button{
 	-webkit-appearance: none;
 }
 
-.next {
-	font-size: 60px;
-	content: "\27A1";
-	color: #8BC34A;
-	margin-right: 10%;
-	margin-left: 78%;
-}
-
-.back {
+.next > img {
+    font-size: 12px;
     content: "\27A1";
     color: #8BC34A;
-    margin-top: 6%;
-    font-size: 60px;
-    float: left; 
-    width: auto;
-    margin-left: 7%;
+    width: 15%;
+    float: right;
+    padding-right: 10%;
 }
 
+.back > a > img{
+    content: "\27A1";
+    color: #8BC34A;
+    font-size: 12px;
+    float: left; 
+    width: 15%;
+    padding-left: 10%;
+    padding-top: 35%;
+}
 
+.profile-picture {
+	text-align: center;
+}
+.profile-picture > img{
+	width: 200px;
+    height: 200px;
+    margin-top: 10%;
+    border-radius: 50%;
+}
+
+.profile-picture > p {
+	text-align: center;
+	font-size: 18px;
+	color: white;
+	padding-top: 5%
+}
+
+.flex {
+  display: flex;
+}

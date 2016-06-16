@@ -27,6 +27,9 @@ meteorhacks:npm
 
 
 npm-container
-hammer:hammer
+cfs:gridfs
+mdg:camera
 chriswessels:hammer
 session
+dburles:google-maps
+jeremy:geocomplete

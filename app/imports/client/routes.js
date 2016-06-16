@@ -4,6 +4,7 @@ Router.route('/', function () {
 
 Router.route('/signup', function(){
 	this.render('signup');
+	// layout.template('layout')
 }, {
 	name: 'signup',
 });
@@ -24,6 +25,13 @@ Router.route('/snutritionist', function(){
 	this.render('snutritionist');
 }, {
 	name: 'snutritionist',
+});
+
+
+Router.route('/profilepicture', function(){
+	this.render('profilepicture');
+}, {
+	name: 'profilepicture',
 });
 
 Router.route('/search', function () {
@@ -100,3 +108,4 @@ Router.onRun(function (){
     $('#simple-menu').click();
 	this.next()
 })
+

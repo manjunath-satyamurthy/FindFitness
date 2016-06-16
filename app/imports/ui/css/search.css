@@ -1,0 +1,139 @@
+input[type=range].cost-range {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 13.5px 0;
+}
+
+input[type=range].cost-range:focus {
+  outline: none;
+}
+
+input[type=range].cost-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: #2196f3;
+}
+
+input[type=range].cost-range::-webkit-slider-thumb {
+  height: 30px;
+  width: 30px;
+  border-radius: 17px;
+  background: #2196f3;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -13.5px;
+}
+
+input[type=range].cost-range {
+	width: 80%;
+	border-bottom: 0px;
+}
+
+#search-tab {
+	width: 100%;
+	display: inline;
+	white-space: nowrap;
+}
+
+#search-tab > div{
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	display: inline-block;
+	width: 50%;
+	background-color: #333333;
+}
+
+#search-tab > div > p {
+	padding: 2px 0px;
+}
+
+#search-tab > .active {
+	background-color: #444444;
+	border-bottom: 2px solid #00bcd4;
+}
+
+.search-content {
+	height: 100vh;
+}
+
+.trainer-type {
+	white-space: nowrap;
+	margin-bottom: 4%;
+	display: inline;
+}
+
+.trainer-type > div {
+	margin-top: 4%;
+	text-align: center;
+	display: inline-block;
+	width: 48%;
+}
+
+.trainer-type  > div > input {
+	height: auto;
+	width: auto;
+	margin-top: 0px;
+	color: #8BC34A;
+	display: inline-block;
+}
+
+.trainer-type > div > p {
+	display: inline-block;
+	color: white;
+	margin-left: 5%
+}
+
+.trainer-type > div > img {
+	vertical-align: middle;
+	margin-left: 10%;
+}
+
+#specialization {
+	margin-top: 6%;
+}
+
+.search-query {
+	text-align: center;
+	align-items: center;
+}
+
+.search-query > p, .nutrition-search > p {
+	margin-top: 12%;
+	color: white;
+}
+
+.search-query > p > span, .nutrition-search > p > span {
+	color: #5AAE76;
+	font-weight: bold;
+}
+
+#search-btn, #nut-search-btn {
+	background-color: #8BC34A;
+	box-shadow: none;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	font-family: Arial;
+	height: 40px;
+	width: 140px;
+	margin-top: 45px;
+	text-decoration: none;
+}
+
+#search-btn:focus, , #nut-search-btn:focus {
+	outline: none;
+}
+
+#display-time {
+	display: inline-block;
+   word-wrap: break-word;
+   width: 30%;
+}
+
+.nutrition-search {
+	text-align: center;
+}

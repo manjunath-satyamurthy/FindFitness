@@ -1,3 +1,81 @@
 <template name="search">
+	<div id="search-tab">
+		<div class="search-nav active" id="search-trainer" data-page="trainer">
+			<p>Trainer</p>
+		</div>
+		<div class="search-nav" id="search-nutritionist" data-page="nutritionist">
+			<p>Nutritionist</p>
+		</div>
+	</div>
+	{{ #HammerTouchArea gestureMap=searchGestures }}
+		<div class="search-content">
+			{{#if isPage 'trainer'}}
+				{{>trainer}}
+			{{/if}}
+
+			{{#if isPage 'nutritionist'}}
+				{{>nutritionist}}
+			{{/if}}
+		</div>
+	{{ /HammerTouchArea }}
+</template>
+
+<template name="trainer">
+	<div class="trainer-type">
+		<div id="personal-p" name="personal">
+		<p>Personal</p>
+		<input class="custom-check" type="checkbox" name="personal" style="display: none;">
+		<img class="uncheck-replace active" name="personal" src="images/unchecked.png">
+		<img class="check-replace" name="personal" src="images/checked.png" style="display: none;">
+		</div>
+
+		<div id="group-p" name="group">
+		<p>Group</p>
+		<input class="custom-check" type="checkbox" name="group" style="display: none;">
+		<img class="uncheck-replace active" name="group" src="images/unchecked.png">
+		<img class="check-replace" name="group" src="images/checked.png" style="display: none;">
+		</div>
+	</div>
+	<div class="search-query">
+		<select id="specialization">
+			<option>Specialization</option>
+			<option value="gym">Gym</option>
+			<option value="swimming">Swimming</option>
+			<option value="aerobics">Aerobics</option>
+			<option value="sports">Sports</option>
+			<option value="others">Others</option>
+		</select>
+		<p>Cost Below &lt; <span id="display-cost">10</span> ‎€/hr</p>
+		<input class="cost-range" id="cost" type="range" name="cost" min="1" max="10" step="1">
+
+		<p>Preferred Time <span id="display-time">00:00 - 00:30</span></p>
+		<input class="cost-range" id="preferred-time" type="range" name="time" min="1" max="48" step="1">
+
+		<button id="search-btn" type="submit">Search</button>
+	</div>
+
+
+</template>
+
+<template name="nutritionist">
+
+	<div class="nutrition-search">
+		<select id="nut-specialization">
+			<option>Specialization</option>
+			<option value="gym">Gerontological</option>
+			<option value="swimming">Sports Dietetics</option>
+			<option value="aerobics">Pediatric Nutrition</option>
+			<option value="sports">Renal Nutrition</option>
+			<option value="others">Oncology Nutrition</option>
+			<option value="others">Others</option>
+		</select>
+		<p>Cost Below &lt; <span id="display-cost">10</span> ‎€/session</p>
+		<input class="cost-range" id="cost" type="range" name="cost" min="1" max="10" step="1">
+
+<!-- 		<p>Preferred Time <span id="display-time">00:00 - 00:30</span></p>
+		<input class="cost-range" id="preferred-time" type="range" name="time" min="1" max="48" step="1"> -->
+
+		<button id="nut-search-btn" type="submit">Search</button>
+	</div>
 	
 </template>

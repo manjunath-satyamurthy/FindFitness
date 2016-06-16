@@ -7,6 +7,7 @@ import '../imports/ui/templates/search.html';
 import '../imports/ui/templates/subscriptions.html';
 import '../imports/ui/templates/messages.html';
 import '../imports/ui/templates/requests.html';
+import '../imports/ui/templates/profile.html';
 
 import '../imports/client/routes.js';
 import '../imports/client/login.js';
@@ -15,3 +16,4 @@ import '../imports/client/app_layout.js';
 import '../imports/client/jquery.sidr.min.js';
 
 import '../imports/ui/css/app_layout.css';
+import '../imports/ui/css/profile.css';

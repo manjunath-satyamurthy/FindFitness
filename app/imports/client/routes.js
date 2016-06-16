@@ -28,10 +28,10 @@ Router.route('/snutritionist', function(){
 });
 
 
-Router.route('/profilepicture', function(){
-	this.render('profilepicture');
+Router.route('/profilepic', function(){
+	this.render('profilepic');
 }, {
-	name: 'profilepicture',
+	name: 'profilepic',
 });
 
 Router.route('/search', function () {
@@ -91,6 +91,21 @@ Router.route('/requests', function () {
 	},
 	{
 		name: 'requests',
+	}
+);
+
+Router.route('/profile', function () {
+	
+	this.layout('app_layout', {
+  		data: {
+  			'pageTitle': 'Profile'
+  		}
+ 	})
+
+  	this.render('profile');
+	},
+	{
+		name: 'profile',
 	}
 );
 

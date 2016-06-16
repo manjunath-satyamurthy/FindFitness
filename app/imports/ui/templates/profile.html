@@ -1,0 +1,51 @@
+<template name="profile">
+<div class="container">
+
+<div class = "profile-btn">
+
+<div class ="action-button shadow animate blue">
+<a href="{{pathFor 'perdetails'}}">Personal Details</a>
+</div>
+
+<div>
+<a href="{{pathFor 'prodetails'}}" class="action-button shadow animate red">Professional Details</a>
+</div>
+
+<div>
+<a href="{{pathFor 'profilepic'}}" class="action-button shadow animate color">Profile Picture</a>
+</div>
+
+<div>
+<a href="{{pathFor 'accdetails'}}" class="action-button shadow animate yellow">Account Details</a>
+</div>
+
+</div>
+</div>
+</template>
+
+
+<template name="perdetails">
+	
+</template>
+
+<template name="prodetails">
+	
+</template>
+
+<template name="profilepic">
+<div class="container">
+    <div class="profilepic">
+      <p>Add your Profile picture</p>
+
+      {{#if photo}}
+      <img src={{photo}} />
+      {{else}}
+      <img src="images/camera.png">
+      {{/if}}
+    </div>	
+</div>
+</template>
+
+<template name="accdetails">
+	
+</template>

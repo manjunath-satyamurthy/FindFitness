@@ -117,23 +117,6 @@ input[type=date]::-webkit-inner-spin-button{
     padding-top: 35%;
 }
 
-.profile-picture {
-	text-align: center;
-}
-.profile-picture > img{
-	width: 200px;
-    height: 200px;
-    margin-top: 10%;
-    border-radius: 50%;
-}
-
-.profile-picture > p {
-	text-align: center;
-	font-size: 18px;
-	color: white;
-	padding-top: 5%
-}
-
 .flex {
   display: flex;
 }

@@ -7,7 +7,6 @@ Template.app_layout.onRendered(function layoutONRendered() {
     const route_path = Router.current().route.getName()
     $('.clickable').removeClass('active')
     $('#'+route_path).addClass('active')
-    console.log("here too")
 });
 
 Template.app_layout.events({

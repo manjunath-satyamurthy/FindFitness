@@ -110,7 +110,6 @@ Router.route('/logout', function () {
 
 Router.onRun(function (){
 	const route_path = Router.current().route.getName()
-	console.log(route_path)
 	$('.clickable').removeClass('active')
 	$('#'+route_path).addClass('active')
     $('#simple-menu').click();

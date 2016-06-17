@@ -2,9 +2,14 @@ import { Template } from 'meteor/templating';
 import { Blaze } from 'meteor/blaze';
 
 import { EndUser } from '../api/enduser.js';
-
 import './signup.html';
 import './body.html';
+import './trainer.html';
+import './nutritionist.html';
+import './register.html';
+import './search.html';
+import './login.html';
+
 
 // Template.login.events({
 //     'click .forms': function(){
@@ -206,9 +211,6 @@ Template.nutritionist.onRendered(function () {
 // });
 
 
-
-
-
 Template.register.events({
     'click #registerButton': function(event){
         event.preventDefault();
@@ -251,13 +253,32 @@ Template.login.events({
 });
 
 
-Accounts.createUser({
-    email: email,
-    password: password
-}, function(error){
-    if(error){
-        console.log(error.reason); // Output error if registration fails
-    } else {
-        Router.go('/contentAndHeader'); // Redirect user if registration succeeds
-    }
+// Accounts.createUser({
+//     email: email,
+//     password: password
+// }, function(error){
+//     if(error){
+//         console.log(error.reason); // Output error if registration fails
+//     } else {
+//         Router.go('/contentAndHeader'); // Redirect user if registration succeeds
+//     }
+// });
+
+
+// trainer profile
+
+Router.route('/trainerPro', function () {
+
+    this.render('trainerPro');
+},
+{
+    name: 'trainer'
+});
+
+Router.route('/nutritionistPro', function () {
+
+    this.render('nutritionistPro');
+},
+{
+    name: 'nutritionistPro'
 });

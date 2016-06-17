@@ -1,0 +1,63 @@
+
+<body>
+
+</body>  
+<template name="nutritionistPro">
+  <header>
+         <img id="img3" src="/images/one.svg">
+         <h1 id="title">FindFitness</h1> 
+         <img id="img4" src="/images/two.svg">  
+  </header>   
+
+  <br><br><br><br><br><br><br><br>
+  
+   <form id="login2">
+
+    
+          <div>
+          <h2 id="title3">Profile Name</h2>
+          </div>
+
+          <div class= "profile1">  
+           <div class= "profile">
+            {{#if photo}}
+            <img src={{photo}}  width="100" height="100" style="border-radius: 50%;" />
+            {{/if}}
+          </div>
+           </div>
+
+           
+          <div class="inputLabels">
+
+            
+
+         
+           
+              <div class="line">
+                <label id="inputtxt" for="input">Specialization</label>
+                <input id="reg" type="text" name="specialization"> 
+
+                      
+               
+              </div>
+
+              <div class="line">
+                <label id="inputtxt" for="input">Experience</label>
+                <input id="reg" type="text" name="experience" >
+              </div>
+
+              <div class="line">
+                <label id="inputtxt">Cost per session in euro</label>
+                <input  id="reg" type="number" name="cost">
+                
+              </div><br>
+
+              
+             </div>
+
+              </form> 
+                 <div>
+       <button class="btn">Submit</button>
+       </div>
+
+</template>           

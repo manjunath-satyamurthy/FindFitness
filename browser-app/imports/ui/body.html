@@ -8,7 +8,6 @@
       <img id = "img4" src="/images/two.svg">
     </header>
 
-
     <div class = navigationBar>
       <ul style="list-style:none;">
         <li class="searchNav">
@@ -35,135 +34,10 @@
           <img class = "logoutIcon" src="/images/logout.svg"></a>
         </li>
       </ul> 
-
     </div> 
 
 <!--    <div class="content">
       <div class="secondHeader">
       </div>
     </div> -->
-  </template>
-
-
-
-  <template name= "login">
-    
-      <div id="login1">
-        <img id = "img1" src="/images/one.svg">
-        <h1 id="label1">FindFitness</h1>
-        <img id = "img2" src="/images/two.svg">
-      
-      <form id="loginForm" autocomplete="on">
-      <div id="input1">
-        <input  id="username" name1="email" type="email" placeholder="Email Address"/>
-      </div>
-      <div id="input2">
-        <input  id="password" name1="password" type="password" placeholder="Password"/>
-      </div>
-        <input id="loginButton" type="submit" value="Login">
-        </form>
-        <p id="question">Are you not a user yet ?</p>
-
-       <a href="{{pathFor route='register'}}"><p id="signup">Sign Up</p></a>
-      </div>
-  </template>
-
-
-  
-
-  <template name= "register">
-    <div id="firstHeader">
-      <div id="firstHeadercomponenets">
-      <img id = "img3" src="/images/one.svg">
-
-      <h1 id="firstHead">FindFitness</h1>
-
-      <img id = "img4" src="/images/two.svg">
-    </div>
-    </div>      
-     
-      <form id="registerForm" autocomplete="on">
-      <div id="input1">
-        <input  id="username" name="email" type="email" placeholder="Email Address"/>
-      </div>
-      <div id="input2">
-        <input  id="password" name="password" type="password" placeholder="Password"/>
-      </div>
-        <input id="registerButton" type="submit" value="Register">
-        </form>
-  </template>
-
-  
-
-   <template name="search"> 
-    {{> contentAndHeader}}
-
-    <div class="content">
-    <div class="secondHeader">
- 
-        <button id='searchHead1'>Trainer</button> 
-        <button id='searchHead2'>Nutritionist</button> 
-
-          <p id="searchTab">Search Location</p> 
-          <input id="geoLocation" name="SearchLocation"/> 
-
-          <form>
-            <p id="searchTab">Perasonal</p> 
-            <input type="radio" name="trainer" value="Personal">
-            <p id="searchTab">Group</p>
-            <input type="radio" name="trainer" value="Group"> 
-          </form>
-          <p id="searchTab">Maximum Cost</p> 
-          <input name="MaxCost"/>
-     
-          <p id="searchTab">Preferred Timings</p> 
-          <input name="PreferredTime"/> 
- 
-          <p id="searchTab">Specialization</p> 
-          <input name="Specialization"/> 
-
-          <button id="searchButton">Search Trainer</button>
-
-      </div>
-      </div>
-  </template>
-   
-
-
-  <template name="nutritionist">
-    {{> contentAndHeader}}
-
-    <div class="content">
-    <div class="secondHeader">
- 
-        <button id='searchHead1'>Trainer</button> 
-        <button id='searchHead2'>Nutritionist</button>
-
-          <p id="searchTab">Search Location</p> 
-          <input id="geoLocation" name="SearchLocation"/>
-          <p id="searchTab">Maximum Cost</p> 
-          <input name="Specialization"/>
-          <p id="searchTab">Specialization</p> 
-          <input name="Specialization"/>
-
-        <button id="searchButton1">Search Nutritionist</button>
-
-      </div>
-      </div>
-
-  </template>
-
-
-
-  <template name="result">
-    {{> contentAndHeader}}
-
-    <div class="content">
-    <div class="secondHeader">
-
-      <h2 id="resultHead">Results</h2>
-
-
-    </div>
-    </div>
   </template>

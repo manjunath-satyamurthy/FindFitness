@@ -2,7 +2,6 @@ import { Template } from 'meteor/templating';
 
 
 import '../ui/css/signup.css';
-import { users } from '../api/collections.js';
 
 Template.signup.onCreated(function signupOnCreated() {
   console.log("signup");

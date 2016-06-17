@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 
 import '../ui/css/login.css'
-import '../api/collections.js'
+import '../api/dbapi.js'
 
 Template.login.onCreated(function loginOnCreated() {
 

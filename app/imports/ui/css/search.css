@@ -90,7 +90,7 @@ input[type=range].cost-range {
 	margin-left: 10%;
 }
 
-#specialization {
+#trainer-specialization {
 	margin-top: 6%;
 }
 
@@ -109,7 +109,7 @@ input[type=range].cost-range {
 	font-weight: bold;
 }
 
-#search-btn, #nut-search-btn {
+#trainer-search-btn, #nut-search-btn {
 	background-color: #8BC34A;
 	box-shadow: none;
 	border: none;
@@ -128,7 +128,7 @@ input[type=range].cost-range {
 	outline: none;
 }
 
-#display-time {
+#trainer-display-time {
 	display: inline-block;
    word-wrap: break-word;
    width: 30%;

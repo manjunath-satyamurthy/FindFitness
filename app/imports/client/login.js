@@ -1,14 +1,17 @@
 import { Template } from 'meteor/templating';
+import { Meteor } from 'meteor/meteor';
 
 import '../ui/css/login.css'
 import '../api/collections.js'
 
 Template.login.onCreated(function loginOnCreated() {
+
 });
 
 Template.login.onRendered(function loginOnRendered() {
   $('html').css("overflow-y", "visible")
   $('html').css("overflow-x", "hidden")
+
 });
 
 Template.login.events({
@@ -19,11 +22,19 @@ Template.login.events({
 		const password = event.target.password.value;
 		is_login_valid = validate_login(username, password);
 		if (is_login_valid){
+			var acctype = users.find({'username': username,
+			'password': password})
+
+			Session.set('acctype',event.target.acctype.value)
+			// alert(acctype)
 			Router.go('search')
 		}
 		else {
 			Router.go('search')
 			alert("invalid login")
+
 		}
 	}
 })
+
+

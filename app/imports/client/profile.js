@@ -1,6 +1,8 @@
 import { Template } from 'meteor/templating';
+import { Meteor } from 'meteor/meteor';
 
 import '../ui/css/profile.css'
+import '../ui/css/login.js'
 import { users } from '../api/collections.js'
 
 //Profile Picture
@@ -49,3 +51,29 @@ import { users } from '../api/collections.js'
     });
 
   });
+
+// Template.profile.onRendered(function profileOnRendered() {
+
+
+// });
+
+Template.profile.helpers({
+    // return Meteor.profile().fname;
+      details: function () {
+        if(Session.get('acctype')){
+          return users.find({'username': 1});
+        }else{
+          return users.find();
+        }
+    }
+});
+
+//   Meteor.subscribe("userData", function () {
+//   if (this.userId) {
+//     return Meteor.users.find({_id: this.userId},
+//                              {fields: {'username': 1, 'email': 1}});
+//     alert(username)
+//   } else {
+//     this.ready();
+//   }
+// });

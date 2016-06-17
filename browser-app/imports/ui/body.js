@@ -6,7 +6,8 @@ import { EndUser } from '../api/enduser.js';
 import './signup.html';
 
 import './trainer.html';
-import './nutritionist.html';
+import './nutritionist1.html';
+import './chat.html';
 
 
 
@@ -69,11 +70,11 @@ Router.route('/register',function () {
 
 });
 
-Router.route('/nutritionist',function () {
+Router.route('/nutritionist1',function () {
     
-    this.render('nutritionist');    
+    this.render('nutritionist1');    
 },{
-    name: 'nutritionist'
+    name: 'nutritionist1'
 
 });
 
@@ -266,15 +267,15 @@ Template.nutritionist.onRendered(function () {
 //   },
 // });
 
-Template.signup.helpers({
+Template.trainer.helpers({
     photo:function(){
         return Session.get("photo");
     }
 
 });
 
-  Template.signup.events({
-    'click .profile': function () {
+  Template.trainer.events({
+    'click .profile1': function () {
       var cameraOptions = {
       width: 600,
       height: 700,
@@ -351,3 +352,19 @@ Template.login.events({
 //         Router.go('/contentAndHeader'); // Redirect user if registration succeeds
 //     }
 // });
+
+
+
+
+
+
+
+
+
+Router.route('/chat', function () {
+
+    this.render('chat');
+},
+{
+  name: 'chat'
+});

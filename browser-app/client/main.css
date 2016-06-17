@@ -322,6 +322,8 @@ h2#resultHead
   margin-top: 0.5%;
   font-family: arial;
 }
+
+
 /*signup css*/
 
   /*body {
@@ -329,18 +331,6 @@ h2#resultHead
 */
     
 
-
-
-header{
-  position: absolute;
-  background-color: #439DBB;
-  height: 100px;
-  width: 100%;
-  text-align: center;
-  font-size: 40px;
-  
-
-}
 
 h1#title{
     display: inline;

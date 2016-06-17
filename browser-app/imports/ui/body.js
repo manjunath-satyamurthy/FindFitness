@@ -5,7 +5,6 @@ import { EndUser } from '../api/enduser.js';
 
 import './signup.html';
 
-import './body.html';
 import './trainer.html';
 import './nutritionist.html';
 
@@ -28,6 +27,7 @@ Router.route('/', function () {
 	name: 'login'
 });
 
+
  Router.route('/signup',function () {
 	
     this.render('signup');	
@@ -35,6 +35,7 @@ Router.route('/', function () {
 {
 	name: 'signup'
 });
+
 
 Router.route('/search',function () {
 	
@@ -265,6 +266,13 @@ Template.nutritionist.onRendered(function () {
 //   },
 // });
 
+Template.signup.helpers({
+    photo:function(){
+        return Session.get("photo");
+    }
+
+});
+
   Template.signup.events({
     'click .profile': function () {
       var cameraOptions = {
@@ -283,20 +291,12 @@ Template.nutritionist.onRendered(function () {
   });
 
 
-
-
-
-
-
-
-
-
-
 Template.signup.helpers({
   tasks() {
     return Tasks.find({});
   },
 });
+
 
 Template.register.events({
     'click #registerButton': function(event){
@@ -341,13 +341,13 @@ Template.login.events({
 
 
 
-Accounts.createUser({
-    email: email,
-    password: password
-}, function(error){
-    if(error){
-        console.log(error.reason); // Output error if registration fails
-    } else {
-        Router.go('/contentAndHeader'); // Redirect user if registration succeeds
-    }
-});
+// Accounts.createUser({
+//     email: email,
+//     password: password
+// }, function(error){
+//     if(error){
+//         console.log(error.reason); // Output error if registration fails
+//     } else {
+//         Router.go('/contentAndHeader'); // Redirect user if registration succeeds
+//     }
+// });

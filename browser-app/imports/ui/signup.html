@@ -2,7 +2,7 @@
 
 </body>  
 <template name="signup">
-  <header id = "signupHeader">
+  <header>
          <img id="img3" src="/images/one.svg">
          <h1 id="title">FindFitness</h1> 
          <img id="img4" src="/images/two.svg">     
@@ -11,10 +11,18 @@
 <br><br><br><br><br><br><br><br>
 
     <form id="login1">
+
     
           <div>
           <h2 id="title2">Sign Up</h2>
           </div>
+
+           <div class= "profile">
+            {{#if photo}}
+            <img src={{photo}}  width="100" height="100" style="border-radius: 50%;" />
+            {{/if}}
+          </div>
+
           <div class="inputLabels">
 
             <label id="inputtxt">User Type</label>
@@ -66,28 +74,49 @@
                 <label id="inputtxt">Mobile Number</label>
                 <input id="reg" type="text" name="tel">
               </div>
+
+ 
+              <div class="line" id="loc" style="visibility:hidden;">
+                <label id="inputtxt">Location</label>
+                <input id="reg" type="text" name="loc">
+               </div>
+
               
               <div class="line" id="spec" style="visibility:hidden;">
                 <label id="inputtxt">Specialization</label>
                 <input id="reg" type="text" name="spec">
               </div>
 
-            </div>
+              <div class="line" id="exp" style="visibility:hidden;">
+                <label id="inputtxt">Experience</label>
+                <input id="reg" type="text" name="exp">
+               </div>
+ 
+                </div>
+
+               
 
 
             <!--Nutritionist-->
             <div id="nutritionist" style="visibility:hidden;">
             
-            </div>  
+            </div> 
 
    
       </div>
-       <button class="btn">Create Account</button>
+
     </form>
 
+    <div>
+       <button class="btn" onclick="test()">Submit</button>
+       </div>
+       
+
+       
 
 
-    <script type="text/javascript">
+
+      <script type="text/javascript">
       function showTypes(){
           var selectBox = document.getElementById('usertype');
           console.log("selct box",selectBox);
@@ -108,6 +137,9 @@
             if(document.getElementById('spec').style.visibility='hidden'){
               document.getElementById('spec').style.visibility='visible';
             }
+            if(document.getElementById('exp').style.visibility='hidden'){
+              document.getElementById('exp').style.visibility='visible';
+            }
           }else{
             document.getElementById('trainer').style.visibility = 'hidden';
           }
@@ -123,6 +155,9 @@
             }
             if(document.getElementById('loc').style.visibility='visible'){
               document.getElementById('loc').style.visibility='hidden';
+            }
+            if(document.getElementById('exp').style.visibility='visible'){
+              document.getElementById('exp').style.visibility='hidden';
             }
 
           }else{
@@ -151,26 +186,42 @@
           return false;
       }
 
+      function test(){
+        var selectBox = document.getElementById('usertype');
+          console.log("selct box",selectBox);
+         var userInput = selectBox.options[selectBox.selectedIndex].value;
+         console.log("user index",userInput);
+
+         if(userInput=='trainer'){
+          if(document.getElementById('trainer')){
+            console.log('inside trainer');
+            window.location = 'trainer';
+          }
+         }
+
+         if(userInput=='nutritionist'){
+          if(document.getElementById('nutritionist')){
+            console.log('inside nutritionist');
+            window.location = 'nutritionist';
+          }
+         }
+
+         if(userInput=='client'){
+          if(document.getElementById('client')){
+            console.log('inside client');
+            window.location = 'client';
+          }
+         }
+
+
+        
+      }
+
+
+     
+
     </script>
 
 
-    <script>
-var x = document.getElementById("demo");
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
-</script>
-
-
-
-</template>
+     </template>

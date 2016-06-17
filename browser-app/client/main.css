@@ -12,7 +12,7 @@ a:hover,
 body {
   font-family: sans-serif;
   background-color: rgb(66,66,66);
-  /*background-attachment: fixed;*/
+  background-attachment: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -34,6 +34,7 @@ ul {
 }
 
 
+
 img#img1{
   width: 84px;
   height: 84px;
@@ -42,6 +43,7 @@ img#img1{
 img#img2{
   width: 44px;
   height: 44px;
+  
   padding:0px;
 
 }
@@ -152,6 +154,7 @@ button#searchButton1{
   width: 200px;
 }
 
+
 p#question {
   color: #00bcd4;
   font-family: Arial;
@@ -171,7 +174,9 @@ p#signup {
 header#firstHeader{
   background-color: #439DBB;
   height: 86px;
+  
   width: 100%;
+  
   top: 0px;
   border-bottom: 2px solid #ccc;
 }
@@ -180,6 +185,8 @@ img#img1{
   background: transparent;
   color: rgb(255,255,255);
 }
+
+
 
 .secondHeader{
   background-color: #439DBB;
@@ -256,6 +263,7 @@ button#searchHead1:hover,  button#searchHead2:hover {
 
 
 
+
 .secondHeader > input{
   text-align: center;
   background: transparent;
@@ -321,7 +329,9 @@ h2#resultHead
 */
     
 
-header#signupHeader{
+
+
+header{
   position: absolute;
   background-color: #439DBB;
   height: 100px;
@@ -338,16 +348,12 @@ h1#title{
     font-family: arial;
 }
   
-img#image1{
-  height: 80px;
-}
 
-img#image2{
-  height: 90px;
-}
+
+
 form#login1 {
   text-align: center;
-   height: 650px;
+   height: 900px;
    background-color: #555555;
    width: 50%;
    margin-left: auto;
@@ -359,8 +365,10 @@ h2#title2{
     color: white;
     text-align: center;
     background-color: #439DBB;
-    font-size: 30px;
+    font-size: 40px;
     font-family: arial;
+    height: 60px;
+    
 }
 
 /*label{
@@ -374,7 +382,7 @@ h2#title2{
 input#reg, select#usertype {
 text-align: center;
     color: white;
-    font-size: 30px;
+    font-size: 10px;
     font-weight: normal;
     line-height: normal;
     font-family: arial;
@@ -398,13 +406,17 @@ input#reg, select#usertype{
 
 
 .btn{
- margin-top: 30px;
+ /*margin-top: -100;*/
+ margin-bottom: -6S0%;
+ 
  width:200px;
  height: 40px;
  font-size: 20px;
  font-family: arial;
  background-color: #8BC34A;
  color: white;
+ margin-left: 600px;
+ 
  
 }
 
@@ -424,13 +436,14 @@ label#inputtxt{
 .inputLabels{
   text-align: center;
   margin-left: 20%;
+  margin-top: 10%;
   font-family: arial;
 }
 
 select#usertype{
 
   border-radius: none;
-  width: 220px;
+  width: 230px;
   height: 40px;
   font-size: 15px;
 
@@ -450,25 +463,74 @@ select#usertype{
   border-color: #8c8c8c;
 }
 
-.results-list > div.show > img {
-  vertical-align: middle;
-  padding-left: 4%;
+.profile {
+  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  
+  
 }
+
+.profile {
+  background-image: url('images/camera.png');
+}
+
+
+
 
 .results-list > div.show > p.distance {
 padding-right: 4%;
+}
+
+h2#title3{
+    color: white;
+    text-align: center;
+    background-color: #439DBB;
+    font-size: 60px;
+    font-family: arial;
+    height: 100px;
 }
 
 .results-list > .show > .tn-name {
   margin: auto auto;
 }
 
+
+.profile1 {
+  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  float: left;
+  margin-top: -150px;
+  }
+  
 .results-list div.hide {
     background-image: url('images/ash.jpg');
     max-height: 0;
     transition: max-height 0.70s ease-out;
     overflow: hidden;
     margin: 0px;
+}
+
+
+
+
+
+
+
+
+.profile1 {
+  background-image: url('images/camera.png');
 }
 
 .results-list.active div.hide {
@@ -480,6 +542,16 @@ padding-right: 4%;
 .results-count {
   text-align: center;
   color: white;
+}
+
+
+form#login2 {
+  text-align: center;
+   height: 600px;
+   background-color: #555555;
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto; 
 }
 
 .results-list > .hide > div > p {

@@ -27,3 +27,7 @@ accounts-base
 jeremy:geocomplete
 mrt:googlemaps
 dburles:google-maps
+cfs:standard-packages
+cfs:gridfs
+mdg:camera
+session

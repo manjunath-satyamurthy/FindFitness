@@ -4,7 +4,14 @@ import { Blaze } from 'meteor/blaze';
 import { EndUser } from '../api/enduser.js';
 
 import './signup.html';
+
 import './body.html';
+import './trainer.html';
+import './nutritionist.html';
+
+
+
+// Meteor.publish(“images”, function(){ return Images.find(); });
 
 // Template.login.events({
 //     'click .forms': function(){
@@ -45,6 +52,13 @@ Router.route('/contentAndHeader',function () {
 	name: 'contentAndHeader'
 });
 
+Router.route('/trainer',function () {
+  
+    this.render('trainer');  
+},{
+  name: 'trainer'
+
+});
 
 Router.route('/register',function () {
 	
@@ -60,6 +74,13 @@ Router.route('/nutritionist',function () {
 },{
     name: 'nutritionist'
 
+});
+
+Template.signup.events({
+    'click #myp': function(event){
+
+    Router.go('trainer');     
+    }
 });
 
 Router.route('/result',function () {
@@ -82,10 +103,25 @@ Template.nutritionist.events({
     }
 });
 
+Template.trainer.helpers({
+  editing: function(){
+    return Session.equals('reg', this._id);
+  } 
+});
+
 Template.search.events({
     'click #searchHead2': function(event){
         Router.go('nutritionist');
     }
+});
+
+Template.trainer.events({
+  'click .deleteItem': function(){
+    Items.remove(this._id);
+  },
+  'click .editItem': function(){
+    Session.set('reg', this._id);
+  }
 });
 
 // result page
@@ -131,6 +167,13 @@ Template.search.onRendered(function () {
     });
 
   });
+
+
+// Template.signup.helpers({
+//     photo: function () {
+//       return Session.get("photo");
+//     }
+  // });
 
 Template.signup.onRendered(function () {
 
@@ -222,9 +265,38 @@ Template.nutritionist.onRendered(function () {
 //   },
 // });
 
+  Template.signup.events({
+    'click .profile': function () {
+      var cameraOptions = {
+      width: 600,
+      height: 700,
+      correctOrientation: true,
+      targetWidth:400, 
+      targetHeight:400,
+      allowEdit: true,
+      };
+
+      MeteorCamera.getPicture(cameraOptions, function (error, data) {
+        Session.set("photo", data);
+      });
+    }
+  });
 
 
 
+
+
+
+
+
+
+
+
+Template.signup.helpers({
+  tasks() {
+    return Tasks.find({});
+  },
+});
 
 Template.register.events({
     'click #registerButton': function(event){
@@ -266,6 +338,7 @@ Template.login.events({
      }
 
 });
+
 
 
 Accounts.createUser({

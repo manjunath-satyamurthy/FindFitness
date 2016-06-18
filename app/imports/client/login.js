@@ -30,7 +30,7 @@ Template.login.events({
 			console.log(acctype)
 			console.log(username)
 			console.log(userid)
-
+			Session.set('user', result[0])
 			Session.set('acctype',acctype)
 			Session.set('username',username)
 			Session.set('userid',userid)

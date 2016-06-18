@@ -26,3 +26,19 @@
 	border-radius: 5px;
 	font-weight: bold;
 }
+
+.request-action {
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	font-size: 0;
+	width: 0px;
+	height: 0px;
+}
+
+.status-change {
+	margin-right: 10px;
+}

@@ -84,8 +84,29 @@ Router.route('/profile', function () {
 );
 
 Router.route('/results', function () {
-  	this.render('results');
+	query = this.params.query
+
+	selected = []
+	if (query.personal == 'true'){
+		selected.push('personal')
+	}
+	if (query.group == 'true'){
+		selected.push('group')
+	}
+
+	from_time = new Date('2016-01-01T'+query.from+':00Z')
+	to_time = new Date('2016-01-01T'+query.to+':00Z')
+
+	available_trainers = find_trainers(
+		selected, query.splz, query.cost, from_time, to_time)
+
+  	this.render('results',{
+  		data: {
+  			results: available_trainers,
+  			results_count: available_trainers.length
+  		}});
 	},
+
 	{
 		name: 'results',
 	}
@@ -127,6 +148,6 @@ Router.onRun(function (){
 	$('.clickable').removeClass('active')
 	$('#'+route_path).addClass('active')
     $('#simple-menu').click();
-	this.next()
+	// this.next()
 })
 

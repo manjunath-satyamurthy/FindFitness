@@ -22,10 +22,12 @@ Template.login.events({
 		const password = event.target.password.value;
 		is_login_valid = validate_login(username, password);
 		if (is_login_valid){
-			var acctype = users.find({'username': username,
-			'password': password})
+			var result = users.find({'username': username},
+			{'password': password}).fetch();
+			var acctype = result[0].acctype;
+			console.log(acctype)
 
-			Session.set('acctype',event.target.acctype.value)
+			Session.set('acctype',acctype)
 			// alert(acctype)
 			Router.go('search')
 		}

@@ -2,8 +2,7 @@ import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 
 import '../ui/css/profile.css'
-import '../ui/css/login.js'
-import { users } from '../api/collections.js'
+import '../api/dbapi.js'
 
 //Profile Picture
   Template.profilepic.events({
@@ -57,23 +56,9 @@ import { users } from '../api/collections.js'
 
 // });
 
-Template.profile.helpers({
+Template.prodetails.helpers({
     // return Meteor.profile().fname;
-      details: function () {
-        if(Session.get('acctype')){
-          return users.find({'username': 1});
-        }else{
-          return users.find();
-        }
+      get_acctype: function (acctype) {
+        return acctype == Session.get('acctype')
     }
 });
-
-//   Meteor.subscribe("userData", function () {
-//   if (this.userId) {
-//     return Meteor.users.find({_id: this.userId},
-//                              {fields: {'username': 1, 'email': 1}});
-//     alert(username)
-//   } else {
-//     this.ready();
-//   }
-// });

@@ -55,9 +55,35 @@ Router.route('/messages', function () {
 
 Router.route('/requests', function () {
 	
+	user = Session.get('user')
+	if (user.user_type == 'user'){
+		var query = {
+			'requester': user._id,
+		}
+	}
+	else {
+		var query = {
+			'requested': user._id
+		}
+	}
+	
+	alert(query.requester)
+	reqs = requests.find(query).fetch()
+
+	alert(reqs.length)
+
+	for (i=0; i< reqs.length; i++){
+		if (reqs[i].status == 'waiting'){
+			reqs[i]['pay'] = 'inactive'
+		}
+		reqs[i]['related'] = users.find({_id: reqs[i].requested}).fetch()[0]
+	}
+
 	this.layout('app_layout', {
   		data: {
-  			'pageTitle': 'Requests'
+  			'pageTitle': 'Requests',
+  			'requests': reqs,
+  			'requests_count': reqs.length
   		}
  	})
 

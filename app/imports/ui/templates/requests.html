@@ -1,17 +1,35 @@
 <template name="requests">
 	<div class="results-count">
-		<p>{{ requests_count }}0 Requests</p>
+		<p>{{ requests_count }} Requests</p>
 	</div>
 
-<!-- {{#each requests}} -->
+{{#if is_user user.user_type}}
+{{#each requests}}
 	<div class="results-list">
 		<div class="show">
-			<img src="images/default-profile.svg" width="45px" height="45px">
-			<p class="tn-name">Bullbull</p>
-			<p id="waiting" class="tn-name">waiting</p>
-			<p id="pay" class="inactive">PAY</p>
+			<img class="requests-img" src="images/default-profile.svg" width="45px" height="45px">
+			<p class="tn-name">{{ related.firstname }}</p>
+			<p id="{{ status }}" class="tn-name">{{ status }}</p>
+			<p id="pay" class="{{ pay }}">PAY</p>
 		</div>
 	</div>
-<!-- {{/each}} -->
+{{/each}}
+
+{{else}}
+
+{{#each requests}}
+	<div class="results-list">
+		<div class="show">
+			<img class="requests-img" src="images/default-profile.svg" width="45px" height="45px">
+			<p class="tn-name">{{ related.firstname }}</p>
+			<select class="request-action">
+				<option value="1">Accept</option>
+				<option value="0">Cancel</option>
+			</select>
+			<p id="{{ status }}" class="status-change">{{ status }}</p>
+		</div>
+	</div>
+{{/each}}
+{{/if}}
 
 </template>

@@ -25,21 +25,20 @@ Template.login.events({
 			var result = users.find({'username': username},
 			{'password': password}).fetch();
 			var acctype = result[0].acctype;
-			// var username = result[1].username;
 			var userid = result[0]._id;
-			console.log(acctype)
-			console.log(username)
-			console.log(userid)
 			Session.set('user', result[0])
 			Session.set('acctype',acctype)
 			Session.set('username',username)
 			Session.set('userid',userid)
-			Router.go('search')
+			if (result[0].user_type == 'user'){
+				Router.go('search')
+			}
+			else {
+				Router.go('requests')
+			}
 		}
 		else {
 			Router.go('search')
-			alert("invalid login")
-
 		}
 	}
 })

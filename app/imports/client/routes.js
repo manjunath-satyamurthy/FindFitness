@@ -12,7 +12,8 @@ Router.route('/search', function () {
 	
 	this.layout('app_layout', {
   		data: {
-  			'pageTitle': 'Search'
+  			'pageTitle': 'Search',
+  			'user': Session.get('user')
   		}
  	})
 
@@ -27,7 +28,8 @@ Router.route('/subscriptions', function () {
 	
 	this.layout('app_layout', {
   		data: {
-  			'pageTitle': 'Subscriptions'
+  			'pageTitle': 'Subscriptions',
+  			'user': Session.get('user')
   		}
  	})
 
@@ -42,7 +44,8 @@ Router.route('/messages', function () {
 	
 	this.layout('app_layout', {
   		data: {
-  			'pageTitle': 'Messages'
+  			'pageTitle': 'Messages',
+  			'user': Session.get('user')
   		}
  	})
 
@@ -55,9 +58,39 @@ Router.route('/messages', function () {
 
 Router.route('/requests', function () {
 	
+	user = Session.get('user')
+	if (user.user_type == 'user'){
+		var query = {
+			'requester': user._id,
+		}
+	}
+	else {
+		var query = {
+			'requested': user._id
+		}
+	}
+	
+	reqs = requests.find(query).fetch()
+
+	for (i=0; i< reqs.length; i++){
+		if (reqs[i].status == 'waiting'){
+			reqs[i]['pay'] = 'inactive'
+		}
+		if (user.user_type == 'user'){
+			reqs[i]['related'] = users.find({_id: reqs[i].requested}).fetch()[0]
+		}
+		else {
+			reqs[i]['related'] = users.find({_id: reqs[i].requester}).fetch()[0]	
+		}
+		
+	}
+
 	this.layout('app_layout', {
   		data: {
-  			'pageTitle': 'Requests'
+  			'pageTitle': 'Requests',
+  			'requests': reqs,
+  			'requests_count': reqs.length,
+  			'user': Session.get('user')
   		}
  	})
 
@@ -72,7 +105,8 @@ Router.route('/profile', function () {
 	
 	this.layout('app_layout', {
   		data: {
-  			'pageTitle': 'Profile'
+  			'pageTitle': 'Profile',
+  			'user': Session.get('user')
   		}
  	})
 

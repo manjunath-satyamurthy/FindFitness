@@ -13,12 +13,12 @@
 		<div class="show">
 			<img src="images/default-profile.svg" width="45px" height="45px">
 			<p class="tn-name">{{ firstname }}</p>
-			<p class="distance">13 kms</p>
+			<p class="distance">{{ distance }}</p>
 		</div>
 		<div class="hide">
 			<div>
 				<p><span>Experience</span><span>{{ experience }} yrs</span></p>
-				<p><span>Location</span><span>{{ location.lat }}</span></p>
+				<p><span>Location</span><span>{{ location.name }}</span></p>
 				<p><span>Cost</span><span>{{ cost }}  ‎€/hr</span></p>
 				<p><span><button>Chat</button></span><span><button>Request</button></span></p>
 			</div>

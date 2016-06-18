@@ -39,26 +39,49 @@ import '../api/dbapi.js'
   Template.perdetails.onRendered(function () {
 
     this.autorun(() => {
-      // Wait for API to be loaded
       if (GoogleMaps.loaded()) {
+        $("#place").geocomplete().bind("geocode:result", function(event,
+    result) {
 
-        $('#place').geocomplete({
+        var lat = result.geometry.location.lat()
+        var lng = result.geometry.location.lng()
+        console.log(lat)
+        console.log(lng)
+      });
 
-        });
-
-      }
-    });
-
+    }
   });
+});
 
-// Template.profile.onRendered(function profileOnRendered() {
-
-
-// });
 
 Template.prodetails.helpers({
-    // return Meteor.profile().fname;
       get_acctype: function (acctype) {
         return acctype == Session.get('acctype')
     }
+});
+
+
+Template.perdetails.events({
+
+'click .perdetsave': function () {
+// const name = event.currentTarget.getAttribute('name');
+// console.log(name)
+console.log(lat)
+    const firstname   = $('[name=firstname]').val();
+    const lastname    = $('[name=lastname]').val();
+    const dob         = $('[name=dob]').val();
+    const gender      = $('#gender option:selected').val();
+    var   userid      = Session.get('userid');
+
+    users.update(
+    {_id: userid},
+    {$set :
+    {
+      firstname: firstname,
+      lastname: lastname,
+      dob: dob,
+      gender : gender,
+   }})
+// console.log(Session.get('username'))
+}
 });

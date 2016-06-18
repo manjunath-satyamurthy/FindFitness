@@ -85,6 +85,7 @@ Router.route('/profile', function () {
 
 Router.route('/results', function () {
 	query = this.params.query
+	self = this;
 
 	selected = []
 	if (query.personal == 'true'){
@@ -97,14 +98,39 @@ Router.route('/results', function () {
 	from_time = new Date('2016-01-01T'+query.from+':00Z')
 	to_time = new Date('2016-01-01T'+query.to+':00Z')
 
+
 	available_trainers = find_trainers(
 		selected, query.splz, query.cost, from_time, to_time)
 
-  	this.render('results',{
-  		data: {
-  			results: available_trainers,
-  			results_count: available_trainers.length
-  		}});
+	user = Session.get('user')
+
+	get_distances = function(index){
+		if (index >= 0){
+			GoogleDistance.get({
+				origin: user.location.lat+','+user.location.lng,
+				destination: available_trainers[index].location.lat+','+
+					available_trainers[index].location.lng
+			}, function (err, data){
+				if (!err){
+					available_trainers[index]['distance'] = data.distance
+					index -= 1
+					get_distances(index)
+				}
+			})
+		}
+		else {
+		  	self.render('results',{
+		  		data: {
+		  			results: available_trainers.sort(function(a, b) {
+		  				return a.distance - b.distance
+		  			}),
+		  			results_count: available_trainers.length
+		  		}});
+		}
+	}
+
+	get_distances(available_trainers.length-1)
+
 	},
 
 	{

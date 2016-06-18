@@ -33,6 +33,7 @@ Template.search.helpers({
             }
         },
         'swipeleft .search-content': function (event, templateInstance){
+        	console.log("somehow swiped")
         	if ($.sidr('status', 'sidr').opened == false){
 	            $('.search-nav').removeClass('active')
 	            $('#search-nutritionist').addClass('active')
@@ -79,18 +80,32 @@ Template.trainer.events({
 	},
 
 	'click #trainer-search-btn' (event){
+		selected = [];
+		var personal = '';
+		var group = '';
 		trainer_type = $('.custom-check:checked')
+		
+		$('.custom-check:checked').each(function() {
+		    selected.push($(this).attr('name'));
+		});
+
+		if ($.inArray('personal', selected) > -1){
+			personal = 'true';
+		};
+		
+		if ($.inArray('group', selected) > -1){
+			group = 'true';
+		}
+
 		specialization = $('#trainer-specialization option:selected').val()
 		cost = $('#trainer-display-cost').html()
 		time = $('#trainer-display-time').html().split(' - ')
-		from_time_str = time[0]
-		to_time_str = time[1]
-		from_time = new Date('January 01, 2016 '+from_time_str+':00')
-		to_time = new Date('January 01, 2016 '+to_time_str+':00')
-		console.log(trainer_type, specialization, cost, from_time, to_time)
-		console.log(users.find({'username': 'manju'}))
+		from_time = time[0]
+		to_time = time[1]
 
+		query_str = "personal="+personal+"&group="+group+"&splz="+specialization+
+			"&cost="+cost+"&from="+from_time+"&to="+to_time;
 
-		Router.go('/results')
+		Router.go('results', {}, {'query': query_str})
 	}
 })

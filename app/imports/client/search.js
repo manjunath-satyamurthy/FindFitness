@@ -70,15 +70,27 @@ Template.trainer.events({
 
 	'input #preferred-time' (event){
 		value = $(event.currentTarget)[0].value
-		$('#display-time').empty().append(timeRange[value])
+		$('#trainer-display-time').empty().append(timeRange[value])
 	},
 
 	'input #cost' (event){
 		value = $(event.currentTarget)[0].value
-		$('#display-cost').empty().append(10*value)
+		$('#trainer-display-cost').empty().append(10*value)
 	},
 
-	'click #search-btn' (event){
+	'click #trainer-search-btn' (event){
+		trainer_type = $('.custom-check:checked')
+		specialization = $('#trainer-specialization option:selected').val()
+		cost = $('#trainer-display-cost').html()
+		time = $('#trainer-display-time').html().split(' - ')
+		from_time_str = time[0]
+		to_time_str = time[1]
+		from_time = new Date('January 01, 2016 '+from_time_str+':00')
+		to_time = new Date('January 01, 2016 '+to_time_str+':00')
+		console.log(trainer_type, specialization, cost, from_time, to_time)
+		console.log(users.find({'username': 'manju'}))
+
+
 		Router.go('/results')
 	}
 })

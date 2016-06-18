@@ -7,8 +7,8 @@ import '../imports/ui/templates/search.html';
 import '../imports/ui/templates/subscriptions.html';
 import '../imports/ui/templates/messages.html';
 import '../imports/ui/templates/requests.html';
-import '../imports/ui/templates/profile.html';
 import '../imports/ui/templates/results.html';
+import '../imports/ui/templates/profile.html';
 
 import '../imports/client/jquery.sidr.min.js';
 import '../imports/client/routes.js';
@@ -21,5 +21,7 @@ import '../imports/client/profile.js';
 
 import '../imports/ui/css/app_layout.css';
 import '../imports/ui/css/search.css';
-import '../imports/ui/css/profile.css';
 import '../imports/ui/css/results.css';
+import '../imports/ui/css/profile.css';
+
+

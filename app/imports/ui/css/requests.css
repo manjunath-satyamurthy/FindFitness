@@ -1,0 +1,28 @@
+#waiting {
+	padding: 5px 5px;
+	background-color: #FF9800;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+#pay{
+	padding: 5px 5px;
+	background-color: #00BCD4;
+	border-radius: 5px;
+	font-weight: bold;
+	margin-right: 4%;
+	cursor: pointer;
+}
+
+.inactive#pay{
+	background-color: transparent;
+	color: #333333;
+	font-weight: bold;
+}
+
+#accepted {
+	padding: 5px 5px;
+	background-color: #8BC34A;
+	border-radius: 5px;
+	font-weight: bold;
+}

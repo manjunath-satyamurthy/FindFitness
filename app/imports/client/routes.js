@@ -174,6 +174,5 @@ Router.onRun(function (){
 	$('.clickable').removeClass('active')
 	$('#'+route_path).addClass('active')
     $('#simple-menu').click();
-	// this.next()
 })
 

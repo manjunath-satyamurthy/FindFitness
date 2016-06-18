@@ -1,3 +1,17 @@
 <template name="requests">
-	
+	<div class="results-count">
+		<p>{{ requests_count }}0 Requests</p>
+	</div>
+
+<!-- {{#each requests}} -->
+	<div class="results-list">
+		<div class="show">
+			<img src="images/default-profile.svg" width="45px" height="45px">
+			<p class="tn-name">Bullbull</p>
+			<p id="waiting" class="tn-name">waiting</p>
+			<p id="pay" class="inactive">PAY</p>
+		</div>
+	</div>
+<!-- {{/each}} -->
+
 </template>

@@ -130,8 +130,8 @@ input[type=range].cost-range {
 
 #trainer-display-time {
 	display: inline-block;
-   word-wrap: break-word;
-   width: 30%;
+   	word-wrap: break-word;
+   	width: 30%;
 }
 
 .nutrition-search {

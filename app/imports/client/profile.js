@@ -1,7 +1,8 @@
 import { Template } from 'meteor/templating';
+import { Meteor } from 'meteor/meteor';
 
 import '../ui/css/profile.css'
-import { users } from '../api/collections.js'
+import '../api/dbapi.js'
 
 //Profile Picture
   Template.profilepic.events({
@@ -49,3 +50,15 @@ import { users } from '../api/collections.js'
     });
 
   });
+
+// Template.profile.onRendered(function profileOnRendered() {
+
+
+// });
+
+Template.prodetails.helpers({
+    // return Meteor.profile().fname;
+      get_acctype: function (acctype) {
+        return acctype == Session.get('acctype')
+    }
+});

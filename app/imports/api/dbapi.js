@@ -26,3 +26,4 @@ find_trainers = function(trainer_type, specialization, cost, from_time, to_time)
 		}).fetch()
 	return trainers
 };
+

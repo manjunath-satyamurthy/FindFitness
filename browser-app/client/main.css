@@ -1,3 +1,13 @@
+a {    color: #0060B6;
+    text-decoration: none;
+}
+
+a:hover, 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
 
 body {
   font-family: sans-serif;
@@ -9,75 +19,88 @@ body {
   right: 0;
   padding: 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 100%;
 }
 
+div#login1{
+  margin-top: 100px;
+}
 
-.label{
-	line-height: 44px;
-	color: rgb(255,255,255);
-	font-size: 36px;
-  font-weight: bold;
-  text-align: center;
-  opacity: 1;
-  width: 212px;
-  height: 44px;
-  transform: matrix(1, 0, 0, 1, 300, 0);
-  padding-top: 0px;
-  padding-right: 0px;
-  padding-bottom: 0px;
+ul {
+  background-color: #555555;
+  margin-top: 0px;
   padding-left: 0px;
-  padding:100px;
+  height: 100vh;
 }
 
-.img1{
-  opacity: 1;
+
+
+img#img1{
   width: 84px;
   height: 84px;
-  transform: matrix(1, 0, 0, 1, -100, 0);
-  border-radius: 0px;
-  background: 0 0 repeat;
-  background-size: 100% 100%;
-	margin: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	background: transparent;
-	background: center center no-repeat;
-  background-size: contain;
+}
+
+img#img2{
+  width: 44px;
+  height: 44px;
+  
+  padding:0px;
+
+}
+
+h1#label1{
   color: rgb(255,255,255);
-}
-
-.img2{
-  opacity: 1;
-  width: 64px;
-  height: 84px;
-  transform: matrix(1, 0, 0, 1, -90, 50);
-  border-radius: 0px;
-  background: 0 0 repeat;
-  background-size: 100% 100%;
-	margin: 0;
-	padding: 10px;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	background: transparent;
-	background: center center no-repeat;
-  background-size: contain;
-  color: rgb(255,255,255);
-  padding-left: 450px;
-}
-
-.label, .img1, .img2 {
-	display: inline-block;
-}
-
-/*copied from manju*/
-.forms {
+  font-weight: bold;
   text-align: center;
+  margin-top:0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  opacity: 1;
 }
 
-.forms > div > input {
+
+h1#label1, .img1, .img2{
+  display: inline-block;
+}
+
+h1#label1 {
+  font-size: 50px;
+  padding:0px;
+}
+
+img#img3{
+  margin-left: 37%;
+  width: 84px;
+  height: 84px;  
+}
+
+h1#firstHead{
+  margin: -5% 0  0 44%;
+  color: white;
+  font-size: 42px;
+  padding: 0px;
+  width: 22%;
+}
+
+img#img4{
+width: 34px;
+height: 34px; 
+margin-left: 65%;
+margin-top: -20%;
+padding: 0px;
+
+}
+
+
+div#login1{
+  text-align: center;
+  align-content: center;
+}
+
+div#input1{
+  margin-bottom: 30px;
+}
+#registerForm > div > input, #loginForm > div > input {
   text-align: center;
   background: transparent;
   border-bottom: 2px solid #9e9e9e;
@@ -90,21 +113,26 @@ body {
   margin-top: 2%;
   color: white;
   font-size: 18px;
-  width: 300px;
-  height: 35px;
-  transform: matrix(1, 0, 0, 1, -40, -10);
+  width: 25%;
+  padding: 1%;
+  margin-top: 10px;
 }
 
-.login > .forms > div > input:focus {
-  border-bottom: 2px solid #00bcd4;
+#registerForm > div > input:focus, #loginForm > div > input:focus{
+  border-bottom: 2px solid #439DBB;
   outline: none;
 }
 
-.login > .login-btn {
+input#registerButton, input#loginButton {
   text-align: center;
 }
 
-.login-btn > button {
+#registerForm{
+  text-align: center;
+  margin-top: 150px; 
+}
+
+input#registerButton, input#loginButton, button#searchButton,button#searchButton1 {
   background-color: #8BC34A;
   box-shadow: none;
   border: none;
@@ -115,17 +143,23 @@ body {
   font-family: Arial;
   height: 40px;
   width: 140px;
-  margin-top: 45px;
-  transform: matrix(1, 0, 0, 1, 542, -15);
+  margin-top: 3%;
 
 }
+button#searchButton {
+  width: 165px;
+}
+
+button#searchButton1{
+  width: 200px;
+}
+
 
 p#question {
   color: #00bcd4;
   font-family: Arial;
   text-align: center;
-  margin-top: 6%; 
-  transform: matrix(1, 0, 0, 1, -30, -60);
+  margin-top: 2%; 
 }
 
 p#signup {
@@ -133,7 +167,406 @@ p#signup {
   font-family: Arial;
   font-size: 18px;
   color: #8BC34A;
-  transform: matrix(1, 0, 0, 1, -35, -60);
+  margin-top: -3%;
+  margin-left: 20%; 
 }
 
-/*end*/
+header#firstHeader{
+  background-color: #439DBB;
+  height: 86px;
+  
+  width: 100%;
+  
+  top: 0px;
+  border-bottom: 2px solid #ccc;
+}
+
+img#img1{
+  background: transparent;
+  color: rgb(255,255,255);
+}
+
+
+
+.secondHeader{
+  background-color: #439DBB;
+  height: 50px;
+  border: 1px solid #555555;
+  margin: 0px auto;
+  width:679px;
+}
+
+.content{
+  background-color: #555555;
+  width:680px;
+  height:625px;
+  border:0px solid #ccc;
+  margin-left: 350px;
+  margin-top: -620px;
+}
+
+
+.navigationBar{
+  width: 200px;
+}
+
+
+.searchIcon, .subscriptionIcon, .messageIcon, .requestsIcon, .logoutIcon{
+  width: 25px;
+  height: 25px;
+  margin: 0px;
+  margin-left:82%;
+  margin-top:-13%;
+  margin-bottom:9%;
+  padding: 0px;
+}
+
+
+.searchNav, .subscriptionNav, .messageNav, .requestsNav, .logoutNav{
+  width: 198px;
+  height:50px;
+  border-bottom:1px solid #ccc;
+  padding: 0px;
+}
+
+p#navText{
+  padding-top: 6%;
+  margin: 0px ;
+  color: rgb(255,255,255);
+  text-indent: 8%;
+  font-size: 110%;
+}
+
+button#searchButton,button#searchButton1 {
+  margin-left: 280px;
+  margin-top: 100px;
+}
+
+
+button#searchHead1, button#searchHead2{
+  background-color: transparent;
+  height: 50px;
+  width:49.6%;
+  font-size: 200%;
+  border: none;
+  box-shadow: none;
+  /*border-bottom: 2px solid #ccc;*/
+  outline: none;
+}
+
+/*button#searchHead1:focus,  button#searchHead2:focus,*/
+button#searchHead1:hover,  button#searchHead2:hover {
+  border-bottom: 2px solid #ccc;
+  outline: none;
+}
+
+
+
+
+
+.secondHeader > input{
+  text-align: center;
+  background: transparent;
+  border-bottom: 2px solid #00ff00;
+  font-family: Arial;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  box-shadow: none;
+  border-left: 3px;
+  margin-top: 2%;
+  color: white;
+  font-size: 18px;
+  width: 300px;
+  height: 35px;
+  margin-left: 300px;
+  margin-top: 0px;
+  padding: 5px;
+}
+
+.secondHeader > input:focus,{
+border-bottom: 2px solid #439DBB;
+  outline: none;
+}
+
+
+.secondHeader > form > input{
+  margin-left: 300px;
+  margin-bottom: 10px;
+}
+
+p#searchTab { 
+  font-size : 110%;
+  color: white;
+  margin-top: 3%;
+  margin-bottom: -45px;
+  margin-left: 20px;
+  padding: 1%;
+  font-style: arial;
+}
+
+p#searchTab, .secondHeader > input{
+  display: inline auto;
+}
+
+.personal > div > form > input{
+  margin-left: 595px;
+}
+
+
+h2#resultHead
+{
+  color: white;
+  text-align: center;
+  font-size: 200%;
+  margin-top: 0.5%;
+  font-family: arial;
+}
+
+
+/*signup css*/
+
+  /*body {
+    background-color: rgb(34,34,34);
+*/
+    
+
+
+h1#title{
+    display: inline;
+    color: white;
+    font-family: arial;
+}
+  
+
+
+
+form#login1 {
+  text-align: center;
+   height: 900px;
+   background-color: #555555;
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto; 
+
+  }
+
+h2#title2{
+    color: white;
+    text-align: center;
+    background-color: #439DBB;
+    font-size: 40px;
+    font-family: arial;
+    height: 60px;
+    
+}
+
+/*label{
+  position: inherit;
+  color:white;
+  font-family: arial;
+  font-size: 20px;
+ /* margin-right: 250px;
+}*/
+
+input#reg, select#usertype {
+text-align: center;
+    color: white;
+    font-size: 10px;
+    font-weight: normal;
+    line-height: normal;
+    font-family: arial;
+
+}
+
+
+input#reg, select#usertype{
+    color: black;
+    display: inline-block;
+    margin-right: 0;
+    font-size: 15px;
+    height: 18px;
+    line-height: 30px;
+    padding: 4px;
+    width: 210px;
+    margin-bottom: 10px;
+
+}
+
+
+
+.btn{
+ /*margin-top: -100;*/
+ margin-bottom: -6S0%;
+ 
+ width:200px;
+ height: 40px;
+ font-size: 20px;
+ font-family: arial;
+ background-color: #8BC34A;
+ color: white;
+ margin-left: 600px;
+ 
+ 
+}
+
+
+label#inputtxt{
+
+   color: white;
+    float: left;
+    font-size: 20px;
+    line-height: 18px;
+    padding-top: 6px;
+    text-align: left;
+    /*padding-left: px;*/
+    width: 140px;
+}
+
+.inputLabels{
+  text-align: center;
+  margin-left: 20%;
+  margin-top: 10%;
+  font-family: arial;
+}
+
+select#usertype{
+
+  border-radius: none;
+  width: 230px;
+  height: 40px;
+  font-size: 15px;
+
+}
+
+
+/*result CSS*/
+.results-list > div.show {
+  background-color: #444444;
+  color: white;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: inline-flex;
+  width: 100%;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #8c8c8c;
+}
+
+.profile {
+  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  
+  
+}
+
+.profile {
+  background-image: url('images/camera.png');
+}
+
+
+
+
+.results-list > div.show > p.distance {
+padding-right: 4%;
+}
+
+h2#title3{
+    color: white;
+    text-align: center;
+    background-color: #439DBB;
+    font-size: 60px;
+    font-family: arial;
+    height: 100px;
+}
+
+.results-list > .show > .tn-name {
+  margin: auto auto;
+}
+
+
+.profile1 {
+  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  float: left;
+  margin-top: -150px;
+  }
+  
+.results-list div.hide {
+    background-image: url('images/ash.jpg');
+    max-height: 0;
+    transition: max-height 0.70s ease-out;
+    overflow: hidden;
+    margin: 0px;
+}
+
+
+
+
+
+
+
+
+.profile1 {
+  background-image: url('images/camera.png');
+}
+
+.results-list.active div.hide {
+    background-image: url('images/ash.jpg');
+    max-height: 500px;
+    transition: max-height 0.70s ease-in;
+}
+
+.results-count {
+  text-align: center;
+  color: white;
+}
+
+
+form#login2 {
+  text-align: center;
+   height: 600px;
+   background-color: #555555;
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto; 
+}
+
+.results-list > .hide > div > p {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  color: white;
+  font-weight: bold;
+}
+
+.results-list > .hide > div > p > span:first-child {
+  float: left;
+}
+
+.results-list > .hide > div > p > span:nth-child(2) {
+   float: right;
+}
+
+.results-list > .hide > div > p > span > button {
+  background-color: #8bc34a;
+  color: white;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
+  padding: 5px;
+  margin-bottom: 10px;
+}

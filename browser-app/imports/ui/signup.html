@@ -1,0 +1,229 @@
+<body>
+
+</body>  
+<template name="signup">
+  <header id="firstHeader">
+      <img id = "img3" src="/images/one.svg"> 
+      <span>
+      <h1 id="firstHead">FindFitness</h1>
+      </span> 
+      <img id = "img4" src="/images/two.svg">
+    </header>
+
+<br><br><br><br><br><br><br><br>
+
+    <form id="login1">
+
+    
+          <div>
+          <h2 id="title2">Sign Up</h2>
+          </div>
+
+           <div class= "profile">
+            {{#if photo}}
+            <img src={{photo}}  width="100" height="100" style="border-radius: 50%;" />
+            {{/if}}
+          </div>
+
+          <div class="inputLabels">
+
+            <label id="inputtxt">User Type</label>
+            
+            <select name="UserType" id="usertype" onchange="return showTypes();">
+
+            <option value="client">Client</option>
+            <option value="trainer">Trainer</option>
+            <option value="nutritionist">Nutritionist</option>
+            </select>
+
+            <!--Client-->
+            <div id= "client" style="visibility: visible;">
+              <div class="line">
+                <label id="inputtxt" for="input">First Name</label>
+                <input id="reg" type="text" name="firstname">
+              </div>
+
+              <div class="line">
+                <label id="inputtxt" for="input">Last Name</label>
+                <input id="reg" type="text" name="lastname" >
+              </div>
+
+              <div class="line">
+                <label id="inputtxt">Email</label>
+                <input id="reg" type="email" name="email" placeholder="example@example.com">
+              </div>
+
+              <div class="line">
+                <label id="inputtxt">Password</label>
+                <input id="reg" type="password" name="password">
+              </div>
+
+              <div class="line">
+                <label id="inputtxt">Date of Birth</label>
+                <input id="reg" type="date" name="dob" placeholder="dd/mm/yyyy">
+              </div>
+
+              <div class="line">
+                <label id="inputtxt">Address</label>
+                <input id="reg" type="text" name="address">
+              </div>
+            </div>
+
+            <!--Trainer-->
+            <div id="trainer" style="visibility: hidden;">
+              
+              <div class="line" id="mobile" style="visibility:hidden;">
+                <label id="inputtxt">Mobile Number</label>
+                <input id="reg" type="text" name="tel">
+              </div>
+
+ 
+              <div class="line" id="loc" style="visibility:hidden;">
+                <label id="inputtxt">Location</label>
+                <input id="reg" type="text" name="loc">
+               </div>
+
+              
+              <div class="line" id="spec" style="visibility:hidden;">
+                <label id="inputtxt">Specialization</label>
+                <input id="reg" type="text" name="spec">
+              </div>
+
+              <div class="line" id="exp" style="visibility:hidden;">
+                <label id="inputtxt">Experience</label>
+                <input id="reg" type="text" name="exp">
+               </div>
+ 
+                </div>
+
+               
+
+
+            <!--Nutritionist-->
+            <div id="nutritionist" style="visibility:hidden;">
+            
+            </div> 
+
+   
+      </div>
+
+    </form>
+
+    <div>
+       <button class="btn" onclick="test()">Submit</button>
+       </div>
+       
+
+       
+
+
+
+      <script type="text/javascript">
+      function showTypes(){
+          var selectBox = document.getElementById('usertype');
+          console.log("selct box",selectBox);
+         var userInput = selectBox.options[selectBox.selectedIndex].value;
+         console.log("user index",userInput);
+
+
+         //trainer
+          if(userInput == 'trainer'){
+            document.getElementById('trainer').style.visibility = 'visible';
+
+            if(document.getElementById('mobile').style.visibility='hidden'){
+              document.getElementById('mobile').style.visibility='visible';
+            }
+            if(document.getElementById('loc').style.visibility='hidden'){
+              document.getElementById('loc').style.visibility='visible';   
+            }
+            if(document.getElementById('spec').style.visibility='hidden'){
+              document.getElementById('spec').style.visibility='visible';
+            }
+            if(document.getElementById('exp').style.visibility='hidden'){
+              document.getElementById('exp').style.visibility='visible';
+            }
+          }else{
+            document.getElementById('trainer').style.visibility = 'hidden';
+          }
+
+          //client
+          if(userInput == 'client'){
+
+            if(document.getElementById('spec').style.visibility='visible'){
+              document.getElementById('spec').style.visibility='hidden';
+            }
+            if(document.getElementById('mobile').style.visibility='visible'){
+              document.getElementById('mobile').style.visibility='hidden';
+            }
+            if(document.getElementById('loc').style.visibility='visible'){
+              document.getElementById('loc').style.visibility='hidden';
+            }
+            if(document.getElementById('exp').style.visibility='visible'){
+              document.getElementById('exp').style.visibility='hidden';
+            }
+
+          }else{
+            
+          }
+
+          //nutritionist
+          if(userInput == 'nutritionist'){
+            document.getElementById('nutritionist').style.visibility = 'visible';
+
+            if(document.getElementById('mobile').style.visibility='hidden'){
+              document.getElementById('mobile').style.visibility='visible';
+            }
+            if(document.getElementById('loc').style.visibility='hidden'){
+              document.getElementById('loc').style.visibility='visible';   
+            }
+
+            if(document.getElementById('spec').style.visibility='visible'){
+              document.getElementById('spec').style.visibility='hidden';
+            }
+
+          }else{
+            document.getElementById('nutritionist').style.visibility = 'hidden';
+           
+          }
+          return false;
+      }
+
+      function test(){
+        var selectBox = document.getElementById('usertype');
+          console.log("selct box",selectBox);
+         var userInput = selectBox.options[selectBox.selectedIndex].value;
+         console.log("user index",userInput);
+
+         if(userInput=='trainer'){
+          if(document.getElementById('trainer')){
+            console.log('inside trainer');
+            window.location = 'trainer';
+          }
+         }
+
+         if(userInput=='nutritionist'){
+          if(document.getElementById('nutritionist')){
+            console.log('inside nutritionist');
+            window.location = 'nutritionist';
+          }
+         }
+
+         if(userInput=='client'){
+          if(document.getElementById('client')){
+            console.log('inside client');
+            window.location = 'client';
+          }
+         }
+
+
+        
+      }
+
+
+     
+
+    </script>
+
+
+
+     </template>

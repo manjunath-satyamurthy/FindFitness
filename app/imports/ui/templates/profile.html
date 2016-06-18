@@ -20,7 +20,6 @@
     <a href="{{pathFor 'accdetails'}}">Account Details</a>
     <img class="icons" src="images/settings.svg">
   </div>
-
 </div>
 </template>
 
@@ -55,22 +54,97 @@
 </template>
 
 <template name="prodetails">
-<div class="container">
-  <div id="profile-header">
-    <a href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
-    <h3>Professional Details</h3>
-    <img src="images/save.svg" width="30px" height="30px"/>
-  </div>
 
-  <div class="forms">
+{{#if get_acctype 'user'}}
+  <div class="container">
+      <div id="profile-header">
+      <a  href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
+      <h3>Professional Details</h3>
+      <img src="images/save.svg" width="30px" height="30px"/>
+    </div>
     <form class="prodet-form forms" name="prodet">
-      <div><input name="experience" type="number" pattern="\d*" min=0 placeholder="Experience in years"></div>
-      <div><input name="specialization" placeholder="Specialization"></div>
-
+      <select id="user-category">
+        <option>Category</option>
+        <option value="unemployed">Unemployed</option>
+        <option value="working">Working</option>
+        <option value="studying">Studying</option>
+        <option value="others">Others</option>
+      </select>
     </form>
   </div>
-</div>
+{{/if}}
+
+{{#if get_acctype 'trainer'}}
+  <div class="container">
+    <div id="profile-header">
+      <a  href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
+      <h3>Professional Details</h3>
+      <img src="images/save.svg" width="30px" height="30px"/>
+    </div>
+
+    <div class="forms">
+      <form class="prodet-form forms" name="prodet">
+      <div><input name="experience" type="number" min=0 placeholder="Experience in years"></div>
+
+      <select><!-- id="trainer-specialization"> -->
+        <option>Specialization</option>
+        <option value="gym">Gym</option>
+        <option value="swimming">Swimming</option>
+        <option value="aerobics">Aerobics</option>
+        <option value="sports">Sports</option>
+        <option value="others">Others</option>
+      </select>
+
+      <div><input name="cost" type="number" min=0 placeholder="Approx. Cost/Hour"></div>
+      <div id="time">Available Time
+      <img class="icon1" src="images/add.svg">
+      </div>
+      <input name ="from" value="" type="text" placeholder="From" onblur="(this.type='text')" onfocus="(this.type='time')" style="width:36%; float:left;margin-left: 10%">
+      <input name ="to" value="" placeholder="To" type="time" onblur="(this.type='text')" onfocus="(this.type='time')" style="width:36%; float:right;margin-right: 10%">
+      <div><textarea readonly class="scrollable" rows="4" cols="10"></textarea></div>
+
+      </form>
+
+    </div>
+  </div>
+{{/if}}
+
+{{#if get_acctype 'nutritionist'}}
+  <div class="container">
+    <div id="profile-header">
+      <a  href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
+      <h3>Professional Details</h3>
+      <img src="images/save.svg" width="30px" height="30px"/>
+    </div>
+
+    <div class="forms">
+      <form class="prodet-form forms" name="prodet">
+      <div><input name="experience" type="number" min=0 placeholder="Experience in years"></div>
+      <select id="nut-specialization">
+        <option>Specialization</option>
+        <option value="gerontological">Gerontological</option>
+        <option value="sports">Sports Dietetics</option>
+        <option value="pediatric">Pediatric Nutrition</option>
+        <option value="renal">Renal Nutrition</option>
+        <option value="oncology">Oncology Nutrition</option>
+        <option value="others">Others</option>
+      </select>
+      <div><input name="cost" type="number" min=0 placeholder="Approx. Cost/Session"></div>
+      
+      <div><input name="cost" type="number" min=0 placeholder="Approx. Cost/Hour"></div>
+      <div id="time">Available Time
+      <img class="icon1" src="images/add.svg">
+      </div>
+      <input name ="from" value="" type="text" placeholder="From" onblur="(this.type='text')" onfocus="(this.type='time')" style="width:36%; float:left;margin-left: 10%">
+      <input name ="to" value="" placeholder="To" type="time" onblur="(this.type='text')" onfocus="(this.type='time')" style="width:36%; float:right;margin-right: 10%">
+      <div><textarea readonly class="scrollable" rows="4" cols="10"></textarea></div>
+
+      </form>
+    </div>
+  </div>
+{{/if}}
 </template>
+
 
 <template name="profilepic">
 <div class="container">

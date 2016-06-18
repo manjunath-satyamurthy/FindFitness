@@ -100,6 +100,20 @@ Router.route('/results', function () {
 	available_trainers = find_trainers(
 		selected, query.splz, query.cost, from_time, to_time)
 
+	user_id = Session.get('userid')
+	user = users.find({_id: userid})
+
+	for(i=0; i< available_trainers.length; i++){
+		GoogleDistance.get({
+			origin: user.location.lat+','+user.location.lng,
+			destination: available_trainers[i].location.lat+','+
+				available_trainers[i].location.lng
+		}, function (err, data){
+			if (!err){
+				available_trainers[i]['distance'] = data.distance
+			}
+		})
+	}
   	this.render('results',{
   		data: {
   			results: available_trainers,

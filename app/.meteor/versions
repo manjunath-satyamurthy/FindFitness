@@ -1,4 +1,5 @@
 allow-deny@1.0.5
+andrei:google-distance@0.0.4
 autopublish@1.0.7
 autoupdate@1.2.10
 babel-compiler@6.8.2
@@ -32,6 +33,7 @@ cfs:upload-http@0.0.20
 cfs:worker@0.1.4
 check@1.2.3
 chriswessels:hammer@4.0.2
+coffeescript@1.1.1
 dburles:google-maps@1.1.5
 ddp@1.2.5
 ddp-client@1.2.8

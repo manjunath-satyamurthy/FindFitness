@@ -39,22 +39,15 @@ import '../api/dbapi.js'
   Template.perdetails.onRendered(function () {
 
     this.autorun(() => {
-      // Wait for API to be loaded
       if (GoogleMaps.loaded()) {
 
         $('#place').geocomplete({
-
         });
-
       }
     });
 
   });
 
-// Template.profile.onRendered(function profileOnRendered() {
-
-
-// });
 
 Template.prodetails.helpers({
     // return Meteor.profile().fname;

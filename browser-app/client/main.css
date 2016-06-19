@@ -93,7 +93,7 @@ p#signup {
   background-color: #439DBB;
   height: 50px;
   border: 1px solid #555555;
-  margin: 0px auto;
+  /*margin: 0px auto;*/
   width:679px;
 }
 
@@ -155,7 +155,7 @@ button#searchHead1:hover,  button#searchHead2:hover {
   outline: none;
 }
 
-.secondHeader > input, .reg1{
+.secondHeader > form > div > input, .reg1{
   text-align: center;
   background: transparent;
   border-bottom: 2px solid #00ff00;
@@ -164,36 +164,36 @@ button#searchHead1:hover,  button#searchHead2:hover {
   border-top: none;
   border-left: none;
   box-shadow: none;
-  border-left: 3px;
-  margin-top: 2%;
+  /*border-left: 3px;*/
+  /*margin-top: 2%;*/
   color: white;
   font-size: 18px;
-  width: 300px;
-  height: 35px;
-  margin-left: 300px;
-  margin-top: 0px;
-  padding: 5px;
+  /*width: 300px;*/
+  /*height: 35px;*/
+  /*margin-left: 300px;*/
+  /*padding: 5%;*/
 }
 
-.secondHeader > input:focus{
+.secondHeader > form > div > input{
+  margin-left: 8%;
+}
+
+.secondHeader > form > div > input:focus{
 border-bottom: 2px solid #439DBB;
-  outline: none;
+outline: none;
 }
 
-.secondHeader > form > input{
-  margin-left: 300px;
-  margin-bottom: 10px;
-}
-
-p#searchTab { 
-  font-size : 150%;
+.searchTab { 
+  font-size : 120%;
   color: white;
-  margin-bottom: -45px;
-  margin-left: 20px;
+  margin-left: 10%;
+  width: 40%;
 }
 
-p#searchTab, .secondHeader > input{
-  display: inline;
+
+.searchTab, .secondHeader > form >  div > input {
+  display: inline-block;
+  margin-top: 6%;
 }
 
 .personal > div > form > input{
@@ -421,3 +421,8 @@ form#login2 {
   margin-bottom: 10px;
 }
 
+fieldset{
+  border:0;
+  padding: 0;
+  margin:0;
+}

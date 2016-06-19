@@ -8,6 +8,7 @@ import './signup.html';
 import './trainer.html';
 import './nutritionist1.html';
 import './chat.html';
+import './message.html';
 
 
 
@@ -367,4 +368,45 @@ Router.route('/chat', function () {
 },
 {
   name: 'chat'
+});
+
+Router.route('/message', function () {
+
+    this.render('message');
+},
+{
+  name: 'message'
+});
+
+Template.trainer.events({
+  'click .btn'(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+    
+    // Get value from form element
+    var specialization = $('[name=specialization]').val();
+    var experience = $('[name=experience]').val();
+    var availabletime = $('[name=availabletime]').val();
+    var cost = $('[name=cost]').val();
+    var pog = $('[name=pog]').val();
+    var pog1 = $('[name=pog]').val();
+    
+    // Insert user fields into the end user collection
+    EndUser.insert ({
+        specialization: specialization,
+        experience: experience,
+        availabletime: availabletime,
+        cost: cost,
+        pog: pog,
+        pog1: pog1,
+      createdAt: new Date(), // current time
+    });
+    Session.get(selectedPlayer);
+    <p>selectedPlayer</p>
+  }
+});
+
+
+
+    }
 });

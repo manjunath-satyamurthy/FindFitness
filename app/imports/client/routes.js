@@ -234,3 +234,11 @@ Router.onRun(function (){
     $('#simple-menu').click();
 })
 
+
+Router.route('/chat', function () {
+  	this.render('chat');
+	},
+	{
+		name: 'chat',
+	}
+);

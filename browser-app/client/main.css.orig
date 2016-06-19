@@ -1,3 +1,30 @@
+<<<<<<< HEAD
+=======
+a {    color: #0060B6;
+    text-decoration: none;
+}
+
+a:hover, 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+
+body {
+  font-family: sans-serif;
+  background-color: rgb(66,66,66);
+  background-attachment: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+}
+
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
 div#login1{
   margin-top: 100px;
 }
@@ -9,6 +36,68 @@ ul {
   height: 100vh;
 }
 
+<<<<<<< HEAD
+=======
+
+
+img#img1{
+  width: 84px;
+  height: 84px;
+}
+
+img#img2{
+  width: 44px;
+  height: 44px;
+  
+  padding:0px;
+
+}
+
+h1#label1{
+  color: rgb(255,255,255);
+  font-weight: bold;
+  text-align: center;
+  margin-top:0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  opacity: 1;
+}
+
+
+h1#label1, .img1, .img2{
+  display: inline-block;
+}
+
+h1#label1 {
+  font-size: 50px;
+  padding:0px;
+}
+
+img#img3{
+  margin-left: 37%;
+  width: 84px;
+  height: 84px;  
+}
+
+h1#firstHead{
+  margin: -5% 0  0 44%;
+  color: white;
+  font-size: 42px;
+  padding: 0px;
+  width: 22%;
+}
+
+img#img4{
+width: 34px;
+height: 34px; 
+margin-left: 65%;
+margin-top: -20%;
+padding: 0px;
+
+}
+
+
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
 div#login1{
   text-align: center;
   align-content: center;
@@ -17,6 +106,7 @@ div#login1{
 div#input1{
   margin-bottom: 30px;
 }
+
 
 #registerForm > div > input, #loginForm > div > input {
   text-align: center;
@@ -41,7 +131,7 @@ div#input1{
   outline: none;
 }
 
-.registerButton, input#loginButton {
+input#registerButton, input#loginButton {
   text-align: center;
 }
 
@@ -50,8 +140,7 @@ div#input1{
   margin-top: 150px; 
 }
 
-.registerButton, input#loginButton, button#searchButton,button#searchButton1, 
-.btn, .btn1, .btn2, .btn3, .btn4 {
+input#registerButton, input#loginButton, button#searchButton,button#searchButton1 {
   background-color: #8BC34A;
   box-shadow: none;
   border: none;
@@ -63,8 +152,8 @@ div#input1{
   height: 40px;
   width: 140px;
   margin-top: 3%;
-}
 
+}
 button#searchButton {
   width: 165px;
 }
@@ -72,6 +161,7 @@ button#searchButton {
 button#searchButton1{
   width: 200px;
 }
+
 
 p#question {
   color: #00bcd4;
@@ -88,6 +178,22 @@ p#signup {
   margin-top: -3%;
   margin-left: 20%; 
 }
+
+<<<<<<< HEAD
+=======
+header#firstHeader{
+  background-color: #439DBB;
+  height: 86px;
+  
+  width: 100%;
+  
+  top: 0px;
+  border-bottom: 2px solid #ccc;
+}
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
+
+
+
 
 .secondHeader{
   background-color: #439DBB;
@@ -106,9 +212,13 @@ p#signup {
   margin-top: -620px;
 }
 
+
 .navigationBar{
   width: 200px;
+  padding: 0px;
+  height: 100%;
 }
+
 
 .searchIcon, .subscriptionIcon, .messageIcon, .requestsIcon, .logoutIcon{
   width: 25px;
@@ -119,6 +229,7 @@ p#signup {
   margin-bottom:9%;
   padding: 0px;
 }
+
 
 .searchNav, .subscriptionNav, .messageNav, .requestsNav, .logoutNav{
   width: 198px;
@@ -140,6 +251,7 @@ button#searchButton,button#searchButton1 {
   margin-top: 100px;
 }
 
+
 button#searchHead1, button#searchHead2{
   background-color: transparent;
   height: 50px;
@@ -147,15 +259,25 @@ button#searchHead1, button#searchHead2{
   font-size: 200%;
   border: none;
   box-shadow: none;
+  /*border-bottom: 2px solid #ccc;*/
   outline: none;
 }
 
+/*button#searchHead1:focus,  button#searchHead2:focus,*/
 button#searchHead1:hover,  button#searchHead2:hover {
   border-bottom: 2px solid #ccc;
   outline: none;
 }
 
-.secondHeader > input, .reg1{
+
+
+
+<<<<<<< HEAD
+.secondHeader > input, input#reg1{
+=======
+
+.secondHeader > input{
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
   text-align: center;
   background: transparent;
   border-bottom: 2px solid #00ff00;
@@ -175,10 +297,11 @@ button#searchHead1:hover,  button#searchHead2:hover {
   padding: 5px;
 }
 
-.secondHeader > input:focus{
+.secondHeader > input:focus, .line > input:focus{
 border-bottom: 2px solid #439DBB;
-  outline: none;
+outline: none;
 }
+
 
 .secondHeader > form > input{
   margin-left: 300px;
@@ -186,19 +309,23 @@ border-bottom: 2px solid #439DBB;
 }
 
 p#searchTab { 
-  font-size : 150%;
+  font-size : 110%;
   color: white;
+  margin-top: 3%;
   margin-bottom: -45px;
   margin-left: 20px;
+  padding: 1%;
+  font-style: arial;
 }
 
 p#searchTab, .secondHeader > input{
-  display: inline;
+  display: inline auto;
 }
 
 .personal > div > form > input{
   margin-left: 595px;
 }
+
 
 h2#resultHead
 {
@@ -215,6 +342,8 @@ h2#resultHead
   /*body {
     background-color: rgb(34,34,34);
 */
+    
+
 
 h1#title{
     display: inline;
@@ -223,85 +352,117 @@ h1#title{
 }
   
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
 form#login1 {
   text-align: center;
-   height: 750px;
+   height: 900px;
    background-color: #555555;
    width: 50%;
    margin-left: auto;
    margin-right: auto; 
-   border-bottom-right-radius: 2%;
-   border-bottom-left-radius: 2%;
+
   }
 
 h2#title2{
     color: white;
     text-align: center;
     background-color: #439DBB;
-    font-size: 180%;
+    font-size: 40px;
     font-family: arial;
-    padding: 2px;
-    margin: 0px;
-    border-bottom: 1px solid white;
+    height: 60px;
+    
 }
 
-.reg, select#usertype{
-    text-align: center;
+/*label{
+  position: inherit;
+  color:white;
+  font-family: arial;
+  font-size: 20px;
+ /* margin-right: 250px;
+}*/
+
+input#reg, select#usertype {
+text-align: center;
+    color: white;
+    font-size: 10px;
+    font-weight: normal;
+    line-height: normal;
+    font-family: arial;
+
+}
+
+
+input#reg, select#usertype{
     color: black;
     display: inline-block;
     margin-right: 0;
+    font-size: 15px;
+    height: 18px;
     line-height: 30px;
     padding: 4px;
+    width: 210px;
     margin-bottom: 10px;
-    border: 1px solid black;
+
 
 }
 
-.reg{
-  width: 37%;
-  height: 18px;
+
+
+.btn{
+ /*margin-top: -100;*/
+ margin-bottom: -6S0%;
+ margin-top: 50px;
+ width:200px;
+ height: 40px;
+ font-size: 20px;
+ font-family: arial;
+ background-color: #8BC34A;
+ color: white;
+/* margin-left: 600px;*/
+ 
+ 
 }
 
-.btn,.btn1,.btn2, .btn3, .btn4{
-  margin-top: 4%;
-  margin-left: auto;
-  margin-right: auto;
-  width: 35%;
+.line {
+  /*display: inline-flex;*/
+  margin: 8px 8px;
 }
 
-.inputText{
-    color: white;
+
+label#inputtxt{
+
+   color: white;
     float: left;
     font-size: 20px;
+    /*line-height: 18px;*/
     padding-top: 6px;
     text-align: left;
+    /*padding-left: px;*/
     width: 140px;
-    padding-left: 8%;
 }
 
-.inputLabels1, .inputLabels{
-  text-align: center;
-  margin-left: 20%;
+.inputLabels1{
+  display: inline-block;
   font-family: arial;
   margin-left: 50px;
-  margin-top: 2%;
-}
-
-.inputLabels1 > div > input{
-  width: 50%;
-  margin-top: 2%;
-  margin-left: 6%;
 }
 
 select#usertype{
-/*
-  border-radius: none;*/
+
+  border-radius: none;
   width: 230px;
   height: 40px;
   font-size: 15px;
 
 }
 
+
+<<<<<<< HEAD
+=======
 /*result CSS*/
 .results-list > div.show {
   background-color: #444444;
@@ -317,21 +478,24 @@ select#usertype{
 
 .profile {
   
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2%;
-  border: 1px solid black;
+  
+  
 }
 
 .profile {
   background-image: url('images/camera.png');
 }
+
+
+
 
 .results-list > div.show > p.distance {
 padding-right: 4%;
@@ -350,15 +514,15 @@ h2#title3{
   margin: auto auto;
 }
 
-.profile1,.profile2{
-  width: 220px;
-  height: 220px;
+
+.profile1 {
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   display: inline-block;
-  border: 1px solid black;
   }
   
 .results-list div.hide {
@@ -369,11 +533,16 @@ h2#title3{
     margin: 0px;
 }
 
+
 .center {
   text-align: center; 
 }
 
-.profile1, .profile2{
+
+
+
+
+.profile1 {
   background-image: url('images/camera.png');
 }
 
@@ -420,4 +589,34 @@ form#login2 {
   padding: 5px;
   margin-bottom: 10px;
 }
+
+
+
+.line > input{
+  text-align: center;
+  background: transparent;
+  border-bottom: 2px solid #00ff00;
+  font-family: Arial;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  box-shadow: none;
+  border-left: 3px;
+  margin-top: 2%;
+  color: white;
+  font-size: 18px;
+  width: 300px;
+  height: 35px;
+  margin-left: 200px;
+  margin-top: 0px;
+  padding: 5px;
+}
+
+.line > input:focus,{
+border-bottom: 2px solid #439DBB;
+  outline: none;
+}
+
+
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
 

@@ -38,7 +38,6 @@ import '../api/dbapi.js'
   Template.perdetails.onRendered(function () {
 
     this.autorun(() => {
-      // Wait for API to be loaded
       if (GoogleMaps.loaded()) {
 
         $("#place").geocomplete().bind("geocode:result", function(event,
@@ -55,6 +54,14 @@ import '../api/dbapi.js'
 
     }
   });
+});
+
+
+
+Template.prodetails.helpers({
+      get_acctype: function (acctype) {
+        return acctype == Session.get('acctype')
+    }
 });
 
 Template.perdetails.events({

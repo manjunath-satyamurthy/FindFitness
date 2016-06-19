@@ -1,0 +1,44 @@
+#waiting {
+	padding: 3px 3px;
+	background-color: #FF9800;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+#pay{
+	padding: 3px 3px;
+	background-color: #00BCD4;
+	border-radius: 5px;
+	font-weight: bold;
+	margin-right: 4%;
+	cursor: pointer;
+}
+
+.inactive#pay{
+	background-color: transparent;
+	color: #333333;
+	font-weight: bold;
+}
+
+#accepted {
+	padding: 5px 5px;
+	background-color: #8BC34A;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+.request-action {
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	font-size: 0;
+	width: 0px;
+	height: 0px;
+}
+
+.status-change {
+	margin-right: 10px;
+}

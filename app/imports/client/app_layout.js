@@ -26,5 +26,9 @@ Template.app_layout.helpers({
         'swipeleft #layout-body': function (event, templateInstance){
             $.sidr('close', 'sidr')
         }
+    },
+
+    is_user: function(user_type){
+        return user_type == 'user'
     }
 })

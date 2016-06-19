@@ -1,0 +1,57 @@
+<template name="search"> 
+    {{> contentAndHeader}}
+
+    <div class="content">
+    <div class="secondHeader">
+ 
+        <button id='searchHead1'>Trainer</button> 
+        <button id='searchHead2'>Nutritionist</button> 
+
+          <p id="searchTab">Search Location</p> 
+          <input id="geoLocation" name="SearchLocation"/> 
+
+          <form>
+            <p id="searchTab">Personal</p><br>
+            <input type="radio" name="trainer" value="Personal">
+            <p id="searchTab">Group</p><br>
+            <input type="radio" name="trainer" value="Group"> 
+          </form>
+          <p id="searchTab">Maximum Cost</p> 
+          <input name="MaxCost"/>
+     
+          <p id="searchTab">Preferred Timings</p> 
+          <input name="PreferredTime"/> 
+ 
+          <p id="searchTab">Specialization</p> 
+          <input name="Specialization"/> 
+
+          <button id="searchButton">Search Trainer</button>
+
+      </div>
+      </div>
+  </template>
+   
+
+
+  <template name="nutritionist">
+    {{> contentAndHeader}}
+
+    <div class="content">
+    <div class="secondHeader">
+ 
+        <button id='searchHead1'>Trainer</button> 
+        <button id='searchHead2'>Nutritionist</button>
+
+          <p id="searchTab">Search Location</p> 
+          <input id="geoLocation" name="SearchLocation"/>
+          <p id="searchTab">Maximum Cost</p> 
+          <input name="Specialization"/>
+          <p id="searchTab">Specialization</p> 
+          <input name="Specialization"/>
+
+        <button id="searchButton1">Search Nutritionist</button>
+
+      </div>
+      </div>
+
+  </template>

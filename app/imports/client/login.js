@@ -27,17 +27,23 @@ Template.login.events({
 			var acctype = result[0].acctype;
 			var userid = result[0]._id;
 			var gender = result[0].gender;
+
 			Session.set('user', result[0])
 			Session.set('acctype',acctype)
 			Session.set('username',username)
 			Session.set('userid',userid)
 			Session.set('gender',gender)
 			Router.go('search')
+
+			if (result[0].user_type == 'user'){
+				Router.go('search')
+			}
+			else {
+				Router.go('requests')
+			}
 		}
 		else {
 			Router.go('search')
-			alert("invalid login")
-
 		}
 	}
 })

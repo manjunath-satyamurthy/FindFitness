@@ -207,30 +207,8 @@ Template.nutritionist.onRendered(function () {
     });
 
   });
+
 //geolocation end
-
-
-
-
-
-
-// Template.register.events({
-//     'click #registerButton': function(event){
-//         event.preventDefault();
-//         var email = $('[name=email]').val();
-//         var password = $('[name=password]').val();
-//         Accounts.createUser({
-//         email: email,
-//         password: password
-//     }, function(error){
-//         if(error){
-//             console.log(error.reason); // Output error if registration fails
-//     }   else {
-//             Router.go('/search'); // Redirect user if registration succeeds
-//     }
-// });
-//     }
-// });
 
 Template.contentAndHeader.events({
     'click .logout': function(event){
@@ -239,25 +217,6 @@ Template.contentAndHeader.events({
         Router.go('login');
     }
 });
-
-
-// Template.login.events({
-//     'click #loginButton': function(event){
-//     	console.log("one");
-//         event.preventDefault();
-//         var email = $('[id = username]').val();
-//         var password = $('[id = password]').val();
-//          Meteor.loginWithPassword(email, password, function(error){
-//     // console.log("You initiated the login process.");
-//      if(error){
-//         console.log(error.reason);
-//     } else {
-//         Router.go('/search');
-//     }
-// });    
-//      }
-
-// });
 
 
 Template.trainerProfile.helpers({
@@ -398,22 +357,22 @@ Template.signup.events({
   }
 });
 
-// Template.signup.events({
-//     'click .btn': function(event){
-//       event.preventDefault();
-//       var selectedVal = Session.get('selectedVal');
-//       console.log(selectedVal);
-//      if(selectedVal == 'trainer'){
-//         Router.go('trainerProfile');
-//       }
-//       else if(selectedVal == 'nutritionist'){
-//         Router.go('nutritionistProfile');
-//       }
-//       else{
-//         Router.go('search');
-//       }
-//     }
-// });
+Template.signup.events({
+    'click .btn': function(event){
+      event.preventDefault();
+      var selectedVal = Session.get('selectedVal');
+      console.log(selectedVal);
+     if(selectedVal == 'trainer'){
+        Router.go('trainerProfile');
+      }
+      else if(selectedVal == 'nutritionist'){
+        Router.go('nutritionistProfile');
+      }
+      else{
+        Router.go('search');
+      }
+    }
+});
 
 
 // for signup
@@ -452,3 +411,29 @@ Template.signup.events({
     });
   }
 });
+
+
+Template.login.events({
+  'click #loginButton': function(event){
+    event.preventDefault();
+    var email = $('[id = username]').val();
+    var password = $('[id = password]').val();
+    var authClient= EndUser.find({email:email, password:password, 'userType':'client'}).fetch();
+    var authTrainer= EndUser.find({email:email, password:password, 'userType':'trainer'}).fetch();
+    var authNutritionist= EndUser.find({email:email, password:password, 'userType':'nutritionist'}).fetch();
+    if (authClient.length > 0){
+      Session.set('authClient', authClient);
+      Router.go('search')
+    }
+    else if(authTrainer.length > 0){
+      Session.set('authTrainer',authTrainer)
+    }
+    else if(authNutritionist.length > 0){
+      Session.set('authNutritionist',authNutritionist)
+    }
+    else {
+      alert("Not an user yet, sign up");
+    }
+    }
+});
+

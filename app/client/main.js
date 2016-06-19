@@ -26,3 +26,4 @@ import '../imports/ui/css/search.css';
 import '../imports/ui/css/results.css';
 import '../imports/ui/css/profile.css';
 import '../imports/ui/css/requests.css';
+import '../imports/ui/css/messages.css';

@@ -1,0 +1,17 @@
+.messenger {
+	padding-left: 20px;
+	padding-right: 20px;
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: 80px
+
+}
+
+.last-message {
+	padding-left: 20px;
+	padding-right: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 180px;
+}

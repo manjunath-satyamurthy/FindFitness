@@ -34,19 +34,52 @@
 
   <div class="forms">
     <form class="perdet-form forms" name="predet">
-      <div><input name ="firstname" placeholder="First Name"></div>
-      <div><input name ="lastname" placeholder="Last Name"></div>
-      <div><input name ="dob" type="text" value="" placeholder="Date of Birth" onfocus="(this.type='Date')"  onblur="(this.type='text')">
+      <div>
+      {{#if info.firstname}}
+      <input name ="firstname" value="{{ info.firstname }}">
+      {{else}}
+      <input name ="firstname" placeholder="First Name">      
+      {{/if}}
       </div>
 
+      <div>
+      {{#if info.lastname}}
+      <input name="lastname" value="{{ info.lastname }}">
+      {{else}}
+      <input name ="lastname" placeholder="Last Name">
+      {{/if}}
+      </div>
+
+      <div>       
+      {{#if info.dob}}       
+      <input name ="dob" type="text" value= "{{ info.dob }}" onfocus="(this.type='Date')">       
+      {{else}}       
+      <input name ="dob" type="text" value="" placeholder="Date of Birth" onfocus="(this.type='Date')" onblur="(this.type='text')">       
+      {{/if}}       
+      </div>
+
+      {{#if get_gender 'male'}}
+      <input readonly value="Male">
+      {{/if}}
+
+      {{#if get_gender 'female'}}
+      <input readonly value="Male">
+      {{/if}}
+
+      {{#if get_gender 'Gender' }}
       <select id="gender">
         <option>Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
+      {{/if}}
 
       <div class="location">
-        <input id="place" type="text" name ="place" placeholder="Location" value="">
+      {{#if info.location.location}}
+        <input id="place" type="text" name ="place" value="{{ info.location.location }}">
+        {{else}}
+        <input id="place" type="text" name ="place" placeholder="Enter your location" value="">
+        {{/if}}
       </div>
     </form>
   </div>
@@ -176,9 +209,10 @@
 
   <div class="forms">
     <form class="accdet-form forms" name="accdet">
-      <div><input name ="username" placeholder="Username"></div>
-    <div><input name ="email" type="email" placeholder="Email Address"></div>
-    <div><input name="password" type="password" placeholder="Password"/></div>
+
+    <div><input readonly name ="username" placeholder="Username" value = "{{info.username}}"></div>
+    <div><input readonly name ="email" type="email" placeholder="Email Address" value="{{ info.email }}"></div>
+    <div><input readonly name="password" type="password" placeholder="Password" value="{{ info.password }}"/></div>
 
     </form>
   </div>

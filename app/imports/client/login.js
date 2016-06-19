@@ -25,15 +25,13 @@ Template.login.events({
 			var result = users.find({'username': username},
 			{'password': password}).fetch();
 			var acctype = result[0].acctype;
-			// var username = result[1].username;
 			var userid = result[0]._id;
-			console.log(acctype)
-			console.log(username)
-			console.log(userid)
-
+			var gender = result[0].gender;
+			Session.set('user', result[0])
 			Session.set('acctype',acctype)
 			Session.set('username',username)
 			Session.set('userid',userid)
+			Session.set('gender',gender)
 			Router.go('search')
 		}
 		else {

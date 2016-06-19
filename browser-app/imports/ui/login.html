@@ -1,0 +1,21 @@
+<template name= "login">
+    
+      <div id="login1">
+        <img id = "img1" src="/images/one.svg">
+        <h1 id="label1">FindFitness</h1>
+        <img id = "img2" src="/images/two.svg">
+      
+      <form id="loginForm" autocomplete="on">
+      <div id="input1">
+        <input  id="username" name1="email" type="email" placeholder="Email Address"/>
+      </div>
+      <div id="input2">
+        <input  id="password" name1="password" type="password" placeholder="Password"/>
+      </div>
+        <input id="loginButton" type="submit" value="Login">
+        </form>
+        <p id="question">Are you not a user yet ?</p>
+
+       <a href="{{pathFor route='signup'}}"><p id="signup">Sign Up</p></a>
+      </div>
+  </template>

@@ -4,9 +4,14 @@ import { Blaze } from 'meteor/blaze';
 import { EndUser } from '../api/enduser.js';
 
 import './signup.html';
-
-import './trainer.html';
-import './nutritionist.html';
+import './body.html';
+import './trainerProfile.html';
+import './register.html';
+import './search.html';
+import './login.html';
+import './nutritionistProfile.html';
+import './chat.html';
+import './result.html';
 
 
 
@@ -53,11 +58,11 @@ Router.route('/contentAndHeader',function () {
 	name: 'contentAndHeader'
 });
 
-Router.route('/trainer',function () {
+Router.route('/trainerProfile',function () {
   
-    this.render('trainer');  
+    this.render('trainerProfile');  
 },{
-  name: 'trainer'
+  name: 'trainerProfile'
 
 });
 
@@ -66,6 +71,14 @@ Router.route('/register',function () {
     this.render('register');	
 },{
 	name: 'register'
+
+});
+
+Router.route('/nutritionistProfile',function () {
+    
+    this.render('nutritionistProfile');    
+},{
+    name: 'nutritionistProfile'
 
 });
 
@@ -80,7 +93,7 @@ Router.route('/nutritionist',function () {
 Template.signup.events({
     'click #myp': function(event){
 
-    Router.go('trainer');     
+    Router.go('trainerProfile');     
     }
 });
 
@@ -104,26 +117,13 @@ Template.nutritionist.events({
     }
 });
 
-Template.trainer.helpers({
-  editing: function(){
-    return Session.equals('reg', this._id);
-  } 
-});
-
 Template.search.events({
     'click #searchHead2': function(event){
         Router.go('nutritionist');
     }
 });
 
-Template.trainer.events({
-  'click .deleteItem': function(){
-    Items.remove(this._id);
-  },
-  'click .editItem': function(){
-    Session.set('reg', this._id);
-  }
-});
+
 
 // result page
 Template.result.events({
@@ -143,6 +143,7 @@ Template.result.events({
     }
 })
 
+//use handlebars for signup
 
 //for geolocation
 
@@ -206,65 +207,146 @@ Template.nutritionist.onRendered(function () {
     });
 
   });
-
-
-
 //geolocation end
 
-// for signup
-// Template.signup.events({
-//   'click .btn'(event) {
-//     // Prevent default browser form submit
-//     event.preventDefault();
-    
-//     if( $('[name=UserType]').val() == 'Client'){
-//     // Get value from form element
-//     var userType = $([]).val();
-//     var firstName =
-//     var lastName =
-//     var email =
-//     var password =
-//     var DOB = 
-//     var address =
-//     // Insert user fields into the end user collection
-//     EndUser.insert({
-//         userType,
-//         firstName,
-//         lastName,
-//         email,
-//         password,
-//         DOB,
-//         address,
-//       createdAt: new Date(), // current time
-//     });
-// }
-//     else($('[name=UserType]').val() == 'Trainer'){
-//         // Get value from form element
-//     var userType = $([]).val();
-//     var firstName =
-//     var lastName =
-//     var email =
-//     var password =
-//     var DOB = 
-//     var address =
-//     var specialization =
-//     var experience =  
-//     // Insert user fields into the end user collection
-//     EndUser.insert({
-//         userType,
-//         firstName,
-//         lastName,
-//         email,
-//         password,
-//         DOB,
-//         address,
-//         specialization,
-//         experience,
-//       createdAt: new Date(), // current time
-//     });
+
+
+
+
+
+// Template.register.events({
+//     'click #registerButton': function(event){
+//         event.preventDefault();
+//         var email = $('[name=email]').val();
+//         var password = $('[name=password]').val();
+//         Accounts.createUser({
+//         email: email,
+//         password: password
+//     }, function(error){
+//         if(error){
+//             console.log(error.reason); // Output error if registration fails
+//     }   else {
+//             Router.go('/search'); // Redirect user if registration succeeds
 //     }
-//   },
 // });
+//     }
+// });
+
+Template.contentAndHeader.events({
+    'click .logout': function(event){
+        event.preventDefault();
+        Meteor.logout();
+        Router.go('login');
+    }
+});
+
+
+// Template.login.events({
+//     'click #loginButton': function(event){
+//     	console.log("one");
+//         event.preventDefault();
+//         var email = $('[id = username]').val();
+//         var password = $('[id = password]').val();
+//          Meteor.loginWithPassword(email, password, function(error){
+//     // console.log("You initiated the login process.");
+//      if(error){
+//         console.log(error.reason);
+//     } else {
+//         Router.go('/search');
+//     }
+// });    
+//      }
+
+// });
+
+
+Template.trainerProfile.helpers({
+  editing: function(){
+    return Session.equals('reg', this._id);
+  } 
+});
+
+Template.trainerProfile.events({
+  'click .deleteItem': function(){
+    Items.remove(this._id);
+  },
+  'click .editItem': function(){
+    Session.set('reg', this._id);
+  }
+});
+
+Template.trainerProfile.helpers({
+    photo:function(){
+        return Session.get("photo");
+    }
+
+});
+
+  Template.trainerProfile.events({
+    'click .profile1': function () {
+      var cameraOptions = {
+      width: 220,
+      height: 220,
+      correctOrientation: true,
+      targetWidth:220, 
+      targetHeight:220,
+      allowEdit: true,
+      };
+
+      MeteorCamera.getPicture(cameraOptions, function (error, data) {
+        Session.set("photo", data);
+      });
+    }
+  });
+
+Template.nutritionistProfile.helpers({
+  editing: function(){
+    return Session.equals('reg', this._id);
+  } 
+});
+
+Template.nutritionistProfile.events({
+  'click .deleteItem': function(){
+    Items.remove(this._id);
+  },
+  'click .editItem': function(){
+    Session.set('reg', this._id);
+  }
+});
+
+Template.nutritionistProfile.helpers({
+    photo:function(){
+        return Session.get("photo");
+    }
+
+});
+
+  Template.nutritionistProfile.events({
+    'click .profile2': function () {
+      var cameraOptions = {
+      width: 220,
+      height: 220,
+      correctOrientation: true,
+      targetWidth:220, 
+      targetHeight:220,
+      allowEdit: true,
+      };
+
+      MeteorCamera.getPicture(cameraOptions, function (error, data) {
+        Session.set("photo", data);
+      });
+    }
+  });
+
+Template.signup.events({
+  'click .deleteItem': function(){
+    Items.remove(this._id);
+  },
+  'click .editItem': function(){
+    Session.set('reg', this._id);
+  }
+});
+
 
 Template.signup.helpers({
     photo:function(){
@@ -276,11 +358,11 @@ Template.signup.helpers({
   Template.signup.events({
     'click .profile': function () {
       var cameraOptions = {
-      width: 600,
-      height: 700,
+      width: 220,
+      height: 220,
       correctOrientation: true,
-      targetWidth:400, 
-      targetHeight:400,
+      targetWidth:220, 
+      targetHeight:220,
       allowEdit: true,
       };
 
@@ -290,64 +372,83 @@ Template.signup.helpers({
     }
   });
 
-
-Template.signup.helpers({
-  tasks() {
-    return Tasks.find({});
-  },
+  Template.signup.helpers({
+  editing: function(){
+    return Session.equals('reg', this._id);
+  } 
 });
 
+Template.signup.onRendered(function () {
+  $("div#trainer").hide();
+  });
 
-Template.register.events({
-    'click #registerButton': function(event){
-        event.preventDefault();
-        var email = $('[name=email]').val();
-        var password = $('[name=password]').val();
-        Accounts.createUser({
-            email: email,
-            password: password
-        });
-        Router.go('/search');
-    }
-});
-
-
-Template.contentAndHeader.events({
-    'click .logout': function(event){
-        event.preventDefault();
-        Meteor.logout();
-        Router.go('login');
-    }
-});
-
-
-Template.login.events({
-    'click #loginButton': function(event){
-    	console.log("one");
-        event.preventDefault();
-        var email = $('[id = username]').val();
-        var password = $('[id = password]').val();
-         Meteor.loginWithPassword(email, password, function(error){
-    // console.log("You initiated the login process.");
-     if(error){
-        console.log(error.reason);
-    } else {
-        Router.go('/search');
-    }
-});    
+Template.signup.events({
+  'change select#usertype': function(event){
+     var selectedVal = $(event.target).val();
+     Session.set('selectedVal', selectedVal);
+     if(selectedVal == 'trainer'){
+      $("div#trainer").show();
      }
-
+     else if(selectedVal == 'nutritionist'){
+      $("div#trainer").show();
+     }
+     else{
+      $("div#trainer").hide();
+     }
+  }
 });
 
-
-
-// Accounts.createUser({
-//     email: email,
-//     password: password
-// }, function(error){
-//     if(error){
-//         console.log(error.reason); // Output error if registration fails
-//     } else {
-//         Router.go('/contentAndHeader'); // Redirect user if registration succeeds
+// Template.signup.events({
+//     'click .btn': function(event){
+//       event.preventDefault();
+//       var selectedVal = Session.get('selectedVal');
+//       console.log(selectedVal);
+//      if(selectedVal == 'trainer'){
+//         Router.go('trainerProfile');
+//       }
+//       else if(selectedVal == 'nutritionist'){
+//         Router.go('nutritionistProfile');
+//       }
+//       else{
+//         Router.go('search');
+//       }
 //     }
 // });
+
+
+// for signup
+
+Template.signup.events({
+  'click .btn': function(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+    // Get value from form element
+    var userType = Session.get('selectedVal');
+    var firstName =$('[name=firstname]').val();
+    var lastName =$('[name=lastname]').val();
+    var email =$('[name=email]').val();
+    var password =$('[name=password]').val();
+    var DOB = $('[name=dob]').val();
+    var address =$('[name=address]').val();
+    var phoneNumber =$('[name=tel]').val();
+    var location =$('[name=loc]').val();
+    var experience = $('[name=exp]').val();
+    var specialization =$('[name=spec]').val();
+    
+    // Insert user fields into the end user collection
+    EndUser.insert({
+        userType,
+        firstName,
+        lastName,
+        email,
+        password,
+        DOB,
+        address,
+        phoneNumber,
+        location,
+        experience,
+        specialization,
+      createdAt: new Date(), // current time
+    });
+  }
+});

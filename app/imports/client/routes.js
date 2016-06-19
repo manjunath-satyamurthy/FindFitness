@@ -180,25 +180,49 @@ Router.route('/logout', function () {
 });
 
 Router.route('/perdetails', function(){
-	this.render('perdetails');
+	this.render('perdetails', {
+		data: {
+			info: function(){
+				return Session.get('user')
+			}
+		}
+	});
 }, {
 	name: 'perdetails',
 });
 
 Router.route('/prodetails', function(){
-	this.render('prodetails');
+	this.render('prodetails',{
+		data: {
+			info: function(){
+				return Session.get('user')
+			}
+		}
+	});
 }, {
 	name: 'prodetails',
 });
 
 Router.route('/profilepic', function(){
-	this.render('profilepic');
+	this.render('profilepic',{
+		data: {
+			info: function(){
+				return Session.get('user')
+			}
+		}
+	});
 }, {
 	name: 'profilepic',
 });
 
 Router.route('/accdetails', function(){
-	this.render('accdetails');
+	this.render('accdetails',{
+		data: {
+			info: function(){
+				return Session.get('user')
+			}
+		}
+	});
 }, {
 	name: 'accdetails',
 });

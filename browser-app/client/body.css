@@ -2,7 +2,7 @@ a {    color: #0060B6;
     text-decoration: none;
 }
 
-a:hover, 
+a:hover 
 {
      color:#00A0C6; 
      text-decoration:none; 
@@ -39,8 +39,8 @@ img#img1{
 
 
 img#img2{
-  width: 44px;
-  height: 44px;
+  width: 3%;
+  height: 3%;
   padding:0px;
 
 }
@@ -49,8 +49,7 @@ h1#label1{
   color: rgb(255,255,255);
   font-weight: bold;
   text-align: center;
-  margin-top:0px;
-  margin-bottom: 0px;
+  margin-top:2%;
   padding: 0px;
   opacity: 1;
 }
@@ -61,7 +60,7 @@ h1#label1, .img1, .img2{
 }
 
 h1#label1 {
-  font-size: 50px;
+  font-size: 300%;
   padding:0px;
 }
 

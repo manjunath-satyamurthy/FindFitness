@@ -1,119 +1,31 @@
 <template name="signup">
+<div class="container">
+  <div class="header">
+      <h1>Sign Up</h1>
+  </div>
 
-<div class="header">
-    <h1>Sign Up</h1>
-</div>
-
-<div class="forms">
+  <div class="forms">
+    <form class="signup-form forms" name="signup">
     <select id="account-type">
       <option>Choose Account Type</option>
-      <option value="suser">User</option>
-      <option value="strainer">Trainer</option>
-      <option value="snutritionist">Nutritionist</option>
+      <option value="user" name="user">User</option>
+      <option value="trainer" name="trainer">Trainer</option>
+      <option value="nutritionist" name="nutritionist">Nutritionist</option>
     </select>
 
-  <div><input name ="firstname" placeholder="First Name"></div>
-  <div><input name ="lastname" placeholder="Last Name"></div>
-  <div>
-    <input name ="dob" type="text" value="" placeholder="Date of Birth" onfocus="(this.type='Date')"  onblur="(this.type='text')">
+      <div><input name ="username" placeholder="Username"></div>
+      <div><input name ="email" type="email" placeholder="Email Address"></div>
+      <div><input name="password" type="password" placeholder="Password"/></div>
+      <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
+
+      <div class="create-acc-btn">
+        <button type="submit">Create Account</button>
+      </div>
+    </form>
   </div>
 
-    <select id="gender">
-      <option>Gender</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-
-  <div class="location">
-    <input name ="address" placeholder="Location">
-  </div>
-
-<div class="next"><a>&#8658;</a></div>
-
-
-<p id = "text">Already a Member ?</p>
-<p id = "text1"><a class="green" href="/">Log In</a></p>
+  <p id = "question">Already a Member ?</p>
+  <p id = "signup"><a class="green" href="/">Log In</a></p>
 
 </div>
 </template>
-
-<!-- Sign up for User -->
-<template name='suser'>
-<div class="container">
-
-<div class="header">
-    <h1>Sign Up</h1>
-</div>
-
-<div class="forms">
-
-    <div><input name ="username" placeholder="Username"></div>
-    <div><input name ="email" type="email" placeholder="Email Address"></div>
-    <div><input name="password" type="password" placeholder="Password"/></div>
-    <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
-
-      <div class="back"> 
-        <a class="green" href="#" onclick="history.go(-1);">&#8656;</a>
-      </div>
-      <div class="create-acc"> 
-      <button>Create</button>
-      </div>
-    </div>
-
-</div>
-</template>
-<!--# End of Sign up for User -->
-
-<!-- Sign up for Trainer -->
-<template name='strainer'>
-<div class="container">
-
-    <div class="header">
-        <h1>Sign Up</h1>
-    </div>
-
-  <div class="forms">
-
-    <div><input name="experience" type="number" pattern="\d*" min=0 placeholder="Experience in years"></div>
-    <div><input name="specialization" placeholder="Specialization"></div>
-    <div><input name ="email" type="email" placeholder="Email Address"></div>
-    <div><input name="password" type="password" placeholder="Password"/></div>
-    <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
-
-      <div class="back"> 
-        <a class="green" href="#" onclick="history.go(-1);">&#8656;</a>
-      </div>
-      <div class="create-acc"> 
-      <button>Create</button>
-      </div>
-    </div>
-</div>
-</template>
-<!--# End of Sign up for Trainer-->
-
-<!-- Sign up for Nutritionist -->
-<template name='snutritionist'>
-<div class="container">
-
-    <div class="header">
-        <h1>Sign Up</h1>
-    </div>
-
-  <div class="forms">
-
-    <div><input name="experience" type="number" pattern="\d*" min=0 placeholder="Experience in years"></div>
-    <div><input name="specialization" placeholder="Specialization"></div>
-    <div><input name ="email" type="email" placeholder="Email Address"></div>
-    <div><input name="password" type="password" placeholder="Password"/></div>
-    <div><input name="confirmpassword" type="password" placeholder="Retype Password"/></div>
-
-      <div class="back"> 
-        <a class="green" href="#" onclick="history.go(-1);">&#8656;</a>
-      </div>
-      <div class="create-acc"> 
-      <button>Create</button>
-      </div>
-  </div>
-</div>
-</template>
-<!--# End of Sign up for Nutritionist-->

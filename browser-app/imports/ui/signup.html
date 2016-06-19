@@ -1,175 +1,98 @@
-<template name="signup">
-   <header id="firstHeader">
+ <template name="signup">
+
+    <header id="firstHeader">
       <img id = "img3" src="/images/one.svg"> 
       <span>
       <h1 id="firstHead">FindFitness</h1>
       </span> 
       <img id = "img4" src="/images/two.svg">
-    </header>
+    </header>  
 
-<br><br><br><br><br><br><br><br>
+    <br><br>
 
-    <form id="login1">
-    
-          <div>
-          <h2 id="title2">Sign Up</h2>
-          </div>
-          <div class="inputLabels">
+  <form id="login1">
 
-            <label id="inputtxt">User Type</label>
-            
-            <select name="UserType" id="usertype" onchange="return showTypes();">
-
-            <option value="client">Client</option>
-            <option value="trainer">Trainer</option>
-            <option value="nutritionist">Nutritionist</option>
-            </select>
-
-            <!--Client-->
-            <div id= "client" style="visibility: visible;">
-              <div class="line">
-                <label id="inputtxt" for="input">First Name</label>
-                <input id="reg" type="text" name="firstname">
-              </div>
-
-              <div class="line">
-                <label id="inputtxt" for="input">Last Name</label>
-                <input id="reg" type="text" name="lastname" >
-              </div>
-
-              <div class="line">
-                <label id="inputtxt">Email</label>
-                <input id="reg" type="email" name="email" placeholder="example@example.com">
-              </div>
-
-              <div class="line">
-                <label id="inputtxt">Password</label>
-                <input id="reg" type="password" name="password">
-              </div>
-
-              <div class="line">
-                <label id="inputtxt">Date of Birth</label>
-                <input id="reg" type="date" name="dob" placeholder="dd/mm/yyyy">
-              </div>
-
-              <div class="line">
-                <label id="inputtxt">Address</label>
-                <input id="reg" type="text" name="address">
-              </div>
-            </div>
-
-            <!--Trainer-->
-            <div id="trainer" style="visibility: hidden;">
-              
-              <div class="line" id="mobile" style="visibility:hidden;">
-                <label id="inputtxt">Mobile Number</label>
-                <input id="reg" type="text" name="tel">
-              </div>
-              
-              <div class="line" id="spec" style="visibility:hidden;">
-                <label id="inputtxt">Specialization</label>
-                <input id="reg" type="text" name="spec">
-              </div>
-
-            </div>
-
-
-            <!--Nutritionist-->
-            <div id="nutritionist" style="visibility:hidden;">
-            
-            </div>  
-
-   
+      <div>
+        <h2 id="title2">Sign Up</h2>
       </div>
-       <button class="btn">Create Account</button>
-    </form>
 
+    <div class= "profile">
+        {{#if photo}}
+          <img src={{photo}}  width="120" height="120" style="border-radius: 50%;" />
+        {{/if}}
+    </div>
 
+      <div class="inputLabels">
+        <label class="inputText">User Type</label>
+          <select name="UserType" id="usertype" onchange="return showTypes();">
 
-    <script type="text/javascript">
-      function showTypes(){
-          var selectBox = document.getElementById('usertype');
-          console.log("selct box",selectBox);
-         var userInput = selectBox.options[selectBox.selectedIndex].value;
-         console.log("user index",userInput);
+          <option value="client">Client</option>
+          <option value="trainer">Trainer</option>
+          <option value="nutritionist">Nutritionist</option>
+        </select>
 
+    <!--Client-->
+        <div id= "client">
+          <div class="line1">
+            <label class="inputText" for="input">First Name</label>
+            <input class="reg" type="text" name="firstname">
+          </div>
 
-         //trainer
-          if(userInput == 'trainer'){
-            document.getElementById('trainer').style.visibility = 'visible';
+          <div class="line1">
+            <label class="inputText" for="input">Last Name</label>
+            <input class="reg" type="text" name="lastname" >
+          </div>
 
-            if(document.getElementById('mobile').style.visibility='hidden'){
-              document.getElementById('mobile').style.visibility='visible';
-            }
-            if(document.getElementById('loc').style.visibility='hidden'){
-              document.getElementById('loc').style.visibility='visible';   
-            }
-            if(document.getElementById('spec').style.visibility='hidden'){
-              document.getElementById('spec').style.visibility='visible';
-            }
-          }else{
-            document.getElementById('trainer').style.visibility = 'hidden';
-          }
+          <div class="line1">
+            <label class="inputText">Email</label>
+            <input class="reg" type="email" name="email" placeholder="example@example.com">
+          </div>
 
-          //client
-          if(userInput == 'client'){
+          <div class="line1">
+            <label class="inputText">Password</label>
+            <input class="reg" type="password" name="password">
+          </div>
 
-            if(document.getElementById('spec').style.visibility='visible'){
-              document.getElementById('spec').style.visibility='hidden';
-            }
-            if(document.getElementById('mobile').style.visibility='visible'){
-              document.getElementById('mobile').style.visibility='hidden';
-            }
-            if(document.getElementById('loc').style.visibility='visible'){
-              document.getElementById('loc').style.visibility='hidden';
-            }
+          <div class="line1">
+            <label class="inputText">Date of Birth</label>
+            <input class="reg" type="date" name="dob" placeholder="dd/mm/yyyy">
+          </div>
 
-          }else{
-            
-          }
+          <div class="line1">
+            <label class="inputText">Address</label>
+            <input class="reg" type="text" name="address">
+          </div>
+      </div>
 
-          //nutritionist
-          if(userInput == 'nutritionist'){
-            document.getElementById('nutritionist').style.visibility = 'visible';
+      <div id="trainer">
 
-            if(document.getElementById('mobile').style.visibility='hidden'){
-              document.getElementById('mobile').style.visibility='visible';
-            }
-            if(document.getElementById('loc').style.visibility='hidden'){
-              document.getElementById('loc').style.visibility='visible';   
-            }
+        <div class="line1" id="mobile">
+          <label class="inputText">Mobile Number</label>
+          <input class="reg" type="text" name="tel">
+        </div>
 
-            if(document.getElementById('spec').style.visibility='visible'){
-              document.getElementById('spec').style.visibility='hidden';
-            }
+ 
+        <div class="line1" id="loc">
+          <label class="inputText">Location</label>
+          <input class="reg" type="text" name="loc">
+        </div>
 
-          }else{
-            document.getElementById('nutritionist').style.visibility = 'hidden';
-           
-          }
-          return false;
-      }
+        <div class="line1" id="exp">
+          <label class="inputText">Experience</label>
+          <input class="reg" type="text" name="exp">
+        </div>
 
-    </script>
+        <div class="line1" id="spec">
+          <label class="inputText">Specialization</label>
+          <input class="reg" type="text" name="spec">
+        </div>
+      </div>
 
-
-    <script>
-var x = document.getElementById("demo");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
-</script>
-
+            <button class="btn">Submit</button>
+            <!-- <button class="btn1">Submit</button>
+            <button class="btn2">Submit</button> -->
+    </div>
+  </form>
 
 
 </template>

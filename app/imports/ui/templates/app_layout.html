@@ -1,20 +1,46 @@
 <template name="app_layout">
+{{ #HammerTouchArea gestureMap=layoutGestures }}
 <div id="layout-body">
 <div id="sidr">
   <ul>
     <li id="logo-list"><img src="images/logo.svg">
       <a id="logo-name">FindFitness</a>
     </li>
-    <li class="active"><a href="#">Search</a><img class="icons" src="images/search.svg"></li>
-    <li><a href="#">Subscription</a><img class="icons" src="images/subscription.svg"></li>
-    <li><a href="#">Messages</a><img class="icons" src="images/messages.svg"></li>
-    <li><a href="#">Requests</a><img class="icons" src="images/requests.svg"></li>
-    <li><a href="#">Logout</a><img class="icons" src="images/logout.svg"></li>
+    <li id="search" class="clickable active">
+      <a style="pointer-events:none;" href="/search">Search</a>
+      <img class="icons" src="images/search.svg">
+    </li>
+    <li id="subscriptions" class="clickable">
+      <a style="pointer-events:none;" href="/subscriptions">Subscription</a>
+      <img class="icons" src="images/subscription.svg">
+    </li>
+    <li id="messages" class="clickable">
+      <a style="pointer-events:none;" href="/messages">Messages</a>
+      <img class="icons" src="images/messages.svg">
+    </li>
+    <li id="requests" class="clickable">
+      <a style="pointer-events:none;" href="/requests">Requests</a>
+      <img class="icons" src="images/requests.svg">
+    </li>
+    <li id="profile" class="clickable">
+      <a style="pointer-events:none;" href="/profile">Profile</a>
+      <img class="icons" src="images/profile.png">
+    </li>
+    <li id="logout" class="clickable">
+      <a style="pointer-events:none;" href="/logout">Logout</a>
+      <img class="icons" src="images/logout.svg">
+    </li>
   </ul>
 </div>
 
-<a id="simple-menu" href="#sidr">Toggle menu</a>
+<div class="content">
 
-hello
+<div id="app-header">
+  <img id="simple-menu" href="#sidr" src="images/menu.png" width="30px" height="30px"/>
+  <h3>{{pageTitle}}</h3>
 </div>
+{{> yield}}
+</div>
+</div>
+{{ /HammerTouchArea }}
 </template>

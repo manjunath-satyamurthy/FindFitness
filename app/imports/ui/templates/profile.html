@@ -1,0 +1,113 @@
+<template name="profile">
+<div class = "profile">
+
+  <div class="perdet">
+    <a href="{{pathFor 'perdetails'}}">Personal Details</a>
+    <img class="icons" src="images/personal_1.svg">
+  </div>
+
+  <div class="prodet">
+    <a href="{{pathFor 'prodetails'}}">Professional Details</a>
+    <img class="icons" src="images/professional.svg">
+  </div>
+
+  <div class="propic">
+    <a href="{{pathFor 'profilepic'}}">Profile Picture</a>
+    <img class="icons" src="images/profilepic.svg">
+  </div>
+
+  <div class="accdet">
+    <a href="{{pathFor 'accdetails'}}">Account Details</a>
+    <img class="icons" src="images/settings.svg">
+  </div>
+
+</div>
+</template>
+
+
+<template name="perdetails">
+<div class="container">
+  <div id="profile-header">
+    <a href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
+    <h3>Personal Details</h3>
+    <img src="images/save.svg" width="30px" height="30px"/>
+  </div>
+
+  <div class="forms">
+    <form class="perdet-form forms" name="predet">
+      <div><input name ="firstname" placeholder="First Name"></div>
+      <div><input name ="lastname" placeholder="Last Name"></div>
+      <div><input name ="dob" type="text" value="" placeholder="Date of Birth" onfocus="(this.type='Date')"  onblur="(this.type='text')">
+      </div>
+
+      <select id="gender">
+        <option>Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <div class="location">
+        <input id="place" type="text" name ="place" placeholder="Location" value="">
+      </div>
+    </form>
+  </div>
+</div>
+</template>
+
+<template name="prodetails">
+<div class="container">
+  <div id="profile-header">
+    <a href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
+    <h3>Professional Details</h3>
+    <img src="images/save.svg" width="30px" height="30px"/>
+  </div>
+
+  <div class="forms">
+    <form class="prodet-form forms" name="prodet">
+      <div><input name="experience" type="number" pattern="\d*" min=0 placeholder="Experience in years"></div>
+      <div><input name="specialization" placeholder="Specialization"></div>
+
+    </form>
+  </div>
+</div>
+</template>
+
+<template name="profilepic">
+<div class="container">
+  <div id="profile-header">
+    <a href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
+    <h3>Profile Picture</h3>
+    <img src="images/save.svg" width="30px" height="30px"/>
+  </div>
+    <div class="profilepic">
+      <p>Add your Profile picture</p>
+
+      {{#if photo}}
+      <img src={{photo}} />
+      {{else}}
+      <img src="images/camera.png">
+      {{/if}}
+    </div>	
+</div>
+</template>
+
+<template name="accdetails">
+<div class="container">
+  <div id="profile-header">
+    <a href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
+    <h3>Account Details</h3>
+    <img src="images/save.svg" width="30px" height="30px"/>
+  </div>
+
+
+  <div class="forms">
+    <form class="accdet-form forms" name="accdet">
+      <div><input name ="username" placeholder="Username"></div>
+    <div><input name ="email" type="email" placeholder="Email Address"></div>
+    <div><input name="password" type="password" placeholder="Password"/></div>
+
+    </form>
+  </div>
+</div>
+
+</template>

@@ -2,7 +2,6 @@
 	text-align: center;
 	width: 100%;
 	background-color: #8BC34A;
-	height:100%;
 }
 
 h1 {
@@ -40,96 +39,29 @@ select : focus{
 	outline: none;
 }
 
-.location > input {
-	text-align: center;
-	background: transparent;
-	border-bottom: 2px solid #9e9e9e;
-	font-family: Arial;
-	box-shadow: none;
-	margin-top: 10%;
-	width:80%;
-	color: white; 
-	font-size: 18px;
-	height: 26px;
-  	background: url(images/location.png) no-repeat right center;
-  	background-size: 28px 28px; 
-}
-
-p#text1 {
-	-webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-}
-
-p#text {
-	color: white;
-	font-family: ARIAL;
-	text-align: center;
-	font-size: 18px;
-	-webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-}
-
 a.green {
 	text-decoration: none;
 	color: #8BC34A;
 }
 
-.create-acc {
+.create-acc-btn {
 	text-align: center;
-	float: right; 
-	margin-top: 15%;
-	margin-right: 10%;
+    margin-top: 15%
 }
 
-.create-acc > button {
+.create-acc-btn > button {
 	background-color: #8BC34A;
 	box-shadow: none;
 	border: none;
-	border-radius: 7px;
+	border-radius: 5px;
 	color: white;
 	font-weight: bold;
 	font-size: 18px;
 	font-family: Arial;
-	padding-left:7px;
-	padding-right:7px;
-	padding-top: 7px;
-	padding-bottom:7px;
-}
-
-input[type=date] {
-	background: url(images/calendar.png) no-repeat right center;
-	background-size:30px 30px;
-	text-align: center;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator{
-    -webkit-appearance: none;
-    background-color: transparent;
-    color: transparent;
-    text-align: center;
-}
-
-input[type=date]::-webkit-inner-spin-button{
-	display: none;
-	-webkit-appearance: none;
-}
-
-.next {
-	font-size: 60px;
-	content: "\27A1";
-	color: #8BC34A;
-	margin-right: 10%;
-	margin-left: 78%;
-}
-
-.back {
-    content: "\27A1";
-    color: #8BC34A;
-    margin-top: 6%;
-    font-size: 60px;
-    float: left; 
-    width: auto;
-    margin-left: 7%;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top: 10px;
+	padding-bottom:10px;
 }
 
 

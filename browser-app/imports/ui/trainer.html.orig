@@ -1,11 +1,19 @@
+<<<<<<< HEAD
   <template name="trainerPro"> 
 
+=======
+<body>
+
+</body>  
+<template name="trainer">
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
   <header id="firstHeader">
       <img id = "img3" src="/images/one.svg"> 
       <span>
       <h1 id="firstHead">FindFitness</h1>
       </span> 
       <img id = "img4" src="/images/two.svg">
+<<<<<<< HEAD
     </header>
   
    <form id="login2">
@@ -25,6 +33,27 @@
 
            
           <div class="inputLabels">
+=======
+    </header> 
+
+  <br><br><br><br><br><br><br><br>
+  <div class="center">
+   <form id="login2">
+
+    
+        
+
+          <div class= "profile1">  
+           <!-- <div class= "profile"> -->
+            {{#if photo}}
+            <img src={{photo}}  width="220" height="220" style="border-radius: 50%;" />
+            {{/if}}
+          <!-- </div> -->
+           </div>
+
+           
+          <div class="inputLabels1">
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
 
             
 
@@ -32,7 +61,11 @@
            
               <div class="line">
                 <label id="inputtxt" for="input">Specialization</label>
+<<<<<<< HEAD
                 <input id="reg1" type="text" name="specialization"> 
+=======
+                <input id="reg" type="text" name="specialization"> 
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
 
                       
                
@@ -40,17 +73,29 @@
 
               <div class="line">
                 <label id="inputtxt" for="input">Experience</label>
+<<<<<<< HEAD
                 <input id="reg1" type="text" name="experience" >
+=======
+                <input id="reg" type="text" name="experience" >
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
               </div>
 
               <div class="line">
                 <label id="inputtxt">Available time</label>
+<<<<<<< HEAD
                 <input id="reg1" type="time" name="availabletime" >
+=======
+                <input id="reg" type="time" name="availabletime" >
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
               </div>
 
               <div class="line">
                 <label id="inputtxt">Cost per hour in euro</label>
+<<<<<<< HEAD
                 <input  id="reg1" type="number" name="cost">
+=======
+                <input  id="reg" type="number" name="cost">
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
                 
               </div><br>
 
@@ -65,10 +110,18 @@
             </div>
              </div>
 
+<<<<<<< HEAD
               </form> 
 
               <div>
        <button class="btn">Submit</button>
+=======
+              </form><br/>
+              <button class="btn">Submit</button> 
+              </div>
+              <div>
+       
+>>>>>>> bda632319620a57e3f9c01abc0b1a9198ae8b223
        </div>
 
 </template>           

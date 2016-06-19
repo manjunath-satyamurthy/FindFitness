@@ -12,7 +12,7 @@ import './login.html';
 import './nutritionistProfile.html';
 import './chat.html';
 import './result.html';
-
+import { Images } from '../api/common.js';
 
 
 // Meteor.publish(“images”, function(){ return Images.find(); });
@@ -185,7 +185,7 @@ Template.signup.onRendered(function () {
 
         // Example 1 - Autocomplete only
         $('[name=address]').geocomplete({
-
+          details: "form"
         });
       }
     });
@@ -339,6 +339,8 @@ Template.signup.helpers({
 
 Template.signup.onRendered(function () {
   $("div#trainer").hide();
+  $("div#client").hide();
+  $(".btn").hide();
   });
 
 Template.signup.events({
@@ -347,12 +349,19 @@ Template.signup.events({
      Session.set('selectedVal', selectedVal);
      if(selectedVal == 'trainer'){
       $("div#trainer").show();
+      $(".btn").show();
      }
      else if(selectedVal == 'nutritionist'){
       $("div#trainer").show();
+      $(".btn").show();
+     }
+     else if(selectedVal == 'client'){
+      $(".btn").show();
+      $("div#client").show();
+      $("div#trainer").hide();
      }
      else{
-      $("div#trainer").hide();
+      Router.go('signup');
      }
   }
 });
@@ -390,7 +399,7 @@ Template.signup.events({
     var DOB = $('[name=dob]').val();
     var address =$('[name=address]').val();
     var phoneNumber =$('[name=tel]').val();
-    var location =$('[name=loc]').val();
+    var location =$('[name=location]').val();
     var experience = $('[name=exp]').val();
     var specialization =$('[name=spec]').val();
     
@@ -437,3 +446,27 @@ Template.login.events({
     }
 });
 
+
+//to upload images
+// Template.trainerProfile.events({
+//   'change .profile': function(event, template) {
+//     var files = event.target.files;
+//     for (var i = 0, ln = files.length; i < ln; i++) {
+//       Images.insert(files[i], function (err, fileObj) {
+//         console.log("added");
+//         //Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+//       });
+//     }
+//   }
+// });
+
+// Template.trainerProfile.events({
+//   'change .profile': function(event, template) {
+//     FS.Utility.eachFile(event, function(file) {
+//       Images.insert(file, function (err, fileObj) {
+//         //Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+//         console.log('added');
+//       });
+//     });
+//   }
+// });

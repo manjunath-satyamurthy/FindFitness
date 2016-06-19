@@ -1,32 +1,38 @@
 <template name="search"> 
     {{> contentAndHeader}}
-
     <div class="content">
     <div class="secondHeader">
- 
-        <button id='searchHead1'>Trainer</button> 
-        <button id='searchHead2'>Nutritionist</button> 
-
-          <p id="searchTab">Search Location</p> 
+      <button id='searchHead1'>Trainer</button> 
+      <button id='searchHead2'>Nutritionist</button> 
+      <form>
+        <div>
+          <label class="searchTab">Search Location</label> 
           <input id="geoLocation" name="SearchLocation"/> 
-
-          <form>
-            <p id="searchTab">Personal</p><br>
-            <input type="radio" name="trainer" value="Personal">
-            <p id="searchTab">Group</p><br>
-            <input type="radio" name="trainer" value="Group"> 
-          </form>
-          <p id="searchTab">Maximum Cost</p> 
+        </div>
+        <div>
+          <label class="searchTab">Personal</label>
+          <input type="radio" name="trainer" value="Personal">
+        </div>
+        <div>
+          <label class="searchTab">Group</label>
+          <input type="radio" name="trainer" value="Group">
+        </div> 
+        <div>
+          <label class="searchTab">Maximum Cost</label> 
           <input name="MaxCost"/>
-     
-          <p id="searchTab">Preferred Timings</p> 
+        </div>
+        <div>
+          <label class="searchTab">Preferred Timings</label> 
           <input name="PreferredTime"/> 
- 
-          <p id="searchTab">Specialization</p> 
+        </div>
+        <div>
+          <label class="searchTab">Specialization</label> 
           <input name="Specialization"/> 
+        </div>
 
           <button id="searchButton">Search Trainer</button>
 
+          </form>
       </div>
       </div>
   </template>
@@ -38,19 +44,24 @@
 
     <div class="content">
     <div class="secondHeader">
- 
-        <button id='searchHead1'>Trainer</button> 
-        <button id='searchHead2'>Nutritionist</button>
-
-          <p id="searchTab">Search Location</p> 
+      <button id='searchHead1'>Trainer</button> 
+      <button id='searchHead2'>Nutritionist</button>
+      <form>
+        <div>
+          <label class="searchTab">Search Location</label> 
           <input id="geoLocation" name="SearchLocation"/>
-          <p id="searchTab">Maximum Cost</p> 
+        </div>
+        <div>
+          <label class="searchTab">Maximum Cost</label> 
           <input name="Specialization"/>
-          <p id="searchTab">Specialization</p> 
+        </div>
+        <div>
+          <label class="searchTab">Specialization</label> 
           <input name="Specialization"/>
+        </div>
 
-        <button id="searchButton1">Search Nutritionist</button>
-
+          <button id="searchButton1">Search Nutritionist</button>
+      </form>
       </div>
       </div>
 

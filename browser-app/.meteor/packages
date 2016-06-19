@@ -31,3 +31,4 @@ cfs:standard-packages
 cfs:gridfs
 mdg:camera
 session
+cfs:filesystem

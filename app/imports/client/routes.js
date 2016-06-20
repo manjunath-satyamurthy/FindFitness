@@ -279,9 +279,10 @@ Router.route('/chat', function () {
 	msgs = messages.find({from: {$in: [user._id,recipient_id ]}, to: {$in: [user._id, recipient_id]} }).fetch()
 	recipient = users.find({_id: new Mongo.ObjectID(query.to_id)}).fetch()[0]
 
-	msgs.sort(function(a, b){
-		return a - b;
-	})
+	// msgs.sort(function(a, b){
+	// 	console.log(a._id, b._id)
+	// 	return a - b;
+	// })
 
   	this.render('chat', {
 		data: {

@@ -32,6 +32,7 @@
 .chat-body {
 	height: calc(100vh - 100px);
 	overflow-y: auto;
+	padding: 0 10px;
 
 }
 
@@ -41,6 +42,11 @@
 	color: white;
 	border-radius: 10px;
 	font-weight: bold;
+}
+
+.chat-body > div > p:first-child, .chat-body > div > p:last-child {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .chat-body > div > p > span {
@@ -63,7 +69,7 @@
 }
 
 .chat-body > div.right-message > p {
-	background-color: #8BC34A;
+	background-color: #81C784;
 	display: inline-block;
 }
 

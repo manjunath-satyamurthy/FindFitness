@@ -41,15 +41,52 @@ Router.route('/subscriptions', function () {
 );
 
 Router.route('/messages', function () {
-	
-	this.layout('app_layout', {
-  		data: {
-  			'pageTitle': 'Messages',
-  			'user': Session.get('user')
-  		}
- 	})
+	user = Session.get('user')
+	allMessages = messages.find( { $or:[{from: user._id }, { to: user._id }]}).fetch()
 
-  	this.render('messages');
+	console.log(user._id, user.username)
+	recipients = {}
+	if (allMessages.length > 0){
+		for (i=0; i<allMessages.length; i++)
+		{	
+			console.log("from", allMessages[i].from)
+			recipient = null;
+			if (allMessages[i].from._str != user._id._str ){
+				console.log("here")
+				allMessages[i]['type'] = 'from'
+				recipients[allMessages[i].from._str] = allMessages[i]
+			}
+			else {
+				console.log(" not here")
+				allMessages[i]['type'] = 'to'
+				recipients[allMessages[i].to._str] = allMessages[i]
+			}
+		}
+	}
+
+	recipients_list = []
+	for (key in recipients){
+		recipients[key]['user'] = users.find({_id: new Mongo.ObjectID(key)}).fetch()[0]
+		console.log(recipients[key]['user'])
+		recipients_list.push(recipients[key])
+	}
+	console.log(recipients_list)
+
+
+	this.layout('app_layout', {
+		data: {
+  			'pageTitle': 'Messages',
+  			'user': Session.get('user'),
+		}
+	})
+
+  	this.render('messages', {
+  		data: {
+  			'messages': recipients_list,
+  			'count': recipients_list.length
+  		}
+ 	});
+
 	},
 	{
 		name: 'messages',
@@ -236,7 +273,23 @@ Router.onRun(function (){
 
 
 Router.route('/chat', function () {
-  	this.render('chat');
+	user = Session.get('user')
+	query = this.params.query
+	recipient_id = new Mongo.ObjectID(query.to_id)
+	msgs = messages.find({from: {$in: [user._id,recipient_id ]}, to: {$in: [user._id, recipient_id]} }).fetch()
+	recipient = users.find({_id: new Mongo.ObjectID(query.to_id)}).fetch()[0]
+
+	msgs.sort(function(a, b){
+		return a - b;
+	})
+
+  	this.render('chat', {
+		data: {
+			'messages': msgs,
+			'user': user,
+			'recipient': recipient,
+		}
+  	});
 	},
 	{
 		name: 'chat',

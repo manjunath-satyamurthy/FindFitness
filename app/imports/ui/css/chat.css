@@ -35,28 +35,34 @@
 
 }
 
-.chat-body > p {
-	margin: 10px 15px;
-	padding: 5px 8px;
+.chat-body > div > p {
+	margin: 6px 15px;
+	padding: 4px 8px;
 	color: white;
 	border-radius: 10px;
 	font-weight: bold;
 }
 
-.chat-body > p > span {
+.chat-body > div > p > span {
 	font-size: 11px;
 	margin-left: 5px;
 	margin-right: 5px;
-	/*font-weight: normal;*/
 }
 
-.chat-body > p.left-message {
-	background-color: #65B4CE;
+.chat-body > div.left-message {
+
+}
+
+.chat-body > div.left-message > p {
 	display: inline-block;
+	background-color: #65B4CE;
 }
 
-.chat-body > p.right-message {
-	float: right;
+.chat-body > div.right-message {
+	text-align: right;
+}
+
+.chat-body > div.right-message > p {
 	background-color: #8BC34A;
 	display: inline-block;
 }

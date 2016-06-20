@@ -1,9 +1,14 @@
 <template name="messages">
+	<div class="results-count">
+		<p>{{ count }} messages</p>
+	</div>
 	<div class="results-list">
-		<div class="show">
+	{{#each messages}}
+		<div class="show message-list" data-recipient="{{ user._id._str }}">
 			<img class="requests-img" src="images/default-profile.svg" width="45px" height="45px">
-			<p class="messenger">{{ related.firstname }}Manjunath satyamurthy</p>
-			<p class="last-message">Hello how are you doing today</p>
+			<p class="messenger">{{ user.username }}</p>
+			<p class="last-message">{{ message }}</p>
 		</div>
+	{{/each}}
 	</div>
 </template>

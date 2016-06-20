@@ -26,6 +26,7 @@ import '../imports/client/search.js';
 import '../imports/client/results.js';
 import '../imports/client/profile.js';
 import '../imports/client/requests.js';
+import '../imports/client/messages.js';
 import '../imports/client/chat.js';
 
 import '../imports/ui/css/app_layout.css';

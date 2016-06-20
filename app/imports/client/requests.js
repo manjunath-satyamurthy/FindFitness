@@ -18,9 +18,8 @@ Template.requests.events({
 					else {
 						status = 'accepted'
 					}
-
 					requests.update({_id: reqs._id}, {$set:{'status': status}})
 				}, 'React - Request', ['Accept', 'Cancel'])
-		})	
+		})
 	}
 })

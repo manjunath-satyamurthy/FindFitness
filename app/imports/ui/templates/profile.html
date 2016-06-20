@@ -93,9 +93,10 @@
       <div id="profile-header">
       <a  href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
       <h3>Professional Details</h3>
-      <img src="images/save.svg" width="30px" height="30px"/>
+      <img class="prodetsave" src="images/save.svg" width="30px" height="30px"/>
     </div>
     <form class="prodet-form forms" name="prodet">
+
       <select id="user-category">
         <option>Category</option>
         <option value="unemployed">Unemployed</option>
@@ -103,6 +104,7 @@
         <option value="studying">Studying</option>
         <option value="others">Others</option>
       </select>
+
     </form>
   </div>
 {{/if}}
@@ -112,15 +114,22 @@
     <div id="profile-header">
       <a  href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
       <h3>Professional Details</h3>
-      <img src="images/save.svg" width="30px" height="30px"/>
+      <img class="prodetsave" src="images/save.svg" width="30px" height="30px"/>
     </div>
 
     <div class="forms">
       <form class="prodet-form forms" name="prodet">
-      <div><input name="experience" type="number" min=0 placeholder="Experience in years"></div>
 
-      <select><!-- id="trainer-specialization"> -->
-        <option>Specialization</option>
+      <div>
+      {{#if info.experience}}
+      <input name="experience" type="number" min=0 placeholder="Experience in years" value="{{ info.experience }}">
+      {{else}}
+      <input name="experience" type="number" min=0 placeholder="Experience in years">
+      {{/if}}
+      </div>
+
+      <select multiple="multiple" id="trainer-spez" placeholder="Specialization">
+        <!-- <option>Specialization</option> -->
         <option value="gym">Gym</option>
         <option value="swimming">Swimming</option>
         <option value="aerobics">Aerobics</option>
@@ -128,13 +137,21 @@
         <option value="others">Others</option>
       </select>
 
-      <div><input name="cost" type="number" min=0 placeholder="Approx. Cost/Hour"></div>
+      <div>
+      {{#if info.cost}}
+      <input name="cost" type="number" min=0 placeholder="Approx. Cost/Hour" value="{{ info.cost }}">
+      {{else}}
+      <input name="cost" type="number" min=0 placeholder="Approx. Cost/Hour">
+      {{/if}}
+      </div>
+
       <div id="time">Available Time
       <img class="icon1" src="images/add.svg">
       </div>
       <input name ="from" value="" type="text" placeholder="From" onblur="(this.type='text')" onfocus="(this.type='time')" style="width:36%; float:left;margin-left: 10%">
       <input name ="to" value="" placeholder="To" type="time" onblur="(this.type='text')" onfocus="(this.type='time')" style="width:36%; float:right;margin-right: 10%">
-      <div><textarea readonly class="scrollable" rows="4" cols="10"></textarea></div>
+
+      <div><textarea class="scrollable" rows="4" cols="10">{{ info.availability.from }} To {{ info.availability.to }}</textarea></div>
 
       </form>
 
@@ -147,14 +164,22 @@
     <div id="profile-header">
       <a  href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
       <h3>Professional Details</h3>
-      <img src="images/save.svg" width="30px" height="30px"/>
+      <img class="prodetsave" src="images/save.svg" width="30px" height="30px"/>
     </div>
 
     <div class="forms">
       <form class="prodet-form forms" name="prodet">
-      <div><input name="experience" type="number" min=0 placeholder="Experience in years"></div>
-      <select id="nut-specialization">
-        <option>Specialization</option>
+
+      <div>
+      {{#if info.experience}}
+      <input name="experience" type="number" min=0 placeholder="Experience in years" value="{{ info.experience }}">
+      {{else}}
+      <input name="experience" type="number" min=0 placeholder="Experience in years">
+      {{/if}}
+      </div>
+
+      <select multiple="multiple" id="nut-specialization">
+        <!-- <option >Specialization</option> -->
         <option value="gerontological">Gerontological</option>
         <option value="sports">Sports Dietetics</option>
         <option value="pediatric">Pediatric Nutrition</option>
@@ -162,9 +187,15 @@
         <option value="oncology">Oncology Nutrition</option>
         <option value="others">Others</option>
       </select>
-      <div><input name="cost" type="number" min=0 placeholder="Approx. Cost/Session"></div>
+
+      <div>
+      {{#if info.cost}}
+      <input name="cost" type="number" min=0 placeholder="Approx. Cost/Session" value="{{ info.cost }}">
+      {{else}}
+      <input name="cost" type="number" min=0 placeholder="Approx. Cost/Session">
+      {{/if}}
+      </div>
       
-      <div><input name="cost" type="number" min=0 placeholder="Approx. Cost/Hour"></div>
       <div id="time">Available Time
       <img class="icon1" src="images/add.svg">
       </div>
@@ -184,13 +215,13 @@
   <div id="profile-header">
     <a href="/profile"><img id="simple-menu" src="images/back-btn.png" width="30px" height="30px"/></a>
     <h3>Profile Picture</h3>
-    <img src="images/save.svg" width="30px" height="30px"/>
+    <img class = "icon1" src="images/save.svg" width="30px" height="30px"/>
   </div>
     <div class="profilepic">
       <p>Add your Profile picture</p>
 
-      {{#if photo}}
-      <img src={{photo}} />
+      {{#if info.pro_image}}
+      <img src={{info.pro_image}} />
       {{else}}
       <img src="images/camera.png">
       {{/if}}

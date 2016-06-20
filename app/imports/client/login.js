@@ -18,10 +18,11 @@ Template.login.events({
 		if (is_login_valid){
 			var result = users.find({'username': username},
 			{'password': password}).fetch();
+
+			console.log('user', result[0], result)
 			var acctype = result[0].acctype;
 			var userid = result[0]._id;
 			var gender = result[0].gender;
-
 			Session.set('user', result[0])
 			Session.set('acctype',acctype)
 			Session.set('username',username)

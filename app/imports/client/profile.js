@@ -4,9 +4,15 @@ import { Meteor } from 'meteor/meteor';
 import '../ui/css/profile.css'
 import '../api/dbapi.js'
 
+Images = new FS.Collection("images", {
+  stores: [new FS.Store.FileSystem("images", {path: "~/uploads"})]
+});
+
+
 //Profile Picture
   Template.profilepic.events({
     'click .profilepic': function () {
+      user = Session.get('user')
       var cameraOptions = {
       width: 600,
       height: 600,
@@ -18,6 +24,16 @@ import '../api/dbapi.js'
       MeteorCamera.getPicture(cameraOptions, function (error, data) {
         Session.set("photo", data);
       });
+    },
+    'click .icon1': function(){
+      var photo = Session.get("photo");
+      var userid = Session.get('userid');
+          users.update(
+          {_id: userid},
+          {$set :
+          {
+            pro_image: photo,
+          }})
     }
   });
 
@@ -57,13 +73,7 @@ import '../api/dbapi.js'
 });
 
 
-
-Template.prodetails.helpers({
-      get_acctype: function (acctype) {
-        return acctype == Session.get('acctype')
-    }
-});
-
+//Personal Details
 Template.perdetails.events({
 
 'click .perdetsave': function () {
@@ -78,19 +88,30 @@ Template.perdetails.events({
     var   lng         = Session.get('lng')
     var   name        = Session.get('name')
 
-    users.update(
-    {_id: userid},
-    {$set :
-    {
-      firstname: firstname,
-      lastname: lastname,
-      dob: dob,
-      gender : gender,
-      location :{name : name,
-            lat      : lat,
-            lng      : lng,
-            location : location}
-   }})
+    Meteor.startup(function() {
+
+    navigator.notification.confirm('Do you want to save changes?', function(confirm){
+    if (confirm == 1)
+      {
+          users.update(
+          {_id: userid},
+          {$set :
+          {
+            firstname: firstname,
+            lastname: lastname,
+            dob: dob,
+            gender : gender,
+            location :{name : name,
+                  lat      : lat,
+                  lng      : lng,
+                  location : location}
+          }})
+
+        }
+
+      }, 'Save Changes', ['Save', 'Cancel'])
+      
+    })
 
     Session.set('user', users.find({_id: userid}).fetch()[0])
   }
@@ -106,9 +127,77 @@ Template.perdetails.helpers({
     },
 });
 
-
+//Professional Details
 Template.prodetails.helpers({
       get_acctype: function (acctype) {
+        console.log(Session.get('acctype'))
         return acctype == Session.get('acctype')
     },
+});
+
+Template.prodetails.events({
+
+    'click .icon1': function(){
+        const from = $('[name=from]').val();
+        const to = $('[name=to]').val();
+        var userid = Session.get('userid');
+        var result = users.find({'_id' : userid}, {'from': from},
+        {'to': to}).fetch();
+        console.log(result[0].availability.from)
+        if((result.availability.from == $('[name=from]').val()) && (result.availability.to == 'to')){
+          console.log('success')
+        }
+        // users.update({_id: userid}, 
+        //     {$push : 
+        //     {availability : { from: from, to: to }
+        //     }
+        //     },
+        //     {upsert : true}
+        // ),
+        // users.update({_id: userid}, 
+        //     {$set : 
+        //     {availability : { from: from, to: to }
+        //     },
+        //     $setOnInsert:{
+
+        //     }
+        //     },
+        //     {upsert : true}
+        // ),
+
+        Session.set('user', users.find({_id: userid}).fetch()[0])
+ },
+
+'click .prodetsave': function () {
+    const category = $('#user-category option:selected').val();
+    const experience = $('[name=experience]').val()
+    var trainer_spez = $('#trainer_spez').val();
+    var nut_spez = $('#nut-specialization').val()
+    const cost = $('[name=cost]').val();
+    var   userid = Session.get('userid');
+
+    Meteor.startup(function() {
+
+    navigator.notification.confirm('Do you want to save changes?', function(confirm){
+    if (confirm == 1)
+      {
+            users.update(
+            {_id: userid},
+            {$set :
+            {
+              category: category,
+              experience: experience,
+              specialization: trainer_spez,
+              specialization : nut_spez,
+              cost :cost
+           }})
+
+        }
+
+      }, 'Save Changes', ['Save', 'Cancel'])
+      
+    })
+
+    Session.set('user', users.find({_id: userid}).fetch()[0])
+  }
 });

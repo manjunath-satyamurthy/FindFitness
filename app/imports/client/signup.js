@@ -11,15 +11,24 @@ Template.signup.events({
     const email    = $('[name=email]').val();
     const password = $('[name=password]').val();
 
-    users.insert({
-      acctype : acctype,
-      username: username,
-      email   : email,
-      password : password
+  Meteor.startup(function() {
 
-    });
-	}
+  // navigator.notification.confirm('Do you want to Create Account?', function(confirm){
+  //   if (confirm == 1)
+  //     {
+          users.insert({
+          acctype : acctype,
+          username: username,
+          email   : email,
+          password : password
+          })
+
+        // }
+
+      // }, 'Create Account', ['Confirm', 'Cancel'])
       
+    })
+  }
 });
 
 

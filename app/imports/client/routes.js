@@ -240,12 +240,13 @@ Router.route('/prodetails', function(){
 	name: 'prodetails',
 });
 
-Router.route('/profilepic', function(){
+Router.route('/profilepic', function(){	
+	console.log("pic route")
 	this.render('profilepic',{
 		data: {
 			info: function(){
 				return Session.get('user')
-			}
+			},
 		}
 	});
 }, {

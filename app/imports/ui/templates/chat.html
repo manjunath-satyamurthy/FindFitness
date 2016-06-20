@@ -1,17 +1,26 @@
 <template name="chat">
 	<div id="app-header">
 	  <img id="back-messages" src="images/back-btn.png" width="30px" height="30px"/>
-	  <h3>Username</h3>
+	  <h3>{{ recipient.username }}</h3>
 	</div>
 
 	<div class="chat-view">
 		<div class="chat-body">
-		<p class="left-message">hello how are you<span>11:30</span></p>
-		<p class="right-message">I am doing fine joe<span>23:32</span></p>
+		{{#each messages}}
+			{{#if is_user_message from }}
+				<div class="right-message">
+				<p>{{ message }}<span></span></p>
+				</div>
+			{{else}}
+				<div class="left-message">
+				<p>{{ message }}<span></span></p>
+				</div>
+			{{/if}}
+		{{/each}}
 		</div>
 		<div class="chat-footer">
 			<input type="text" name="typed-chat" placeholder="Start here by saying hi !">
-			<img src="images/send-btn.svg">
+			<img id="send-msg-btn" src="images/send-btn.svg" data-recipientid={{ recipient._id._str }}>
 		</div>	
 	</div>
 

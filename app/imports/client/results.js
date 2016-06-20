@@ -37,5 +37,10 @@ Template.results.events({
 			}
 			
 		})
+	},
+
+	'click .chat-btn' (event){
+		to_id = $(event.currentTarget).data('id')
+		Router.go('chat', {}, {query: "to_id="+to_id})
 	}
 })

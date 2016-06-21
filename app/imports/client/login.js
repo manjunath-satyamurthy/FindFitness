@@ -12,7 +12,7 @@ Template.login.events({
 	'submit .login-form' (event){
 		window.scrollTo(0,0);
 		event.preventDefault();
-		const username = event.target.username.value;
+		const username = event.target.username.value.toLowerCase().trim();
 		const password = event.target.password.value;
 		is_login_valid = validate_login(username, password);
 		if (is_login_valid){
@@ -26,7 +26,11 @@ Template.login.events({
 			}
 		}
 		else {
-			Router.go('chat')
+	        Meteor.startup(function() {
+	            navigator.notification.alert("Invalid Username or Password",
+	            	function() {
+	            	}, 'Login Error', ["OK"])
+	        })
 		}
 	}
 })

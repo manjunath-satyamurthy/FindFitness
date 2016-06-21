@@ -1,5 +1,7 @@
 Router.route('/', function () {
   this.render('login');
+}, {
+	name: 'login',
 });
 
 Router.route('/signup', function(){

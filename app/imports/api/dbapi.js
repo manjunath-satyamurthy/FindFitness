@@ -9,6 +9,13 @@ validate_login = function (username, password){
 	}
 };
 
+set_user_session = function(username, password){
+	user = users.find({'username': username,
+		'password': password}).fetch()[0]
+	Session.set('user', user)
+	return user
+}
+
 find_trainers = function(trainer_type, specialization, cost, from_time, to_time){
 	trainers = users.find({
 		'$or': [{'trainer_type': trainer_type[0]},

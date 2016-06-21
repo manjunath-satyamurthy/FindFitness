@@ -1,7 +1,13 @@
 Template.requests.helpers({
 	is_user: function (value) {
 		return value == 'user'
-	}
+	},
+
+	defined: function(value){
+		if (value != undefined){
+			return true
+		}
+	},
 })
 
 Template.requests.events({

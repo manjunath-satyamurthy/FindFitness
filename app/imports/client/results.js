@@ -44,3 +44,12 @@ Template.results.events({
 		Router.go('chat', {}, {query: "to_id="+to_id})
 	}
 })
+
+
+Template.results.helpers({
+	defined: function(value){
+		if (value != undefined){
+			return true
+		}
+	}
+})

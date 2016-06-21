@@ -16,21 +16,9 @@ Template.login.events({
 		const password = event.target.password.value;
 		is_login_valid = validate_login(username, password);
 		if (is_login_valid){
-			var result = users.find({'username': username},
-			{'password': password}).fetch();
+			user = set_user_session(username, password)
 
-			console.log('user', result[0], result)
-			var acctype = result[0].acctype;
-			var userid = result[0]._id;
-			var gender = result[0].gender;
-			Session.set('user', result[0])
-			Session.set('acctype',acctype)
-			Session.set('username',username)
-			Session.set('userid',userid)
-			Session.set('gender',gender)
-			Router.go('search')
-
-			if (result[0].user_type == 'user'){
+			if (user.user_type == 'user'){
 				Router.go('search')
 			}
 			else {
@@ -42,5 +30,3 @@ Template.login.events({
 		}
 	}
 })
-
-

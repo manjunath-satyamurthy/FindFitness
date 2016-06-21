@@ -1,203 +1,219 @@
-import { Template } from 'meteor/templating';
-import { Meteor } from 'meteor/meteor';
+//Profile Picture
+Template.profilepic.events({
+    'click .profilepic': function() {
+        user = Session.get('user')
+        var cameraOptions = {
+            width: 600,
+            height: 600,
+            correctOrientation: true,
+            // sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+            allowEdit: true,
+        };
 
-import '../ui/css/profile.css'
-import '../api/dbapi.js'
+        MeteorCamera.getPicture(cameraOptions, function(error, data) {
+            Session.set("photo", data);
+        });
+    },
+    'click .icon1': function() {
+        photo = Session.get("photo");
+        userid = Session.get('user');
+        x = users.update({_id: user._id },
+            {
+                $set: {
+                    pro_image: photo,
+                }
+            }
+        )
 
-Images = new FS.Collection("images", {
-  stores: [new FS.Store.FileSystem("images", {path: "~/uploads"})]
+        Session.set('user', users.find({_id: user._id}).fetch()[0])
+    },
 });
 
-
-//Profile Picture
-  Template.profilepic.events({
-    'click .profilepic': function () {
-      user = Session.get('user')
-      var cameraOptions = {
-      width: 600,
-      height: 600,
-      correctOrientation: true,
-      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      allowEdit: true,
-      };
-
-      MeteorCamera.getPicture(cameraOptions, function (error, data) {
-        Session.set("photo", data);
-      });
+Template.profilepic.helpers({
+    photo: function() {
+        return Session.get("photo");
     },
-    'click .icon1': function(){
-      var photo = Session.get("photo");
-      var userid = Session.get('userid');
-          users.update(
-          {_id: userid},
-          {$set :
-          {
-            pro_image: photo,
-          }})
+
+    defined: function(value, photo){
+        return value != undefined && photo == undefined;
+    },
+
+    nothing_defined: function (value, photo){
+        return value == undefined && photo == undefined;
     }
-  });
+});
 
-  Template.profilepic.helpers({
-      photo: function () {
-      return Session.get("photo");
-    }
-  });
-
-// Load the Google Maps API on startup
-  Meteor.startup(() => {
-    GoogleMaps.load({
-      key: 'AIzaSyAK_vkvxDH5vsqGkd0Qn-dDmq-rShTA7UA',
-      libraries: 'places'
-    });
-  });
-
-  Template.perdetails.onRendered(function () {
+Template.perdetails.onRendered(function() {
 
     this.autorun(() => {
-      if (GoogleMaps.loaded()) {
+        if (GoogleMaps.loaded()) {
 
-        $("#place").geocomplete().bind("geocode:result", function(event,
-    result) {
+            $("#place").geocomplete().bind("geocode:result", function(event,
+                result) {
 
-        var lat = result.geometry.location.lat()
-        var lng = result.geometry.location.lng()
-        var name = result.address_components[0].long_name
+                var lat = result.geometry.location.lat()
+                var lng = result.geometry.location.lng()
+                var name = result.address_components[0].long_name
 
-        Session.set('lat',lat)
-        Session.set('lng',lng)
-        Session.set('name',name)
-      });
+                Session.set('lat', lat)
+                Session.set('lng', lng)
+                Session.set('name', name)
+            });
 
-    }
-  });
+        }
+    });
 });
 
 
 //Personal Details
 Template.perdetails.events({
 
-'click .perdetsave': function () {
-    console.log(lat)
-    const firstname   = $('[name=firstname]').val();
-    const lastname    = $('[name=lastname]').val();
-    const dob         = $('[name=dob]').val();
-    const gender      = $('#gender option:selected').val();
-    var   location    = $('[name=place]').val();
-    var   userid      = Session.get('userid');
-    var   lat         = Session.get('lat')
-    var   lng         = Session.get('lng')
-    var   name        = Session.get('name')
+    'click .perdetsave': function() {
+        const firstname = $('[name=firstname]').val();
+        const lastname = $('[name=lastname]').val();
+        const dob = $('[name=dob]').val();
+        const gender = $('#gender option:selected').val();
+        var location = $('[name=place]').val();
+        var user = Session.get('user');
+        var lat = Session.get('lat')
+        var lng = Session.get('lng')
+        var name = Session.get('name')
 
-    Meteor.startup(function() {
+        Meteor.startup(function() {
+            navigator.notification.confirm('Do you want to save changes?', function(confirm) {
+                if (confirm == 1) {
+                    users.update({
+                        _id: user._id
+                    }, 
+                    {
+                        $set: 
+                        {
+                            firstname: firstname,
+                            lastname: lastname,
+                            dob: dob,
+                            gender: gender,
+                            location: {
+                                name: name,
+                                lat: lat,
+                                lng: lng,
+                                location: location
+                            }
+                        }
+                    })
 
-    navigator.notification.confirm('Do you want to save changes?', function(confirm){
-    if (confirm == 1)
-      {
-          users.update(
-          {_id: userid},
-          {$set :
-          {
-            firstname: firstname,
-            lastname: lastname,
-            dob: dob,
-            gender : gender,
-            location :{name : name,
-                  lat      : lat,
-                  lng      : lng,
-                  location : location}
-          }})
+                }
 
-        }
+            }, 'Save Changes', ['Save', 'Cancel'])
 
-      }, 'Save Changes', ['Save', 'Cancel'])
-      
-    })
+        })
 
-    Session.set('user', users.find({_id: userid}).fetch()[0])
-  }
+        Session.set('user', users.find({_id: userid}).fetch()[0])
+    }
 });
 
 Template.perdetails.helpers({
-    equals: function(value){
-      console.log(value)
-      return typeof(value) != 'undefined'
+    equals: function(value) {
+        return typeof(value) != 'undefined'
     },
-    get_gender: function (gender) {
-    return gender == Session.get('gender')
+    get_gender: function(value) {
+        gender = 'undefined'
+        user = Session.get('user')
+        if (user.gender != undefined){
+            gender = user.gender
+        }
+        return gender == value
     },
 });
 
 //Professional Details
 Template.prodetails.helpers({
-      get_acctype: function (acctype) {
-        console.log(Session.get('acctype'))
-        return acctype == Session.get('acctype')
+    get_acctype: function(acctype) {
+        return acctype == Session.get('user').user_type
     },
+
+    get_string: function (datetime){
+        return datetime.getHours()+":"+datetime.getMinutes()
+    },
+
+    has_specialization: function (splz){
+        user = Session.get('user')
+        if ($.inArray(splz, user.specialization)>= 0){
+            return true 
+        }
+    },
+
+    if_defined: function (value){
+        if (value != undefined){
+            return true
+        }
+    }
 });
 
 Template.prodetails.events({
 
-    'click .icon1': function(){
-        const from = $('[name=from]').val();
-        const to = $('[name=to]').val();
-        var userid = Session.get('userid');
-        var result = users.find({'_id' : userid}, {'from': from},
-        {'to': to}).fetch();
-        console.log(result[0].availability.from)
-        if((result.availability.from == $('[name=from]').val()) && (result.availability.to == 'to')){
-          console.log('success')
-        }
-        // users.update({_id: userid}, 
-        //     {$push : 
-        //     {availability : { from: from, to: to }
-        //     }
-        //     },
-        //     {upsert : true}
-        // ),
-        // users.update({_id: userid}, 
-        //     {$set : 
-        //     {availability : { from: from, to: to }
-        //     },
-        //     $setOnInsert:{
-
-        //     }
-        //     },
-        //     {upsert : true}
-        // ),
-
-        Session.set('user', users.find({_id: userid}).fetch()[0])
- },
-
-'click .prodetsave': function () {
-    const category = $('#user-category option:selected').val();
-    const experience = $('[name=experience]').val()
-    var trainer_spez = $('#trainer_spez').val();
-    var nut_spez = $('#nut-specialization').val()
-    const cost = $('[name=cost]').val();
-    var   userid = Session.get('userid');
-
-    Meteor.startup(function() {
-
-    navigator.notification.confirm('Do you want to save changes?', function(confirm){
-    if (confirm == 1)
-      {
-            users.update(
-            {_id: userid},
-            {$set :
-            {
-              category: category,
-              experience: experience,
-              specialization: trainer_spez,
-              specialization : nut_spez,
-              cost :cost
-           }})
-
+    'click .icon1': function() {
+        from = new Date('2016-01-01T'+$('[name=from]').val()+':00Z');
+        to =  new Date('2016-01-01T'+$('[name=to]').val()+':00Z');
+        user = Session.get('user');
+        existing = false;
+        availability = user.availability
+        from_list = []
+        to_list = []
+        for (i=0; i< availability.length; i++){
+            if (from >= availability[i].from && to <= availability[i].to){
+                existing = true;
+            }
         }
 
-      }, 'Save Changes', ['Save', 'Cancel'])
-      
-    })
+        if (!existing) {
+            users.update({_id: user._id}, {
+                $push: {availability: {from: from, to: to}}
+            })
 
-    Session.set('user', users.find({_id: userid}).fetch()[0])
-  }
+            Session.set('user', users.find({_id: user._id}).fetch()[0])
+        }
+
+    },
+
+    'click .prodetsave': function() {
+        category = $('#user-category option:selected').val();
+        experience = $('[name=experience]').val()
+        trainer_spez = $('.selected');
+        selected = []
+        for (i=0; i<trainer_spez.length; i++){
+            selected.push($(trainer_spez[i]).val())
+        }
+        cost = $('input[name=cost]').val();
+        user = Session.get('user');
+
+        Meteor.startup(function() {
+
+            navigator.notification.confirm('Do you want to save changes?', function(confirm) {
+                if (confirm == 1) {
+                    users.update({
+                        _id: user._id
+                    }, {
+                        $addToSet: {specialization: {$each: selected}},
+                        $set: {
+                            category: category,
+                            experience: experience,
+                            cost: cost
+                        }
+                    })
+                }
+            }, 'Save Changes', ['Save', 'Cancel'])
+
+        })
+
+        Session.set('user', users.find({_id: user._id}).fetch()[0])
+    },
+
+    'click .multiple-select' (event){
+        if ($(event.currentTarget).hasClass('selected')){
+            $(event.currentTarget).removeClass('selected')
+        }
+        else {
+            $(event.currentTarget).addClass('selected')
+        }
+    }
 });

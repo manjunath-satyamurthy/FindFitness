@@ -36,7 +36,8 @@
     <form class="perdet-form forms" name="predet">
       <div>
       {{#if info.firstname}}
-      <input name ="firstname" value="{{ info.firstname }}">
+      <input name ="firstname" value="{{ info.firstname }}"><br>
+      <label>Firstname</label>
       {{else}}
       <input name ="firstname" placeholder="First Name">      
       {{/if}}
@@ -44,7 +45,8 @@
 
       <div>
       {{#if info.lastname}}
-      <input name="lastname" value="{{ info.lastname }}">
+      <input name="lastname" value="{{ info.lastname }}"><br>
+      <label>Lastname</label>
       {{else}}
       <input name ="lastname" placeholder="Last Name">
       {{/if}}
@@ -52,31 +54,33 @@
 
       <div>       
       {{#if info.dob}}       
-      <input name ="dob" type="text" value= "{{ info.dob }}" onfocus="(this.type='Date')">       
+      <input name ="dob" type="text" value= "{{ info.dob }}" onfocus="(this.type='Date')"><br>
+      <label>DOB</label>
       {{else}}       
       <input name ="dob" type="text" value="" placeholder="Date of Birth" onfocus="(this.type='Date')" onblur="(this.type='text')">       
       {{/if}}       
       </div>
 
-      {{#if get_gender 'male'}}
-      <input readonly value="Male">
-      {{/if}}
-
-      {{#if get_gender 'female'}}
-      <input readonly value="Male">
-      {{/if}}
-
-      {{#if get_gender 'Gender' }}
       <select id="gender">
-        <option>Gender</option>
-        <option value="male">Male</option>
+        {{#if get_gender 'male'}}
+        <option value="male" selected="selected">Male</option>
         <option value="female">Female</option>
+        {{/if}}
+        {{#if get_gender 'female'}}
+          <option value="male">Male</option>
+          <option value="female" selected="selected">Female</option>
+        {{/if}}
+        {{#if get_gender 'undefined'}}
+          <option>Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        {{/if}}
       </select>
-      {{/if}}
 
       <div class="location">
-      {{#if info.location.location}}
-        <input id="place" type="text" name ="place" value="{{ info.location.location }}">
+        {{#if info.location.location}}
+        <input id="place" type="text" name ="place" value="{{ info.location.location }}"><br>
+        <label>Location</label>
         {{else}}
         <input id="place" type="text" name ="place" placeholder="Enter your location" value="">
         {{/if}}
@@ -121,25 +125,49 @@
       <form class="prodet-form forms" name="prodet">
 
       <div>
-      {{#if info.experience}}
-      <input name="experience" type="number" min=0 placeholder="Experience in years" value="{{ info.experience }}">
+      {{#if if_defined info.experience}}
+      <input name="experience" type="number" min=0 placeholder="{{ info.experience 
+      }} yrs" value="{{ info.experience 
+      }}"><br>
+      <label>Experience yrs</label>
       {{else}}
       <input name="experience" type="number" min=0 placeholder="Experience in years">
       {{/if}}
       </div>
 
       <select multiple="multiple" id="trainer-spez" placeholder="Specialization">
-        <!-- <option>Specialization</option> -->
-        <option value="gym">Gym</option>
-        <option value="swimming">Swimming</option>
-        <option value="aerobics">Aerobics</option>
-        <option value="sports">Sports</option>
-        <option value="others">Others</option>
+        <option>Specialization</option>
+          {{#if has_specialization 'gym'}}
+            <option class="multiple-select selected" value="gym" selected="selected">Gym</option>
+          {{else}}
+            <option class="multiple-select selected" value="gym">Gym</option>
+          {{/if}}
+        {{#if has_specialization 'swimming'}}
+          <option class="multiple-select selected" value="swimming" selected="selected">Swimming</option>
+        {{else}}
+          <option class="multiple-select" value="swimming">Swimming</option>
+        {{/if}}
+        {{#if has_specialization 'aerobics'}}
+          <option class="multiple-select selected" value="aerobics" selected="selected">Aerobics</option>
+        {{else}}
+          <option class="multiple-select" value="aerobics">Aerobics</option>
+        {{/if}}
+        {{#if has_specialization 'sports'}}
+          <option class="multiple-select selected" value="sports" selected="selected">Sports</option>
+        {{else}}
+          <option class="multiple-select" value="sports">Sports</option>
+        {{/if}}
+        {{#if has_specialization 'others'}}
+          <option class="multiple-select selected" value="others" selected="selected">Others</option>
+        {{else}}
+          <option class="multiple-select" value="others">Others</option>
+        {{/if}}
       </select>
 
       <div>
-      {{#if info.cost}}
-      <input name="cost" type="number" min=0 placeholder="Approx. Cost/Hour" value="{{ info.cost }}">
+      {{#if if_defined info.cost}}
+      <input name="cost" type="number" min=0 placeholder="{{ info.cost }} €/hr" value="{{ info.cost }}"><br>
+      <label>Cost</label>
       {{else}}
       <input name="cost" type="number" min=0 placeholder="Approx. Cost/Hour">
       {{/if}}
@@ -148,13 +176,21 @@
       <div id="time">Available Time
       <img class="icon1" src="images/add.svg">
       </div>
-      <input name ="from" value="" type="text" placeholder="From" onblur="(this.type='text')" onfocus="(this.type='time')" style="width:36%; float:left;margin-left: 10%">
-      <input name ="to" value="" placeholder="To" type="time" onblur="(this.type='text')" onfocus="(this.type='time')" style="width:36%; float:right;margin-right: 10%">
-
-      <div><textarea class="scrollable" rows="4" cols="10">{{ info.availability.from }} To {{ info.availability.to }}</textarea></div>
-
+      <input name ="from" value="" type="text" placeholder="From" onblur="(this.type='text')" onfocus="(this.type='time')" style="width:36%; margin-left: 10%; display: inline-block;">
+      <input name ="to" value="" placeholder="To" type="time" onblur="(this.type='text')" onfocus="(this.type='time')" style="width:36%; margin-right: 10%; display: inline-block;">
       </form>
+    </div>
 
+    
+    <div class="availability-display">
+    <table>
+    {{#each info.availability}}
+      <tr>
+        <td>{{ from.getHours -1 }}:{{ from.getMinutes }}</td>
+        <td>{{ to.getHours -1}}:{{ to.getMinutes}}</td>
+      </tr>
+    {{/each}}
+    </table>
     </div>
   </div>
 {{/if}}
@@ -220,9 +256,13 @@
     <div class="profilepic">
       <p>Add your Profile picture</p>
 
-      {{#if info.pro_image}}
+      {{#if photo}}
+        <img src={{photo}} />
+      {{/if}}
+      {{#if defined info.pro_image photo}}
       <img src={{info.pro_image}} />
-      {{else}}
+      {{/if}}
+      {{#if nothing_defined info.pro_image photo}}
       <img src="images/camera.png">
       {{/if}}
     </div>	

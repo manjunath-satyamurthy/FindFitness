@@ -7,7 +7,11 @@
 {{#each requests}}
 	<div class="results-list">
 		<div class="show">
+			{{#if defined related.pro_image}}
+			<img class="requests-img" src="{{ related.pro_image }}" width="45px" height="45px" style="border-radius: 45px;">
+			{{else}}
 			<img class="requests-img" src="images/default-profile.svg" width="45px" height="45px">
+			{{/if}}
 			<p class="tn-name">{{ related.firstname }}</p>
 			<p id="{{ status }}" class="tn-name">{{ status }}</p>
 			<p id="pay" class="{{ pay }}">PAY</p>

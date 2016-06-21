@@ -38,3 +38,10 @@ import '../imports/ui/css/profile.css';
 import '../imports/ui/css/requests.css';
 import '../imports/ui/css/messages.css';
 import '../imports/ui/css/chat.css';
+
+Meteor.startup(() => {
+	GoogleMaps.load({
+		key: 'AIzaSyAK_vkvxDH5vsqGkd0Qn-dDmq-rShTA7UA',
+		libraries: 'places'
+	});
+});

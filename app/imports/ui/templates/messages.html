@@ -5,7 +5,11 @@
 	<div class="results-list">
 	{{#each messages}}
 		<div class="show message-list" data-recipient="{{ user._id._str }}">
+			{{#if defined user.pro_image}}
+			<img class="requests-img" src="{{ user.pro_image }}" width="45px" height="45px" style="border-radius: 45px;">
+			{{else}}
 			<img class="requests-img" src="images/default-profile.svg" width="45px" height="45px">
+			{{/if}}
 			<p class="messenger">{{ user.username }}</p>
 			<p class="last-message">{{ message }}</p>
 		</div>

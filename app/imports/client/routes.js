@@ -43,21 +43,16 @@ Router.route('/subscriptions', function () {
 Router.route('/messages', function () {
 	user = Session.get('user')
 	allMessages = messages.find( { $or:[{from: user._id }, { to: user._id }]}).fetch()
-
-	console.log(user._id, user.username)
 	recipients = {}
 	if (allMessages.length > 0){
 		for (i=0; i<allMessages.length; i++)
 		{	
-			console.log("from", allMessages[i].from)
 			recipient = null;
 			if (allMessages[i].from._str != user._id._str ){
-				console.log("here")
 				allMessages[i]['type'] = 'from'
 				recipients[allMessages[i].from._str] = allMessages[i]
 			}
 			else {
-				console.log(" not here")
 				allMessages[i]['type'] = 'to'
 				recipients[allMessages[i].to._str] = allMessages[i]
 			}
@@ -67,11 +62,8 @@ Router.route('/messages', function () {
 	recipients_list = []
 	for (key in recipients){
 		recipients[key]['user'] = users.find({_id: new Mongo.ObjectID(key)}).fetch()[0]
-		console.log(recipients[key]['user'])
 		recipients_list.push(recipients[key])
 	}
-	console.log(recipients_list)
-
 
 	this.layout('app_layout', {
 		data: {
@@ -177,17 +169,33 @@ Router.route('/results', function () {
 
 	get_distances = function(index){
 		if (index >= 0){
-			GoogleDistance.get({
-				origin: user.location.lat+','+user.location.lng,
-				destination: available_trainers[index].location.lat+','+
-					available_trainers[index].location.lng
-			}, function (err, data){
-				if (!err){
-					available_trainers[index]['distance'] = data.distance
-					index -= 1
-					get_distances(index)
-				}
-			})
+			if (user.location != undefined){
+				GoogleDistance.get({
+					origin: user.location.lat+','+user.location.lng,
+					destination: available_trainers[index].location.lat+','+
+						available_trainers[index].location.lng
+				}, function (err, data){
+					if (!err){
+						available_trainers[index]['distance'] = data.distance
+						index -= 1
+						get_distances(index)
+					}
+					else{
+				        Meteor.startup(function() {
+				            navigator.notification.alert("Problem connecting to the internet, please try again later",
+				            	function() {
+				            	}, 'Internet Error', ["OK"])
+				        })
+						Router.go('search')
+					}
+				})
+			}
+			else {
+				available_trainers[index]['distance'] = 'Unknown'
+				index -= 1
+				get_distances(index)
+			}
+
 		}
 		else {
 		  	self.render('results',{
@@ -241,7 +249,6 @@ Router.route('/prodetails', function(){
 });
 
 Router.route('/profilepic', function(){	
-	console.log("pic route")
 	this.render('profilepic',{
 		data: {
 			info: function(){
@@ -279,11 +286,6 @@ Router.route('/chat', function () {
 	recipient_id = new Mongo.ObjectID(query.to_id)
 	msgs = messages.find({from: {$in: [user._id,recipient_id ]}, to: {$in: [user._id, recipient_id]} }).fetch()
 	recipient = users.find({_id: new Mongo.ObjectID(query.to_id)}).fetch()[0]
-
-	// msgs.sort(function(a, b){
-	// 	console.log(a._id, b._id)
-	// 	return a - b;
-	// })
 
   	this.render('chat', {
 		data: {

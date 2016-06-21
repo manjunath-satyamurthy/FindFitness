@@ -47,9 +47,7 @@
 }
 
 .icon1 {
-    float: right;
-    padding-left: 0px;
-    padding-right: 29px;
+    padding-left: 8px;
     width: 35px;
     height: 20px;
 }
@@ -103,6 +101,7 @@ input[type=date]::-webkit-inner-spin-button{
   background: url(images/location.svg) no-repeat right center;
   background-size: 28px 28px; 
   text-overflow:ellipsis;
+  padding-right: 30px;
 }
 
 #profile-header {
@@ -171,5 +170,26 @@ p#to {
     padding-top: 6%;
     color: white;
 }
-.flex {  display: flex;
+
+.availability-display {
+  margin-top: 10%;
+  margin-left: 10%;
+  width: 80%;
+  height: 80px;
+  border: 2px solid #9e9e9e;
+  overflow-y: auto;
+}
+
+label {
+  color: #9e9e9e;
+}
+
+.availability-display > table {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.availability-display > table > tr {
+  padding: 2px 0px;
 }

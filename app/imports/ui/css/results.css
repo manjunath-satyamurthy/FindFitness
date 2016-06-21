@@ -13,7 +13,7 @@
 
 .results-list > div.show > img {
   vertical-align: middle;
-  padding-left: 4%;
+  margin-left: 4%;
 }
 
 .results-list > div.show > p.distance {

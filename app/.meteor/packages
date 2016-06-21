@@ -21,12 +21,10 @@ insecure                # Allow all DB writes from clients (for prototyping)
 iron:router
 mdg:geolocation
 cfs:standard-packages
-cfs:filesystem
 meteorhacks:npm
 
 
 npm-container
-cfs:gridfs
 mdg:camera
 chriswessels:hammer
 session

@@ -11,7 +11,11 @@
 {{#each results}}
 	<div class="results-list">
 		<div class="show">
+			{{ #if defined pro_image}}
+			<img src="{{ pro_image }}" width="45px" height="45px" style="border-radius: 45px;">
+			{{else}}
 			<img src="images/default-profile.svg" width="45px" height="45px">
+			{{/if}}
 			<p class="tn-name">{{ firstname }}</p>
 			<p class="distance">{{ distance }}</p>
 		</div>

@@ -17,16 +17,23 @@ Template.profilepic.events({
     'click .icon1': function() {
         photo = Session.get("photo");
         userid = Session.get('user');
-        x = users.update({_id: user._id },
-            {
-                $set: {
-                    pro_image: photo,
+        Meteor.startup(function() {
+            navigator.notification.confirm('Do you want to save changes?', function(confirm) {
+                if (confirm == 1) {
+                    users.update({_id: user._id },
+                        {
+                            $set: {
+                                pro_image: photo,
+                            }
+                        }
+                    )
+                    Session.set('user', users.find({_id: user._id}).fetch()[0])
                 }
-            }
-        )
+            })
 
-        Session.set('user', users.find({_id: user._id}).fetch()[0])
-    },
+        })
+    }
+
 });
 
 Template.profilepic.helpers({
@@ -69,8 +76,8 @@ Template.perdetails.onRendered(function() {
 Template.perdetails.events({
 
     'click .perdetsave': function() {
-        const firstname = $('[name=firstname]').val();
-        const lastname = $('[name=lastname]').val();
+        const firstname = $('[name=firstname]').val().trim();
+        const lastname = $('[name=lastname]').val().trim();
         const dob = $('[name=dob]').val();
         const gender = $('#gender option:selected').val();
         var location = $('[name=place]').val();

@@ -4,7 +4,7 @@
 	</div>
 	<div class="results-list">
 	{{#each messages}}
-		<div class="show message-list" data-recipient="{{ user._id._str }}">
+		<div class="show message-list" data-recipient="{{ user._id }}">
 			{{#if defined user.pro_image}}
 			<img class="requests-img" src="{{ user.pro_image }}" width="45px" height="45px" style="border-radius: 45px;">
 			{{else}}

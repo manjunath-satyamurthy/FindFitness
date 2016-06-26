@@ -22,7 +22,7 @@ find_trainers = function(trainer_type, specialization, cost, from_time, to_time)
 			{'trainer_type': trainer_type[1]}],
 		'trainer_type': {'$exists': true},
 		'specialization': specialization,
-		'cost': {'$gte': parseInt(cost)},
+		'cost': {'$lte': parseInt(cost)},
 		'user_type': 'trainer',
 		'availability': { '$elemMatch':{
 			'from': {'$lte': from_time},
@@ -30,6 +30,7 @@ find_trainers = function(trainer_type, specialization, cost, from_time, to_time)
 			}
 		}
 		}).fetch()
+	console.log(trainers)
 	return trainers
 };
 

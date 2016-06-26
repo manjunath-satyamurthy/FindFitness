@@ -1,5 +1,7 @@
 Router.route('/', function () {
   this.render('login');
+}, {
+	name: 'login',
 });
 
 Router.route('/signup', function(){
@@ -45,23 +47,26 @@ Router.route('/messages', function () {
 	allMessages = messages.find( { $or:[{from: user._id }, { to: user._id }]}).fetch()
 	recipients = {}
 	if (allMessages.length > 0){
+		console.log('here')
 		for (i=0; i<allMessages.length; i++)
 		{	
 			recipient = null;
-			if (allMessages[i].from._str != user._id._str ){
+			if (allMessages[i].from != user._id ){
+				console.log('this one', allMessages[i].from)
 				allMessages[i]['type'] = 'from'
-				recipients[allMessages[i].from._str] = allMessages[i]
+				recipients[allMessages[i].from] = allMessages[i]
 			}
 			else {
 				allMessages[i]['type'] = 'to'
-				recipients[allMessages[i].to._str] = allMessages[i]
+				recipients[allMessages[i].to] = allMessages[i]
 			}
 		}
 	}
 
 	recipients_list = []
 	for (key in recipients){
-		recipients[key]['user'] = users.find({_id: new Mongo.ObjectID(key)}).fetch()[0]
+		console.log(key)
+		recipients[key]['user'] = users.find({_id: key}).fetch()[0]
 		recipients_list.push(recipients[key])
 	}
 
@@ -283,10 +288,12 @@ Router.onRun(function (){
 Router.route('/chat', function () {
 	user = Session.get('user')
 	query = this.params.query
-	recipient_id = new Mongo.ObjectID(query.to_id)
+	console.log(query)
+	recipient_id = query.to_id
 	msgs = messages.find({from: {$in: [user._id,recipient_id ]}, to: {$in: [user._id, recipient_id]} }).fetch()
-	recipient = users.find({_id: new Mongo.ObjectID(query.to_id)}).fetch()[0]
+	recipient = users.find({_id: query.to_id}).fetch()[0]
 
+	console.log(user, recipient)
   	this.render('chat', {
 		data: {
 			'messages': msgs,

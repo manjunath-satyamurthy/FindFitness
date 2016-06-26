@@ -130,6 +130,9 @@ Template.perdetails.helpers({
         }
         return gender == value
     },
+    get_acctype: function(acctype) {
+        return acctype == Session.get('user').user_type
+    },
 });
 
 //Professional Details
@@ -166,9 +169,11 @@ Template.prodetails.events({
         availability = user.availability
         from_list = []
         to_list = []
-        for (i=0; i< availability.length; i++){
-            if (from >= availability[i].from && to <= availability[i].to){
-                existing = true;
+        if (user.availability != undefined){
+            for (i=0; i< availability.length; i++){
+                if (from >= availability[i].from && to <= availability[i].to){
+                    existing = true;
+                }
             }
         }
 
@@ -185,11 +190,7 @@ Template.prodetails.events({
     'click .prodetsave': function() {
         category = $('#user-category option:selected').val();
         experience = $('[name=experience]').val()
-        trainer_spez = $('.selected');
-        selected = []
-        for (i=0; i<trainer_spez.length; i++){
-            selected.push($(trainer_spez[i]).val())
-        }
+        trainer_spez = $($('#trainer-spez')[0]).val();
         cost = $('input[name=cost]').val();
         user = Session.get('user');
 
@@ -199,12 +200,13 @@ Template.prodetails.events({
                 if (confirm == 1) {
                     users.update({
                         _id: user._id
-                    }, {
-                        $addToSet: {specialization: {$each: selected}},
+                    }, {    
+                        $addToSet: {specialization: {$each: trainer_spez},
+                            trainer_type: {$each: ['personal', 'group']}},
                         $set: {
                             category: category,
                             experience: experience,
-                            cost: cost
+                            cost: parseInt(cost)
                         }
                     })
                 }
@@ -215,7 +217,7 @@ Template.prodetails.events({
         Session.set('user', users.find({_id: user._id}).fetch()[0])
     },
 
-    'click .multiple-select' (event){
+    'click .multiple-select': function (event){
         if ($(event.currentTarget).hasClass('selected')){
             $(event.currentTarget).removeClass('selected')
         }

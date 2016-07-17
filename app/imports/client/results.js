@@ -17,7 +17,7 @@ Template.results.events({
 
 	'click .request-btn' (event){
 		user = Session.get('user')
-		trainerId = new Mongo.ObjectID(event.currentTarget.id)
+		trainerId = event.currentTarget.id
 		trainer = users.find({_id: trainerId}).fetch()[0]
 		Meteor.startup(function() {
 			is_requested = requests.find({'requester': user._id, 'requested': trainer._id}).fetch()
